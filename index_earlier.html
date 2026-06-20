@@ -91,14 +91,10 @@ body {
 .global-search-inner {
   max-width: 1440px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 .global-search-row .search-bar {
   max-width: 600px;
   width: 100%;
-  flex: 1;
   position: relative;
 }
 .global-search-row .search-bar input {
@@ -144,9 +140,8 @@ body {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
   height: 56px;
-  justify-content: flex-end;
 }
 .logo {
   font-family: 'Space Grotesk', sans-serif;
@@ -741,16 +736,6 @@ body {
   color: transparent;
 }
 .question-card.done .q-done-check { background: var(--green); border-color: var(--green); color: #fff; }
-.practice-list-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  padding: 9px 6px;
-  border-radius: 8px;
-  transition: background 0.15s;
-}
-.practice-list-row:hover { background: var(--surface2); }
-.practice-list-row.done .q-done-check { background: var(--green); border-color: var(--green); color: #fff; }
 .q-text {
   flex: 1;
   font-size: 13px;
@@ -816,95 +801,6 @@ body {
   color: var(--text2);
   white-space: pre-wrap;
   font-family: 'Inter', sans-serif;
-}
-.answer-highlighted {
-  background: rgba(245, 200, 66, 0.14) !important;
-  border: 1px solid rgba(245, 200, 66, 0.45) !important;
-  border-radius: 8px;
-  padding: 10px 12px;
-  box-shadow: 0 0 0 1px rgba(245, 200, 66, 0.08) inset;
-}
-.answer-highlighted-ai {
-  background: rgba(26, 158, 92, 0.10) !important;
-  border: 1px solid rgba(26, 158, 92, 0.40) !important;
-  border-radius: 8px;
-  padding: 10px 12px;
-  box-shadow: 0 0 0 1px rgba(26, 158, 92, 0.07) inset;
-}
-
-/* ── Floating text-selection highlight toolbar ── */
-#selHighlightBar {
-  position: fixed;
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  gap: 5px;
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-radius: 10px;
-  padding: 6px 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
-  pointer-events: all;
-  user-select: none;
-}
-#selHighlightBar .hl-chip {
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: transform 0.12s, border-color 0.12s;
-  flex-shrink: 0;
-}
-#selHighlightBar .hl-chip:hover { transform: scale(1.25); border-color: rgba(0,0,0,0.18); }
-#selHighlightBar .hl-chip.hl-yellow  { background: #ffe066; }
-#selHighlightBar .hl-chip.hl-green   { background: #6ee7b7; }
-#selHighlightBar .hl-chip.hl-cyan    { background: #7dd3fc; }
-#selHighlightBar .hl-chip.hl-pink    { background: #f9a8d4; }
-#selHighlightBar .hl-chip.hl-orange  { background: #fdba74; }
-#selHighlightBar .hl-chip.hl-erase {
-  background: var(--surface2);
-  font-size: 13px;
-  display: flex; align-items: center; justify-content: center;
-  border: 1.5px solid var(--border2);
-  width: 22px; height: 22px;
-}
-#selHighlightBar .hl-sep {
-  width: 1px; height: 18px;
-  background: var(--border2);
-  margin: 0 2px;
-}
-/* persisted marks rendered in answer text */
-.ans-hl { border-radius: 2px; padding: 0 1px; }
-.ans-hl[data-hl="yellow"] { background: rgba(255,224,102,0.55); }
-.ans-hl[data-hl="green"]  { background: rgba(110,231,183,0.50); }
-.ans-hl[data-hl="cyan"]   { background: rgba(125,211,252,0.55); }
-.ans-hl[data-hl="pink"]   { background: rgba(249,168,212,0.55); }
-.ans-hl[data-hl="orange"] { background: rgba(253,186,116,0.55); }
-.highlight-toggle-btn {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  padding: 5px 11px;
-  border-radius: 999px;
-  border: 1px solid var(--border2);
-  background: var(--surface2);
-  color: var(--text2);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.15s;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.highlight-toggle-btn:hover { background: var(--surface3); }
-.highlight-toggle-btn.active {
-  background: rgba(245, 200, 66, 0.18);
-  border-color: rgba(245, 200, 66, 0.55);
-  color: #c9a100;
-}
-.highlight-toggle-btn.active-ai {
-  background: rgba(26, 158, 92, 0.13);
-  border-color: rgba(26, 158, 92, 0.50);
-  color: var(--accent2);
 }
 .q-answer-actions {
   display: flex;
@@ -1920,24 +1816,9 @@ svg.radar { overflow: visible; }
 
 <div id="countdownBanner" class="countdown-banner no-date">⚓ Set your exam date in Settings to see countdown</div>
 
-<!-- Floating text-selection highlight bar -->
-<div id="selHighlightBar" onmousedown="event.preventDefault()">
-  <div class="hl-chip hl-yellow"  title="Yellow"  onclick="applySelectionHighlight('yellow')"></div>
-  <div class="hl-chip hl-green"   title="Green"   onclick="applySelectionHighlight('green')"></div>
-  <div class="hl-chip hl-cyan"    title="Blue"    onclick="applySelectionHighlight('cyan')"></div>
-  <div class="hl-chip hl-pink"    title="Pink"    onclick="applySelectionHighlight('pink')"></div>
-  <div class="hl-chip hl-orange"  title="Orange"  onclick="applySelectionHighlight('orange')"></div>
-  <div class="hl-sep"></div>
-  <div class="hl-chip hl-erase"   title="Remove highlight" onclick="applySelectionHighlight('erase')">✕</div>
-</div>
-
 <!-- Persistent search bar row -->
 <div class="global-search-row">
   <div class="global-search-inner">
-    <div class="logo">
-      <div class="logo-icon">⚓</div>
-      <div class="logo-text">MEO <span>Class I</span></div>
-    </div>
     <div class="search-bar">
       <span class="search-icon">🔍</span>
       <input type="text" id="globalSearch" placeholder="Search questions, topics, surveyors, answers…" oninput="onGlobalSearch()">
@@ -1947,10 +1828,13 @@ svg.radar { overflow: visible; }
 
 <header class="app-header">
   <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">⚓</div>
+      <div class="logo-text">MEO <span>Class I</span></div>
+    </div>
     <button class="mobile-hamburger" onclick="openMobileDrawer()">☰</button>
     <div class="nav-tabs">
       <button class="nav-tab" onclick="switchView('dashboard')" id="nav-dashboard">📊 Dashboard</button>
-      <button class="nav-tab" onclick="switchView('todaypractice')" id="nav-todaypractice">🎯 Today's Practice</button>
       <button class="nav-tab active" onclick="switchView('topic')" id="nav-topic">📚 Topics</button>
       <button class="nav-tab" onclick="switchView('surveyor')" id="nav-surveyor">👤 Surveyors</button>
       <button class="nav-tab" onclick="switchView('flashcard')" id="nav-flashcard">🃏 Flashcards</button>
@@ -1974,7 +1858,6 @@ svg.radar { overflow: visible; }
     <button onclick="closeMobileDrawer()" style="background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;">×</button>
   </div>
   <button class="mobile-nav-item" onclick="switchView('dashboard');closeMobileDrawer()" id="mnav-dashboard">📊 Dashboard</button>
-  <button class="mobile-nav-item" onclick="switchView('todaypractice');closeMobileDrawer()" id="mnav-todaypractice">🎯 Today's Practice</button>
   <button class="mobile-nav-item active" onclick="switchView('topic');closeMobileDrawer()" id="mnav-topic">📚 Topics</button>
   <button class="mobile-nav-item" onclick="switchView('surveyor');closeMobileDrawer()" id="mnav-surveyor">👤 Surveyors</button>
   <button class="mobile-nav-item" onclick="switchView('flashcard');closeMobileDrawer()" id="mnav-flashcard">🃏 Flashcards</button>
@@ -2110,11 +1993,6 @@ svg.radar { overflow: visible; }
     <!-- Dashboard Panel -->
     <div id="dashboardPanel" style="display:block;">
       <div id="dashboardContent"></div>
-    </div>
-
-    <!-- Today's Practice Panel -->
-    <div id="todaypracticePanel" style="display:none;">
-      <div id="todaypracticeContent"></div>
     </div>
 
     <!-- Mock Exam Panel -->
@@ -2910,13 +2788,11 @@ async function loadState() {
   }
 }
 
-async function saveState(skipGhSync = false) {
+async function saveState() {
   try {
     await idbSet('meo_questions', state.questions);
     _successfulIdbSaves++;
     if (_successfulIdbSaves >= 2) clearLegacyLocalStorageQuestions();
-    // Signal other tabs that data changed (IndexedDB is shared, just needs a nudge)
-    try { localStorage.setItem('meo_sync_ping', Date.now().toString()); } catch(e) {}
   } catch (e) {
     console.error('[Storage] saveState failed:', e.message);
     showToast('⚠️ Failed to save questions: ' + e.message, 'error');
@@ -2924,7 +2800,7 @@ async function saveState(skipGhSync = false) {
   try {
     localStorage.setItem('meo_expanded_topics', JSON.stringify([...state.expandedTopics]));
   } catch (e) { /* non-critical, ignore */ }
-  if (!skipGhSync) ghTriggerAutoSyncIfEnabled();
+  ghTriggerAutoSyncIfEnabled();
 }
 
 // ===================== TOPIC DETECTION =====================
@@ -3056,301 +2932,7 @@ function findSimilarQuestions() {
   return _similarCache;
 }
 
-// ===================== SUBJECT CLUSTERING (engineering subject matter, independent of Topic) =====================
-// The existing TOPICS list (and findSimilarQuestions' text-similarity grouping) doesn't capture
-// this: two questions can be about the same underlying subject area while being phrased very
-// differently and sitting under different formal topic numbers — e.g. one question framed around
-// "preventive maintenance elements" and another around "how PMS links to classification surveys"
-// are really the same underlying subject even with little shared wording.
-//
-// MEO Class 1 oral exams are based on the Engineering Management Course (EMG) syllabus — this is
-// a management/regulatory/leadership-level exam for Chief Engineers, NOT a hands-on machinery
-// troubleshooting exam (that's MEO Class 2 territory). So this dictionary is built around the
-// actual EMG subject areas: legislation & conventions, ISM/quality systems, classification &
-// surveys, stability, port/flag state control, P&I & insurance, crew welfare & labour law,
-// emergency/casualty management, leadership & human element, training, inventory & budgeting,
-// fuel/cost management, and engine room management topics — NOT individual machinery components.
-const SUBJECT_DICTIONARY = [
-  { id: 'flag_port_state', name: 'Flag State vs Port State Control', terms: ['flag state','port state control','psc','flag state implementation','fsi','paris mou','tokyo mou','detention','deficiency','mou','flag state control'] },
-  { id: 'classification_survey', name: 'Classification Societies & Surveys', terms: ['classification society','classification survey','class survey','renewal survey','annual survey','intermediate survey','periodical survey','continuous machinery survey','dry dock survey','statutory survey','class notation','class certificate','classification rules'] },
-  { id: 'ism_smc', name: 'ISM Code & Safety Management', terms: ['ism code','smc','document of compliance','non-conformance','non conformity','corrective action','preventive action','internal audit','external audit','master review','company review','safety management system','safety management certificate'] },
-  { id: 'iso_quality', name: 'ISO 9001 & Quality Management', terms: ['iso 9001','total quality management','tqm','quality management system','qms','quality audit','process approach','continuous improvement'] },
-  { id: 'pms_maintenance_mgmt', name: 'Planned Maintenance System (Management)', terms: ['planned maintenance system','pms','preventive maintenance','condition based maintenance','cbm','critical equipment','running hours','maintenance plan','maintenance philosophy'] },
-  { id: 'solas_conventions', name: 'SOLAS & Safety Conventions', terms: ['solas','life saving appliances','lsa','fire protection requirement','chapter ii','chapter iii','chapter v','safety equipment certificate','safety construction certificate'] },
-  { id: 'marpol_pollution_reg', name: 'MARPOL & Pollution Regulations', terms: ['marpol','annex i','annex ii','annex iii','annex iv','annex v','annex vi','sox','nox','oil record book','orb','garbage record book','ballast water management','bwm convention','iopp certificate'] },
-  { id: 'unclos_legislation', name: 'International Legislation & UNCLOS', terms: ['unclos','territorial waters','eez','exclusive economic zone','high seas','flag of registry','convention ratification','imo convention','merchant shipping act','ms act','salvage convention','hague rules','hamburg rules'] },
-  { id: 'isps_security', name: 'Ship Security (ISPS)', terms: ['isps code','ship security plan','ssp','ship security officer','sso','security level','piracy','anti piracy measures','bmp5','ssas','maritime security'] },
-  { id: 'mlc_labour', name: 'Maritime Labour Convention & Crew Welfare', terms: ['mlc','maritime labour convention','ilo convention','seafarer welfare','rest hours','hours of rest','manning scale','repatriation','crew wages','seafarer employment agreement'] },
-  { id: 'who_health', name: 'WHO & Ship Sanitation / Medical', terms: ['who regulation','ship sanitation certificate','international health regulation','medical first aid','medical guide','ship captain medical guide'] },
-  { id: 'pi_insurance', name: 'P&I Clubs & Marine Insurance', terms: ['p&i club','protection and indemnity','marine insurance','hull and machinery','h&m insurance','underwriter','demurrage','general average','third party liability'] },
-  { id: 'casualty_emergency', name: 'Casualty Investigation & Emergency Response', terms: ['collision','collided','grounding','grounded','casualty investigation','marine accident','near miss reporting','contingency plan','emergency response procedure','abandon ship','damage control plan','black box','voyage data recorder','lives were lost','loss of life','vessel damaged'] },
-  { id: 'leadership_hr', name: 'Leadership & Human Relations', terms: ['leadership style','motivation theory','team building','interpersonal relationship','conflict resolution','delegation','stress management','sociocultural difference','crew morale','bridge resource management','brm','engine room resource management','erm'] },
-  { id: 'training_mentoring', name: 'Training of Trainers & Mentoring', terms: ['training needs analysis','tna','mentoring','onboard training','cadet training','training record book','trb','competence assessment','4c approach','training methodology'] },
-  { id: 'inventory_spares', name: 'Inventory & Spares Management', terms: ['inventory management','spare parts management','reorder point','rop','safety stock','lead time','critical spares','stores requisition','abc analysis'] },
-  { id: 'budget_cost_mgmt', name: 'Budgeting & Cost Management', terms: ['budget preparation','annual budget','engine room budget','voyage expense','docking budget','repair cost estimate','spares budget','cost control','capex','opex','cva','cost variance','fixed and variable cost'] },
-  { id: 'fuel_bunker_mgmt', name: 'Fuel & Bunker Management', terms: ['bunker management','fuel oil testing','iso 8217','bunker delivery note','bdn','fuel changeover procedure','low sulphur fuel','eca compliance','sulphur cap','fuel quality dispute','bunker survey'] },
-  { id: 'records_documentation', name: 'Records, Log Books & Documentation', terms: ['official log book','engine log book','night order book','standing order','record keeping procedure','documentation requirement','oil record book entry','garbage record book entry'] },
-  { id: 'stability_load', name: 'Ship Stability & Loading', terms: ['stability calculation','metacentric height','gm value','trim and list','damage stability','intact stability','load line','freeboard','loading computer','stress calculation'] },
-  { id: 'mis_decision', name: 'Management Information Systems & Decision Making', terms: ['management information system','mis','decision support system','expert system','data analysis for decision','knowledge based system'] },
-  { id: 'engine_dev_management', name: 'Engine Developments & Fleet Management', terms: ['common rail engine management','electronic engine management','engine performance monitoring','fleet management strategy','technical superintendent role','dry dock planning','newbuilding supervision'] },
-];
-
-// Cache, same fingerprint-based pattern as findSimilarQuestions — subject tagging only needs to
-// re-run when the actual question text changes, not on every render.
-let _subjectClusterCache = null;
-let _subjectClusterCacheFingerprint = null;
-
-function tagQuestionSubjects(text) {
-  const lower = (text || '').toLowerCase();
-  const matches = [];
-  for (const subj of SUBJECT_DICTIONARY) {
-    let score = 0;
-    for (const term of subj.terms) {
-      let isMatch;
-      if (term.length <= 4 && !term.includes(' ')) {
-        // Short single-word terms (acronyms like "irs", "abs", "cms") are prone to false
-        // positives as substrings of unrelated longer words (e.g. "irs" inside "repairs").
-        // Use a word-boundary regex for these instead of plain substring matching.
-        isMatch = new RegExp('\\b' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(lower);
-      } else {
-        isMatch = lower.includes(term);
-      }
-      if (isMatch) score += term.split(' ').length; // multi-word terms count more (more specific match)
-    }
-    if (score > 0) matches.push({ subjectId: subj.id, score });
-  }
-  matches.sort((a, b) => b.score - a.score);
-  return matches;
-}
-
-// Returns { bySubject: { subjectId: [questionIds] }, subjectOfQuestion: { questionId: subjectId } }
-// Each question is assigned to its single BEST-matching subject (highest score), if any match exists.
-function buildSubjectClusters() {
-  const fp = _computeQuestionsFingerprint();
-  if (_subjectClusterCache && _subjectClusterCacheFingerprint === fp) {
-    return _subjectClusterCache;
-  }
-
-  const bySubject = {};
-  const subjectOfQuestion = {};
-  for (const q of state.questions) {
-    const matches = tagQuestionSubjects(q.text);
-    if (!matches.length) continue;
-    const topSubjectId = matches[0].subjectId;
-    subjectOfQuestion[q.id] = topSubjectId;
-    if (!bySubject[topSubjectId]) bySubject[topSubjectId] = [];
-    bySubject[topSubjectId].push(q.id);
-  }
-
-  _subjectClusterCache = { bySubject, subjectOfQuestion };
-  _subjectClusterCacheFingerprint = fp;
-  return _subjectClusterCache;
-}
-
-function getSubjectName(subjectId) {
-  const s = SUBJECT_DICTIONARY.find(s => s.id === subjectId);
-  return s ? s.name : subjectId;
-}
-
-// ===================== EXAM-DATE PACE & DAILY PLAN =====================
-// Goal: every question should realistically get done by the exam date. This computes how many
-// questions need to be cleared per remaining day, and generates/persists a concrete daily
-// practice list — carrying forward whatever was left unfinished from the previous day's plan,
-// so the overall pace towards "all done by exam date" self-corrects instead of silently slipping.
-
-function getExamDateInfo() {
-  const examDateStr = localStorage.getItem('meo_exam_date') || '';
-  if (!examDateStr) return null;
-  const today = new Date(); today.setHours(0,0,0,0);
-  const examDate = new Date(examDateStr + 'T00:00:00');
-  const msPerDay = 24 * 60 * 60 * 1000;
-  const daysLeft = Math.ceil((examDate - today) / msPerDay);
-  return { examDateStr, daysLeft: Math.max(daysLeft, 0), isPast: daysLeft < 0 };
-}
-
-// How many NOT-DONE unique questions remain right now.
-function getRemainingQuestionCount() {
-  const { mapped } = findSimilarQuestions();
-  const uniqueQs = state.questions.filter(q => mapped[q.id] === q.id);
-  return uniqueQs.filter(q => !q.done).length;
-}
-
-// Required pace: remaining unique questions ÷ days left until exam (minimum 1 day to avoid /0).
-function getExamPaceInfo() {
-  const examInfo = getExamDateInfo();
-  if (!examInfo) return null;
-  const remaining = getRemainingQuestionCount();
-  const effectiveDays = Math.max(examInfo.daysLeft, 1);
-  const perDay = Math.ceil(remaining / effectiveDays);
-  return {
-    ...examInfo,
-    remaining,
-    perDay,
-    onTrack: examInfo.daysLeft > 0 && remaining <= examInfo.daysLeft * perDay
-  };
-}
-
-function getDateKey(d) {
-  d = d || new Date();
-  return d.toISOString().split('T')[0];
-}
-
-function loadDailyPlanStore() {
-  try { return JSON.parse(localStorage.getItem('meo_daily_plan') || '{}'); } catch(e) { return {}; }
-}
-function saveDailyPlanStore(store) {
-  localStorage.setItem('meo_daily_plan', JSON.stringify(store));
-}
-
-// Returns the plan for a given date key: { targetIds: [...], targetCount, carriedOver }
-// Generates and persists a new plan the first time a given date is requested; on subsequent
-// calls the same day, returns the already-generated plan so it doesn't reshuffle mid-day.
-function getOrCreateDailyPlan(dateKey) {
-  const store = loadDailyPlanStore();
-  if (store[dateKey]) return store[dateKey];
-
-  const pace = getExamPaceInfo();
-  const dailyGoalManual = parseInt(localStorage.getItem('meo_daily_goal') || '20');
-
-  // Carry-forward: find yesterday's plan (if any) and see what's still not done from it.
-  const yesterday = new Date(dateKey + 'T00:00:00'); yesterday.setDate(yesterday.getDate() - 1);
-  const yKey = getDateKey(yesterday);
-  const yPlan = store[yKey];
-  let carriedOverIds = [];
-  if (yPlan && Array.isArray(yPlan.targetIds)) {
-    carriedOverIds = yPlan.targetIds.filter(id => {
-      const q = getQuestionByIdFast(id) || state.questions.find(x => x.id === id);
-      return q && !q.done;
-    });
-  }
-
-  // Target count for today: exam pace (if exam date set) else manual daily goal.
-  // IMPORTANT: this must be AT LEAST enough to fit everything carried over from yesterday —
-  // otherwise a backlog of unfinished questions could keep getting truncated day after day,
-  // and the "everything done by exam date" guarantee silently breaks. The exam-pace number
-  // itself already accounts for the current backlog too (since unfinished questions are still
-  // counted in "remaining" each day), so this is mostly a safety floor for edge cases like a
-  // very tight pace (perDay=1) colliding with several carried-over items at once.
-  const baseTarget = pace ? pace.perDay : dailyGoalManual;
-  const targetCount = Math.max(baseTarget, carriedOverIds.length);
-
-  const list = buildPrioritizedPracticeList(targetCount, carriedOverIds);
-
-  const plan = {
-    date: dateKey,
-    targetCount,
-    targetIds: list.map(x => x.id),
-    carriedOverIds: carriedOverIds.filter(id => list.some(x => x.id === id)),
-    examPaceAtCreation: pace ? pace.perDay : null
-  };
-  store[dateKey] = plan;
-  saveDailyPlanStore(store);
-  return plan;
-}
-
-function getTodayDailyPlan() {
-  return getOrCreateDailyPlan(getDateKey());
-}
-
-// Builds a ranked practice list of up to `count` not-done questions, prioritized by:
-// 1. Carried-over from yesterday's unfinished plan (highest priority — these are overdue)
-// 2. Spaced-repetition due-for-review questions
-// 3. Weakest topics (lowest completion %) — surfaces topics falling behind
-// 4. Subject clusters with partial coverage (some done, some not — finish what you started)
-// 5. Surveyor-weighted — questions from surveyors with the most outstanding questions
-// Each returned item includes `reason`, a short human label for WHY it's in the list.
-function buildPrioritizedPracticeList(count, carriedOverIds) {
-  carriedOverIds = carriedOverIds || [];
-  const { mapped } = findSimilarQuestions();
-  const subjectInfo = buildSubjectClusters();
-  const today = getDateKey();
-
-  const uniquePending = state.questions.filter(q => mapped[q.id] === q.id && !q.done);
-  const pendingIds = new Set(uniquePending.map(q => q.id));
-
-  const picked = [];
-  const pickedIds = new Set();
-
-  function addItem(q, reason) {
-    if (!q || pickedIds.has(q.id) || picked.length >= count) return;
-    picked.push({ id: q.id, reason });
-    pickedIds.add(q.id);
-  }
-
-  // 1. Carried-over first — these are overdue from yesterday's plan
-  carriedOverIds.forEach(id => {
-    if (picked.length >= count) return;
-    const q = uniquePending.find(x => x.id === id);
-    if (q) addItem(q, '⏪ Carried over from yesterday');
-  });
-
-  // 2. Spaced-repetition due-for-review
-  uniquePending.forEach(q => {
-    if (picked.length >= count) return;
-    if (q.srNextReview && q.srNextReview <= today) addItem(q, '🔁 Due for spaced review');
-  });
-
-  // 3. Weakest topics first — topics with the lowest completion %, pick their pending questions
-  const topicStats = TOPICS.map(t => {
-    const tqs = state.questions.filter(q => q.topicId === t.id && mapped[q.id] === q.id);
-    if (!tqs.length) return null;
-    const tdone = tqs.filter(q => q.done).length;
-    return { t, pct: tdone / tqs.length, pendingQs: tqs.filter(q => !q.done) };
-  }).filter(Boolean).sort((a, b) => a.pct - b.pct);
-
-  for (const ts of topicStats) {
-    if (picked.length >= count) break;
-    for (const q of ts.pendingQs) {
-      if (picked.length >= count) break;
-      addItem(q, `🌡️ Weak topic: ${ts.t.name}`);
-    }
-  }
-
-  // 4. Subject clusters with PARTIAL coverage — some done, some not. Prioritizes finishing
-  // a subject you've already started over scattering effort across brand-new ones.
-  const subjectPartial = Object.keys(subjectInfo.bySubject).map(subjId => {
-    const ids = subjectInfo.bySubject[subjId];
-    const qs = ids.map(id => getQuestionByIdFast(id) || state.questions.find(x => x.id === id)).filter(Boolean);
-    const canonicalQs = qs.filter(q => mapped[q.id] === q.id);
-    if (!canonicalQs.length) return null;
-    const done = canonicalQs.filter(q => q.done).length;
-    const pct = done / canonicalQs.length;
-    return { subjId, pct, pendingQs: canonicalQs.filter(q => !q.done), hasProgress: done > 0 };
-  }).filter(x => x && x.hasProgress && x.pct < 1).sort((a,b) => b.pct - a.pct); // closest to finished first
-
-  for (const sp of subjectPartial) {
-    if (picked.length >= count) break;
-    for (const q of sp.pendingQs) {
-      if (picked.length >= count) break;
-      addItem(q, `🔧 Finish subject: ${getSubjectName(sp.subjId)}`);
-    }
-  }
-
-  // 5. Surveyor-weighted — fill remaining slots from surveyors with the most outstanding questions
-  const surveyorStats = SURVEYORS.map(s => {
-    const sqs = uniquePending.filter(q => q.surveyor === s);
-    return { s, pendingQs: sqs };
-  }).filter(x => x.pendingQs.length > 0).sort((a,b) => b.pendingQs.length - a.pendingQs.length);
-
-  for (const ss of surveyorStats) {
-    if (picked.length >= count) break;
-    for (const q of ss.pendingQs) {
-      if (picked.length >= count) break;
-      addItem(q, `👤 Frequently asked by ${ss.s}`);
-    }
-  }
-
-  // 6. Fill any remaining slots with whatever's left, in case earlier passes didn't fill count
-  if (picked.length < count) {
-    for (const q of uniquePending) {
-      if (picked.length >= count) break;
-      addItem(q, '📋 Pending question');
-    }
-  }
-
-  return picked;
-}
-
+// ===================== AI INTEGRATION =====================
 function getGeminiKey() {
   return localStorage.getItem('meo_gemini_key') || '';
 }
@@ -3549,7 +3131,7 @@ async function ghSafeJson(res, context) {
 async function ghResolveBranch(cfg) {
   if (cfg.branch) return cfg.branch;
   const headers = cfg.token ? { 'Authorization': `Bearer ${cfg.token}` } : {};
-  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}`, { headers, mode: 'cors', credentials: 'omit' });
+  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}`, { headers });
   if (!res.ok) {
     const raw = await res.text().catch(() => '');
     let msg = `Could not read repo info (HTTP ${res.status}). Check owner/repo name.`;
@@ -3568,7 +3150,8 @@ async function testGitHubConnection() {
     const branch = await ghResolveBranch(cfg);
     let msg = `✅ Connected to ${cfg.owner}/${cfg.repo} (branch: ${branch}).`;
     if (cfg.token) {
-      const meRes = await fetch('https://api.github.com/user', { headers: { 'Authorization': `Bearer ${cfg.token}` }, mode: 'cors', credentials: 'omit' });
+      // Verify token works by checking auth identity
+      const meRes = await fetch('https://api.github.com/user', { headers: { 'Authorization': `Bearer ${cfg.token}` } });
       if (meRes.ok) {
         const me = await meRes.json();
         msg += ` Token valid (authenticated as ${me.login}).`;
@@ -3582,9 +3165,7 @@ async function testGitHubConnection() {
     }
     ghSetStatus(msg);
   } catch (e) {
-    const msg = e.message || String(e);
-    console.error('[GitHub] testConnection error:', e);
-    ghSetStatus('❌ ' + msg, true);
+    ghSetStatus('❌ ' + e.message, true);
   }
 }
 
@@ -3599,8 +3180,7 @@ function buildGitHubDataBundle() {
     surveyorNotes: (() => { try { return JSON.parse(localStorage.getItem('meo_surveyor_notes') || '{}'); } catch(e) { return {}; } })(),
     examDate: localStorage.getItem('meo_exam_date') || '',
     dailyGoal: localStorage.getItem('meo_daily_goal') || '20',
-    streak: (() => { try { return JSON.parse(localStorage.getItem('meo_streak') || '[]'); } catch(e) { return []; } })(),
-    dailyPlan: loadDailyPlanStore()
+    streak: (() => { try { return JSON.parse(localStorage.getItem('meo_streak') || '[]'); } catch(e) { return []; } })()
   };
 }
 
@@ -3620,60 +3200,54 @@ function applyGitHubDataBundle(data) {
   if (data.examDate) localStorage.setItem('meo_exam_date', data.examDate);
   if (data.dailyGoal) localStorage.setItem('meo_daily_goal', data.dailyGoal);
   if (Array.isArray(data.streak)) localStorage.setItem('meo_streak', JSON.stringify(data.streak));
-  if (data.dailyPlan && typeof data.dailyPlan === 'object') saveDailyPlanStore(data.dailyPlan);
   saveState();
   saveTopics();
 }
 
 // Fetch current file (content + sha) — sha is required by GitHub to update an existing file
 async function ghGetFile(cfg, branch) {
-  const headers = cfg.token
-    ? { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github+json' }
-    : { 'Accept': 'application/vnd.github+json' };
+  const headers = cfg.token ? { 'Authorization': `Bearer ${cfg.token}` } : {};
 
-  // Use the Contents API for both sha AND content — it is fully CORS-safe from any origin
-  // including file://. For files under ~1MB the API returns base64-encoded content inline.
-  // For larger files GitHub omits the content field but we can add Accept: application/vnd.github.raw+json
-  // to get raw text directly — also CORS-safe.
-  const url = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${GH_DATA_PATH}?ref=${encodeURIComponent(branch)}`;
-
-  // First request: standard JSON to get sha + content (works for files up to ~1MB)
-  const res = await fetch(url, { headers, mode: 'cors', credentials: 'omit' });
-  if (res.status === 404) return { exists: false, sha: null, data: null };
-  if (!res.ok) {
-    const raw = await res.text().catch(() => '');
-    let msg = `GitHub read failed (HTTP ${res.status})`;
+  // Get the file's metadata (mainly its `sha`, needed later for writes) from the Contents API.
+  // GitHub always returns `sha` even for large files — it's only the base64 `content` field
+  // that gets omitted or empty past ~1MB, so we deliberately never rely on that field here.
+  const metaUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${GH_DATA_PATH}?ref=${encodeURIComponent(branch)}`;
+  const metaRes = await fetch(metaUrl, { headers });
+  if (metaRes.status === 404) return { exists: false, sha: null, data: null };
+  if (!metaRes.ok) {
+    const raw = await metaRes.text().catch(() => '');
+    let msg = `GitHub read failed (HTTP ${metaRes.status})`;
     try { const parsed = JSON.parse(raw); if (parsed.message) msg = parsed.message; } catch(e) {}
     throw new Error(msg);
   }
-  const meta = await ghSafeJson(res, 'Reading data.json');
+  const meta = await ghSafeJson(metaRes, 'Reading data.json metadata');
   const sha = meta.sha;
-  if (!sha) throw new Error('Reading data.json: GitHub did not return a sha.');
+  if (!sha) throw new Error('Reading data.json: GitHub did not return a sha for this file.');
 
-  let parsedData;
-  if (meta.content) {
-    // Inline base64 content — decode it
-    const text = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
-    try {
-      parsedData = JSON.parse(text);
-    } catch (e) {
-      throw new Error(`data.json is not valid JSON: ${e.message}`);
-    }
-  } else {
-    // File too large for inline content — fetch raw text via Accept header (still CORS-safe)
-    const rawRes = await fetch(url, {
-      headers: { ...headers, 'Accept': 'application/vnd.github.raw+json' },
-      mode: 'cors', credentials: 'omit'
-    });
-    if (!rawRes.ok) throw new Error(`GitHub raw fetch failed (HTTP ${rawRes.status})`);
-    const text = await rawRes.text();
-    try {
-      parsedData = JSON.parse(text);
-    } catch (e) {
-      throw new Error(`data.json is not valid JSON: ${e.message}`);
-    }
+  // Fetch the actual content from the raw URL. This serves the file as plain text with no
+  // base64/JSON wrapping, and has been confirmed to load reliably on both desktop and mobile
+  // (Safari/Chrome on iPad and phone) even when the Contents/Blobs API path was failing with
+  // truncated JSON on those same devices.
+  // Note: raw.githubusercontent.com works without auth for PUBLIC repos. If this repo is ever
+  // made private, a token must be sent here too (it does accept the same Bearer token).
+  const rawUrl = `https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/${encodeURIComponent(branch)}/${GH_DATA_PATH}`;
+  // Cache-bust: raw.githubusercontent.com can serve a stale cached copy for a few minutes
+  // after a commit, which would otherwise look like "load worked but data is old".
+  const res = await fetch(`${rawUrl}?t=${Date.now()}`, cfg.token ? { headers } : {});
+  if (!res.ok) {
+    throw new Error(`Reading data.json from raw URL failed (HTTP ${res.status}). The file may not exist on branch "${branch}" yet.`);
   }
-
+  const text = await res.text();
+  if (!text || !text.trim()) {
+    throw new Error('Reading data.json: file exists but is empty.');
+  }
+  let parsedData;
+  try {
+    parsedData = JSON.parse(text);
+  } catch (e) {
+    console.error('[GitHub] data.json content is not valid JSON. First 300 chars:', text.substring(0, 300), 'Last 300 chars:', text.substring(Math.max(0, text.length - 300)));
+    throw new Error(`Reading data.json: the file content is not valid JSON (${e.message}). It may have been partially saved. See console for details.`);
+  }
   return { exists: true, sha, data: parsedData };
 }
 
@@ -3719,9 +3293,7 @@ async function pushToGitHub(silent) {
     const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${GH_DATA_PATH}`, {
       method: 'PUT',
       headers: { 'Authorization': `Bearer ${cfg.token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      mode: 'cors',
-      credentials: 'omit'
+      body: JSON.stringify(body)
     });
     if (!res.ok) {
       const raw = await res.text().catch(() => '');
@@ -3734,19 +3306,9 @@ async function pushToGitHub(silent) {
     ghSetStatus(`✅ Saved ${bundle.questions.length} question(s) to GitHub at ${new Date().toLocaleTimeString()}.`);
     if (!silent) showToast('✅ Saved to GitHub', 'success');
   } catch (e) {
-    const msg = e.message || String(e);
-    const networkFail = msg.toLowerCase().includes('failed to fetch') || msg.toLowerCase().includes('networkerror') || msg.toLowerCase().includes('load failed') || msg.toLowerCase().includes('fetch');
-    let friendlyMsg;
-    if (networkFail) {
-      // Log the real error for debugging
-      console.error('[GitHub] Fetch error details:', e);
-      friendlyMsg = 'Could not reach GitHub. Possible causes: (1) Token expired — generate a new one at github.com/settings/tokens, (2) Repo is private and token lacks "Contents: Read & Write" permission, (3) A browser extension or network proxy is blocking github.com. Check the browser console for details.';
-    } else {
-      friendlyMsg = msg;
-    }
-    ghSetStatus('❌ ' + friendlyMsg, true);
-    if (!silent) showToast('❌ GitHub save failed: ' + (networkFail ? 'Could not reach GitHub — see Settings for details' : friendlyMsg), 'error');
-    else console.warn('[GitHub AutoSync] failed:', msg);
+    ghSetStatus('❌ ' + e.message, true);
+    if (!silent) showToast('❌ GitHub save failed: ' + e.message, 'error');
+    else console.error('[GitHub AutoSync] failed:', e.message);
   } finally {
     _ghPushInProgress = false;
   }
@@ -4211,10 +3773,6 @@ function renderAll() {
   if (state.currentView === 'topic' || state.currentView === 'surveyor') {
     renderQuestions();
   }
-  // Re-render today's practice tab if it's currently visible
-  if (state.currentView === 'todaypractice') {
-    renderTodayPracticeTab();
-  }
 }
 
 function renderTopicDropdown() {
@@ -4263,39 +3821,6 @@ function highlight(text, search) {
   if (!search) return escHtml(text);
   const re = new RegExp('(' + escRe(search) + ')', 'gi');
   return escHtml(text).replace(re, '<mark class="search-highlight">$1</mark>');
-}
-
-// Like highlight() but works on stored HTML (e.g. aiAnswer that may contain <mark> tags).
-// Wraps matches inside text nodes only — never touches existing HTML tags.
-function highlightHtml(html, search) {
-  if (!search) return html;
-  const re = new RegExp('(' + escRe(search) + ')', 'gi');
-  // Parse into a temp div, walk text nodes, wrap matches
-  const tmp = document.createElement('div');
-  tmp.innerHTML = html;
-  walkTextNodes(tmp, re);
-  return tmp.innerHTML;
-}
-function walkTextNodes(node, re) {
-  if (node.nodeType === 3) { // text node
-    const parts = node.nodeValue.split(re);
-    if (parts.length > 1) {
-      const frag = document.createDocumentFragment();
-      parts.forEach((p, i) => {
-        if (i % 2 === 1) {
-          const m = document.createElement('mark');
-          m.className = 'search-highlight';
-          m.textContent = p;
-          frag.appendChild(m);
-        } else {
-          frag.appendChild(document.createTextNode(p));
-        }
-      });
-      node.parentNode.replaceChild(frag, node);
-    }
-  } else if (node.nodeType === 1 && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
-    Array.from(node.childNodes).forEach(c => walkTextNodes(c, re));
-  }
 }
 
 function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -4636,12 +4161,9 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
       </div>
       <div class="ans-tab-content active" id="ans-manual-${expandKey}">
         ${manualContent
-          ? `<div class="richtext-display q-answer-text ${q.manualAnswerHighlighted ? 'answer-highlighted' : ''}" id="ans-manual-view-${expandKey}" data-hlqid="${q.id}" data-hltype="manual">${manualContent}</div>`
+          ? `<div class="richtext-display q-answer-text" id="ans-manual-view-${expandKey}">${manualContent}</div>`
           : `<div style="color:var(--text3);font-size:12px;font-style:italic;margin-bottom:8px;">No manual answer yet.</div>`}
-        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center;">
-          <button class="q-action-btn" onclick="editInlineRich(${q.id},'${expandKey}')">✏️ ${manualContent ? 'Edit' : 'Add Answer'}</button>
-          ${manualContent ? `<button class="highlight-toggle-btn ${q.manualAnswerHighlighted ? 'active' : ''}" id="hl-manual-btn-${expandKey}" onclick="toggleAnswerHighlight(${q.id},'manual','${expandKey}')" title="${q.manualAnswerHighlighted ? 'Remove highlight' : 'Highlight this answer'}">${q.manualAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight'}</button>` : ''}
-        </div>
+        <button class="q-action-btn" style="margin-top:8px;" onclick="editInlineRich(${q.id},'${expandKey}')">✏️ ${manualContent ? 'Edit' : 'Add Answer'}</button>
         <div id="ans-manual-edit-${expandKey}" style="display:none;">
           <div class="rich-toolbar" id="rt-${expandKey}">
             <button class="rt-btn" onclick="rfmt('bold','${expandKey}')" title="Bold"><b>B</b></button>
@@ -4671,12 +4193,11 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
       </div>
       <div class="ans-tab-content" id="ans-ai-${expandKey}">
         ${aiContent
-          ? `<div class="q-answer-text ${q.aiAnswerHighlighted ? 'answer-highlighted-ai' : ''}" style="white-space:pre-wrap;" id="ans-ai-view-${expandKey}" data-hlqid="${q.id}" data-hltype="ai">${search ? highlightHtml(aiContent, search) : aiContent}</div>`
+          ? `<div class="q-answer-text" style="white-space:pre-wrap;" id="ans-ai-view-${expandKey}">${highlight(aiContent, search)}</div>`
           : `<div style="color:var(--text3);font-size:12px;font-style:italic;margin-bottom:8px;">No AI answer yet.</div>`}
-        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center;">
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
           <button class="get-answer-btn" style="font-size:12px;padding:7px 14px;" onclick="getAIForExistingFromCard(${q.id},'${expandKey}')">🤖 Fetch AI Answer</button>
           ${aiContent ? `<button class="q-action-btn" onclick="editInlineAI(${q.id},'${expandKey}')">✏️ Edit AI Answer</button>` : ''}
-          ${aiContent ? `<button class="highlight-toggle-btn ${q.aiAnswerHighlighted ? 'active-ai' : ''}" id="hl-ai-btn-${expandKey}" onclick="toggleAnswerHighlight(${q.id},'ai','${expandKey}')" title="${q.aiAnswerHighlighted ? 'Remove highlight' : 'Highlight AI answer'}">${q.aiAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight'}</button>` : ''}
         </div>
         <div id="ai-loading-${expandKey}" style="display:none;margin-top:8px;color:var(--text3);font-size:12px;font-style:italic;">⏳ Fetching from AI...</div>
         <div id="ans-ai-edit-${expandKey}" style="display:none;margin-top:8px;">
@@ -4913,13 +4434,7 @@ function toggleQuestion(key) {
   const k = String(key);
   if (state.expandedQuestions.has(k)) state.expandedQuestions.delete(k);
   else state.expandedQuestions.add(k);
-  // If today's practice tab is visible, re-render it; otherwise re-render questions panel
-  const tpPanel = document.getElementById('todaypracticePanel');
-  if (tpPanel && tpPanel.style.display !== 'none') {
-    renderTodayPracticeTab();
-  } else {
-    renderQuestions();
-  }
+  renderQuestions();
 }
 
 function setTopicFilter(id) { state.selectedTopicFilter = id; renderAll(); }
@@ -4967,9 +4482,8 @@ function switchView(v, _evt) {
   const surveyorprofilePanel = document.getElementById('surveyorprofilePanel');
   const cheatsheetPanel = document.getElementById('cheatsheetPanel');
   const searchPanel = document.getElementById('searchPanel');
-  const todaypracticePanel = document.getElementById('todaypracticePanel');
 
-  [qPanel, dashPanel, mockPanel, bigCalPanel, settingsPanel, flashcardPanel, notesPanel, analyticsPanel, oralPanel, surveyorprofilePanel, cheatsheetPanel, searchPanel, todaypracticePanel].forEach(p => { if(p) p.style.display = 'none'; });
+  [qPanel, dashPanel, mockPanel, bigCalPanel, settingsPanel, flashcardPanel, notesPanel, analyticsPanel, oralPanel, surveyorprofilePanel, cheatsheetPanel, searchPanel].forEach(p => { if(p) p.style.display = 'none'; });
 
   // Always show calendar sidebar card on every tab
   const calSidebarCard = document.getElementById('calendarSidebarCard');
@@ -5006,12 +4520,6 @@ function switchView(v, _evt) {
     surveyorCard.style.display = 'none';
     if(dashPanel) dashPanel.style.display = '';
     renderDashboard();
-    return;
-  } else if (v === 'todaypractice') {
-    topicCard.style.display = 'none';
-    surveyorCard.style.display = 'none';
-    if(todaypracticePanel) todaypracticePanel.style.display = '';
-    renderTodayPracticeTab();
     return;
   } else if (v === 'mock') {
     topicCard.style.display = 'none';
@@ -5224,149 +4732,6 @@ function getStreakCount() {
 }
 
 // ===================== DASHBOARD =====================
-// Renders the HTML for today's prioritized practice list, with inline done/not-done toggles
-// that update everywhere (same toggleDone function used throughout the app).
-function renderDailyPracticeListHtml() {
-  if (!state.questions.length) return '';
-  const plan = getTodayDailyPlan();
-  if (!plan.targetIds.length) {
-    return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;color:var(--text3);font-size:13px;">
-      🎉 Nothing pending — every question is marked done, or no questions exist yet.
-    </div>`;
-  }
-
-  const items = plan.targetIds.map(id => {
-    const q = getQuestionByIdFast(id) || state.questions.find(x => x.id === id);
-    return q ? { q } : null;
-  }).filter(Boolean);
-
-  const doneCount = items.filter(x => x.q.done).length;
-  const totalCount = items.length;
-  const pct = totalCount ? Math.round((doneCount/totalCount)*100) : 0;
-
-  const reasonById = {};
-  // Re-derive reasons by re-walking the same prioritization (cheap, list is small) so labels
-  // stay accurate even if questions get marked done/undone after the plan was generated.
-  buildPrioritizedPracticeList(plan.targetIds.length, plan.carriedOverIds || []).forEach(x => {
-    reasonById[x.id] = x.reason;
-  });
-
-  const rows = items.map(({ q }) => {
-    const topic = TOPICS.find(t => t.id === q.topicId);
-    const reason = reasonById[q.id] || '📋 Pending question';
-    return `<div class="practice-list-row ${q.done ? 'done' : ''}" id="practice-row-${q.id}">
-      <div class="q-done-check" onclick="toggleDoneFromPracticeList(${q.id})" title="Mark as ${q.done ? 'not done' : 'done'}">${q.done ? '✓' : ''}</div>
-      <div style="flex:1;min-width:0;">
-        <div style="font-size:13.5px;color:var(--text);${q.done ? 'text-decoration:line-through;opacity:0.55;' : ''}">${escHtml(q.text.length > 140 ? q.text.substring(0,140).trim()+'…' : q.text)}</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:3px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-          <span>${reason}</span>
-          ${topic ? `<span style="opacity:0.7;">· T${topic.id} ${escHtml(topic.name)}</span>` : ''}
-          ${q.surveyor ? `<span style="opacity:0.7;">· 👤 ${escHtml(q.surveyor)}</span>` : ''}
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-
-  return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-      <div style="font-size:12.5px;color:var(--text2);"><strong style="color:var(--text);">${doneCount}/${totalCount}</strong> done today${plan.carriedOverIds && plan.carriedOverIds.length ? ` · <span style="color:var(--gold);">${plan.carriedOverIds.length} carried over from yesterday</span>` : ''}</div>
-      <div style="font-size:12px;color:var(--text3);">${pct}%</div>
-    </div>
-    <div style="height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;margin-bottom:14px;">
-      <div style="height:100%;width:${pct}%;background:${pct>=100?'var(--green)':'var(--accent)'};border-radius:3px;transition:width 0.4s;"></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:2px;">${rows}</div>
-  </div>`;
-}
-
-// Toggle done state from the dashboard practice list — reuses the same toggleDone logic
-// (so it updates srNextReview/doneDate/streak exactly like every other done-toggle in the app),
-// then refreshes just the practice list HTML in place rather than re-rendering the whole dashboard.
-function toggleDoneFromPracticeList(id) {
-  toggleDone(id);
-  const wrap = document.getElementById('dailyPracticeListWrap');
-  if (wrap) wrap.innerHTML = renderDailyPracticeListHtml();
-  // Also refresh if we're in the Today's Practice tab
-  const tpWrap = document.getElementById('todayPracticeQsWrap');
-  if (tpWrap) renderTodayPracticeTab();
-}
-
-// ===================== TODAY'S PRACTICE TAB =====================
-function renderTodayPracticeTab() {
-  const c = document.getElementById('todaypracticeContent');
-  if (!c) return;
-
-  if (!state.questions.length) {
-    c.innerHTML = '<div class="empty-state"><div class="empty-icon">🎯</div><p>Add some questions first to see today\'s practice list.</p></div>';
-    return;
-  }
-
-  const plan = getTodayDailyPlan();
-  if (!plan.targetIds.length) {
-    c.innerHTML = `<div style="text-align:center;padding:48px 24px;">
-      <div style="font-size:40px;margin-bottom:12px;">🎉</div>
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">All done for today!</div>
-      <div style="font-size:13px;color:var(--text3);">Every question is marked done, or no pending questions exist yet.</div>
-    </div>`;
-    return;
-  }
-
-  const items = plan.targetIds.map(id => {
-    const q = getQuestionByIdFast(id) || state.questions.find(x => x.id === id);
-    return q ? q : null;
-  }).filter(Boolean);
-
-  const doneCount = items.filter(q => q.done).length;
-  const totalCount = items.length;
-  const pct = totalCount ? Math.round((doneCount/totalCount)*100) : 0;
-
-  const reasonById = {};
-  buildPrioritizedPracticeList(plan.targetIds.length, plan.carriedOverIds || []).forEach(x => {
-    reasonById[x.id] = x.reason;
-  });
-
-  const { groups, mapped } = findSimilarQuestions();
-
-  // Build question cards
-  let cardsHtml = '';
-  items.forEach(q => {
-    const reason = reasonById[q.id] || '📋 Pending question';
-    const topic = TOPICS.find(t => t.id === q.topicId);
-    const expandKey = 'tp_' + q.id;
-    const isOpen = state.expandedQuestions.has(expandKey);
-
-    const similarIds = (groups[q.id] || [q.id]).filter(id => id !== q.id);
-    const allInGroup = [q, ...similarIds.map(id => getQuestionByIdFast(id)).filter(Boolean)];
-    const allSurveyors = [...new Set(allInGroup.map(x => x.surveyor).filter(Boolean))];
-    const otherQs = allInGroup.filter(x => x.id !== q.id);
-
-    const reasonPill = `<span style="font-size:10px;padding:2px 7px;border-radius:8px;background:rgba(26,158,92,0.10);color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:600;margin-left:6px;">${reason}</span>`;
-
-    cardsHtml += buildQuestionCard(q, '', isOpen, allSurveyors, otherQs.map(x => ({surveyor: x.surveyor, text: x.text, date: x.date})), expandKey);
-  });
-
-  c.innerHTML = `<div style="max-width:900px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
-      <div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:4px;">🎯 Today's Practice List</div>
-        <div style="font-size:13px;color:var(--text3);">Prioritized questions for today — click to expand and study each one</div>
-      </div>
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--text2);"><strong style="color:var(--text);">${doneCount}/${totalCount}</strong> done today${plan.carriedOverIds && plan.carriedOverIds.length ? ` · <span style="color:var(--gold);">${plan.carriedOverIds.length} carried over</span>` : ''}</div>
-    </div>
-    <div style="height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;margin-bottom:20px;">
-      <div style="height:100%;width:${pct}%;background:${pct>=100?'var(--green)':'var(--accent)'};border-radius:3px;transition:width 0.4s;"></div>
-    </div>
-    <div id="todayPracticeQsWrap" style="display:flex;flex-direction:column;gap:2px;">
-      ${cardsHtml}
-    </div>
-  </div>`;
-}
-
-function toggleTodayPracticeQuestion(expandKey) {
-  toggleQuestion(expandKey);
-  renderTodayPracticeTab();
-}
-
 function renderDashboard() {
   const qs = state.questions;
   if (!qs.length) {
@@ -5467,39 +4832,6 @@ function renderDashboard() {
             <div class="target-ring-text">
               <div style="font-size:14px;font-weight:600;color:var(--text);">${todayDone} / ${dailyGoal} questions today</div>
               <div style="color:var(--text3);font-size:12px;margin-top:2px;">${goalPct>=100?'🎉 Daily goal reached!':goalPct>=50?'Keep going, halfway there!':'Start reviewing to hit your goal'}</div>
-            </div>
-          </div>
-        </div>`;
-      })()}
-      ${(() => {
-        const pace = getExamPaceInfo();
-        if (!pace) {
-          return `<div class="dash-card" style="grid-column:span 2;cursor:pointer;" onclick="switchView('settings')">
-            <div class="dash-card-label">Exam-Date Pace</div>
-            <div style="display:flex;align-items:center;justify-content:center;height:80px;text-align:center;">
-              <div style="color:var(--text3);font-size:13px;">Set your exam date in Settings to see how many questions/day you need to finish everything in time.</div>
-            </div>
-          </div>`;
-        }
-        if (pace.isPast) {
-          return `<div class="dash-card" style="grid-column:span 2;">
-            <div class="dash-card-label">Exam-Date Pace</div>
-            <div style="display:flex;align-items:center;justify-content:center;height:80px;text-align:center;">
-              <div style="color:var(--red);font-size:13px;">Your exam date has passed. Update it in Settings if needed.</div>
-            </div>
-          </div>`;
-        }
-        const paceColor = pace.daysLeft <= 3 ? 'var(--red)' : pace.daysLeft <= 7 ? 'var(--gold)' : 'var(--accent2)';
-        return `<div class="dash-card" style="grid-column:span 2;">
-          <div class="dash-card-label">Exam-Date Pace</div>
-          <div style="display:flex;align-items:center;gap:16px;margin-top:6px;">
-            <div style="text-align:center;flex-shrink:0;">
-              <div style="font-size:30px;font-weight:700;color:${paceColor};font-family:'Space Grotesk',sans-serif;">${pace.perDay}</div>
-              <div style="font-size:10.5px;color:var(--text3);">questions/day needed</div>
-            </div>
-            <div style="flex:1;">
-              <div style="font-size:13px;color:var(--text2);"><strong style="color:var(--text);">${pace.remaining}</strong> questions left · <strong style="color:var(--text);">${pace.daysLeft}</strong> day${pace.daysLeft!==1?'s':''} until exam (${pace.examDateStr})</div>
-              <div style="font-size:11.5px;color:${pace.onTrack ? 'var(--green)' : 'var(--gold)'};margin-top:4px;">${pace.onTrack ? '✅ On track to finish everything in time' : '⚠️ Pace needs to pick up to finish by exam date'}</div>
             </div>
           </div>
         </div>`;
@@ -5926,11 +5258,6 @@ function bigCalShowDetail(dateStr) {
 function saveExamDate() {
   const val = document.getElementById('examDateInput').value;
   localStorage.setItem('meo_exam_date', val);
-  // Exam date changed — today's already-generated plan was based on the old pace, so
-  // regenerate it fresh rather than leaving a stale target count in place for the rest of the day.
-  const store = loadDailyPlanStore();
-  delete store[getDateKey()];
-  saveDailyPlanStore(store);
   updateCountdownBanner();
   renderSettings();
 }
@@ -6138,7 +5465,7 @@ async function fullReset() {
     'meo_questions', 'meo_expanded_topics', 'meo_streak',
     'meo_sessions', 'meo_mock_history', 'meo_notes',
     'meo_exam_date', 'meo_theme', 'meo_daily_goal', 'meo_gemini_key', 'meo_topics',
-    'meo_surveyor_notes', 'meo_surveyors', 'meo_daily_plan'
+    'meo_surveyor_notes', 'meo_surveyors'
   ];
   keys.forEach(k => localStorage.removeItem(k));
 
@@ -6447,13 +5774,6 @@ function toggleVoiceInput() {
 function saveDailyGoal() {
   const val = parseInt(document.getElementById('dailyGoalInput').value) || 20;
   localStorage.setItem('meo_daily_goal', val);
-  // Only matters for today's plan if there's no exam date — in that case the manual goal
-  // IS the pace driver, so regenerate today's plan to reflect the new number immediately.
-  if (!localStorage.getItem('meo_exam_date')) {
-    const store = loadDailyPlanStore();
-    delete store[getDateKey()];
-    saveDailyPlanStore(store);
-  }
 }
 
 // ===================== MOBILE DRAWER =====================
@@ -7344,204 +6664,6 @@ function renderAnalyticsCore() {
 function setConfidence(id, level) {
   const q = state.questions.find(x => x.id === id);
   if (q) { q.confidence = (q.confidence === level) ? null : level; saveState(); renderAll(); }
-}
-
-// ===================== ANSWER HIGHLIGHT =====================
-// ── Selection-based text highlighter ──
-// Tracks which answer div the user last selected text inside.
-let _hlTarget = null; // { el, qid, type }
-
-// Show the floating colour bar when user selects text inside an answer view div
-document.addEventListener('mouseup',  onAnsSelectionChange);
-document.addEventListener('touchend', onAnsSelectionChange);
-document.addEventListener('mousedown', (e) => {
-  const bar = document.getElementById('selHighlightBar');
-  if (bar && !bar.contains(e.target)) hideHighlightBar();
-});
-
-// Cross-tab sync: when another tab saves (highlight or any edit), reload questions from
-// IndexedDB and re-render so highlights appear immediately in this tab too.
-window.addEventListener('storage', async (e) => {
-  if (e.key !== 'meo_sync_ping') return;
-  try {
-    const fresh = await idbGet('meo_questions');
-    if (fresh) {
-      state.questions = fresh;
-      renderAll();
-    }
-  } catch(err) { console.warn('[Sync] Cross-tab reload failed:', err.message); }
-});
-
-function onAnsSelectionChange(e) {
-  // If click is inside the toolbar itself, don't dismiss
-  const bar = document.getElementById('selHighlightBar');
-  if (bar && bar.contains(e.target)) return;
-
-  const sel = window.getSelection();
-  const hasSelection = sel && !sel.isCollapsed && sel.toString().trim();
-
-  // Check if the click landed on an existing highlight mark (even without selection)
-  const clickedMark = e.target && (
-    e.target.classList.contains('ans-hl')
-      ? e.target
-      : e.target.closest('.ans-hl')
-  );
-
-  if (!hasSelection && !clickedMark) {
-    hideHighlightBar();
-    return;
-  }
-
-  // Find the parent answer div
-  const origin = hasSelection
-    ? (() => { const r = sel.getRangeAt(0); const a = r.commonAncestorContainer; return a.nodeType === 1 ? a : a.parentElement; })()
-    : e.target;
-  const ansDiv = origin && origin.closest('[data-hlqid]');
-  if (!ansDiv) { hideHighlightBar(); return; }
-
-  _hlTarget = {
-    el:        ansDiv,
-    qid:       ansDiv.dataset.hlqid,
-    type:      ansDiv.dataset.hltype,
-    clickMark: clickedMark || null   // stored so erase can target it directly
-  };
-
-  // If only a mark was clicked (no drag-selection), dim the colour chips and only show erase
-  bar.querySelectorAll('.hl-chip:not(.hl-erase)').forEach(c => {
-    c.style.opacity = hasSelection ? '1' : '0.3';
-    c.style.pointerEvents = hasSelection ? '' : 'none';
-  });
-
-  // Position bar near the click / selection
-  let rect;
-  if (hasSelection) {
-    rect = sel.getRangeAt(0).getBoundingClientRect();
-  } else {
-    rect = e.target.getBoundingClientRect();
-  }
-
-  bar.style.display = 'flex';
-  requestAnimationFrame(() => {
-    const bw = bar.offsetWidth || 220;
-    const bh = bar.offsetHeight || 44;
-    let left = rect.left + (rect.width / 2) - (bw / 2);
-    left = Math.max(8, Math.min(left, window.innerWidth - bw - 8));
-    let top = rect.top - bh - 8;
-    if (top < 8) top = rect.bottom + 8;
-    bar.style.left = left + 'px';
-    bar.style.top  = top + 'px';
-  });
-}
-
-function hideHighlightBar() {
-  const bar = document.getElementById('selHighlightBar');
-  if (bar) bar.style.display = 'none';
-}
-
-// Applies or removes a <mark class="ans-hl" data-hl="color"> around the selected text
-function applySelectionHighlight(color) {
-  const sel = window.getSelection();
-  if (!sel || !_hlTarget) return;
-
-  if (color === 'erase') {
-    if (sel && !sel.isCollapsed) {
-      eraseHighlightsInSelection(sel, _hlTarget);
-      saveHighlightedContent(_hlTarget);
-    } else if (_hlTarget.clickMark) {
-      unwrapMark(_hlTarget.clickMark);
-      saveHighlightedContent(_hlTarget);
-    }
-    hideHighlightBar();
-    return;
-  } else {
-    if (sel.isCollapsed) return;
-    const range = sel.getRangeAt(0);
-    const mark = document.createElement('mark');
-    mark.className = 'ans-hl';
-    mark.dataset.hl = color;
-    try {
-      range.surroundContents(mark);
-    } catch (e) {
-      // surroundContents fails if selection crosses element boundaries — fallback
-      const frag = range.extractContents();
-      mark.appendChild(frag);
-      range.insertNode(mark);
-    }
-    sel.removeAllRanges();
-  }
-
-  // Save updated innerHTML back to the question object
-  saveHighlightedContent(_hlTarget);
-  hideHighlightBar();
-}
-
-function eraseHighlightsInSelection(sel, target) {
-  // Unwrap any .ans-hl marks that overlap with the selection
-  const range = sel.getRangeAt(0);
-  const marks = Array.from(target.el.querySelectorAll('.ans-hl'));
-  marks.forEach(m => {
-    if (range.intersectsNode(m)) unwrapMark(m);
-  });
-  sel.removeAllRanges();
-}
-
-function unwrapMark(mark) {
-  const parent = mark.parentNode;
-  while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
-  parent.removeChild(mark);
-  parent.normalize();
-}
-
-// Persist highlighted HTML to state so it survives refresh + exports
-function saveHighlightedContent(target) {
-  // IDs are Date.now()+Math.random() floats — compare as strings to avoid precision loss
-  const tidStr = String(target.qid);
-  const q = state.questions.find(x => String(x.id) === tidStr);
-  if (!q) { console.warn('[HL] No question found for id', target.qid); return; }
-  const html = target.el.innerHTML;
-  if (target.type === 'manual') {
-    q.manualAnswer = html;
-  } else {
-    q.aiAnswer = html;
-  }
-  saveState(true); // skip GH autosync — highlights are micro-edits; GH sync fires on next real save
-}
-
-// ── Block-level whole-answer highlight toggle (the 🖍️ button) ──
-// Toggles highlight on manual or AI answer. Saves to the question object so it
-// persists in localStorage and travels with JSON exports to other computers.
-function toggleAnswerHighlight(id, type, expandKey) {
-  const q = state.questions.find(x => x.id === id);
-  if (!q) return;
-
-  if (type === 'manual') {
-    q.manualAnswerHighlighted = !q.manualAnswerHighlighted;
-    const view = document.getElementById('ans-manual-view-' + expandKey);
-    const btn  = document.getElementById('hl-manual-btn-' + expandKey);
-    if (view) view.classList.toggle('answer-highlighted', q.manualAnswerHighlighted);
-    if (btn) {
-      btn.classList.toggle('active', q.manualAnswerHighlighted);
-      btn.title = q.manualAnswerHighlighted ? 'Remove highlight' : 'Highlight this answer';
-      btn.innerHTML = q.manualAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight';
-    }
-  } else if (type === 'ai') {
-    q.aiAnswerHighlighted = !q.aiAnswerHighlighted;
-    const view = document.getElementById('ans-ai-view-' + expandKey);
-    const btn  = document.getElementById('hl-ai-btn-' + expandKey);
-    if (view) view.classList.toggle('answer-highlighted-ai', q.aiAnswerHighlighted);
-    if (btn) {
-      btn.classList.toggle('active-ai', q.aiAnswerHighlighted);
-      btn.title = q.aiAnswerHighlighted ? 'Remove highlight' : 'Highlight AI answer';
-      btn.innerHTML = q.aiAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight';
-    }
-  }
-
-  saveState(true); // highlight flag is a micro-edit; GH sync fires on next real save
-  showToast(
-    (type === 'manual' ? (q.manualAnswerHighlighted ? '🖍️ My Answer highlighted' : '✅ Highlight removed') :
-                         (q.aiAnswerHighlighted      ? '🖍️ AI Answer highlighted' : '✅ Highlight removed')),
-    'success'
-  );
 }
 
 // ===================== MY OWN ANSWER =====================
