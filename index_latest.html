@@ -222,32 +222,6 @@ body {
 .nav-tab:hover { background: var(--surface2); color: var(--text); }
 .nav-tab.active { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(26,158,92,0.35); }
 
-/* Amendments quick-access button in search row */
-@keyframes amendFlicker {
-  0%, 100% { background: linear-gradient(135deg, #b45309, #d97706); box-shadow: 0 0 8px rgba(217,119,6,0.7), 0 2px 8px rgba(217,119,6,0.4); opacity: 1; }
-  20% { background: linear-gradient(135deg, #92400e, #b45309); box-shadow: 0 0 4px rgba(217,119,6,0.3); opacity: 0.82; }
-  40% { background: linear-gradient(135deg, #d97706, #f59e0b); box-shadow: 0 0 16px rgba(245,158,11,0.9), 0 2px 12px rgba(245,158,11,0.5); opacity: 1; }
-  60% { background: linear-gradient(135deg, #b45309, #c2810f); box-shadow: 0 0 6px rgba(217,119,6,0.5); opacity: 0.88; }
-  80% { background: linear-gradient(135deg, #d97706, #f59e0b); box-shadow: 0 0 20px rgba(245,158,11,1), 0 2px 14px rgba(245,158,11,0.6); opacity: 1; }
-}
-.amend-quick-btn {
-  flex-shrink: 0;
-  padding: 7px 16px;
-  border-radius: 9px;
-  border: none;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 0.2px;
-  animation: amendFlicker 2.2s ease-in-out infinite;
-  white-space: nowrap;
-  transition: transform 0.15s;
-}
-.amend-quick-btn:hover { transform: scale(1.05); animation-play-state: paused; background: linear-gradient(135deg, #d97706, #f59e0b) !important; box-shadow: 0 0 22px rgba(245,158,11,0.9) !important; }
-.amend-quick-btn.active { animation: none; background: linear-gradient(135deg, #92400e, #b45309) !important; box-shadow: 0 2px 8px rgba(180,83,9,0.5) !important; }
-
 /* ── MAIN LAYOUT ──────────────────────────────────────── */
 .main-container {
   max-width: 1440px;
@@ -431,148 +405,6 @@ body {
 .cal-detail-item .q-topic-tag { font-size: 10px; color: var(--accent); font-weight: 600; margin-bottom: 3px; font-family:'Space Grotesk',sans-serif; }
 .cal-detail-empty { padding: 16px; text-align: center; color: var(--text3); font-size: 12px; font-style: italic; }
 
-/* ── SR CALENDAR ENHANCEMENTS ─────────────────────────────── */
-.sr-outlook-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-top: 0;
-}
-.sr-outlook-header {
-  padding: 11px 18px 10px;
-  background: linear-gradient(135deg, rgba(109,74,191,0.10), rgba(26,158,92,0.08));
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.sr-outlook-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--text);
-}
-.sr-day-group { border-bottom: 1px solid var(--border); }
-.sr-day-group:last-child { border-bottom: none; }
-.sr-day-label {
-  padding: 7px 18px 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(109,74,191,0.04);
-  cursor: pointer;
-  user-select: none;
-}
-.sr-day-label-text {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  color: var(--purple);
-}
-.sr-day-label-text.today-label { color: var(--accent2); }
-.sr-day-label-text.past-label { color: var(--red); }
-.sr-day-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  background: rgba(109,74,191,0.12);
-  color: var(--purple2);
-  border-radius: 999px;
-  padding: 1px 8px;
-}
-.sr-day-count.today-count { background: rgba(26,158,92,0.12); color: var(--accent2); }
-.sr-day-count.past-count { background: rgba(214,59,59,0.12); color: var(--red); }
-.sr-q-list { padding: 4px 12px 8px 18px; display: flex; flex-direction: column; gap: 3px; }
-.sr-q-item {
-  padding: 6px 10px;
-  border-radius: 7px;
-  background: var(--surface2);
-  border-left: 3px solid var(--purple2);
-  font-size: 11.5px;
-  color: var(--text);
-  line-height: 1.4;
-}
-.sr-q-item.today-item { border-left-color: var(--accent); }
-.sr-q-item.past-item { border-left-color: var(--red); opacity: 0.9; }
-.sr-q-topic { font-size: 10px; color: var(--text3); font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 2px; }
-.sr-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 7px 18px 5px;
-  align-items: center;
-  border-top: 1px solid var(--border);
-  background: rgba(26,158,92,0.03);
-}
-.sr-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10.5px;
-  color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
-}
-.sr-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
-.big-cal-day.sr-overdue { background: rgba(214,59,59,0.07) !important; border: 1.5px solid rgba(214,59,59,0.4) !important; }
-.bcd-count.overdue-count { color: var(--red) !important; }
-.sr-empty { padding: 22px 18px; text-align: center; color: var(--text3); font-size: 12px; font-style: italic; }
-.sr-tabs {
-  display: flex;
-  gap: 2px;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-  padding: 5px 10px 0;
-}
-.sr-tab {
-  padding: 5px 13px;
-  border-radius: 8px 8px 0 0;
-  border: none;
-  background: transparent;
-  color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.sr-tab:hover { color: var(--text2); background: rgba(26,158,92,0.06); }
-.sr-tab.active { background: var(--surface); color: var(--accent); border-bottom: 2px solid var(--accent); }
-.sr-tab-content { display: none; }
-.sr-tab-content.active { display: block; }
-.sr-topic-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 8px 18px;
-  border-bottom: 1px solid var(--border);
-}
-.sr-topic-row:last-child { border-bottom: none; }
-.sr-topic-id {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--accent2);
-  background: rgba(26,158,92,0.10);
-  border: 1px solid rgba(26,158,92,0.25);
-  border-radius: 5px;
-  padding: 2px 6px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.sr-topic-name { font-size: 12px; color: var(--text); font-weight: 500; flex: 1; }
-.sr-topic-dates { font-size: 11px; color: var(--text3); margin-top: 2px; }
-.sr-date-badge {
-  display: inline-block;
-  padding: 1px 8px;
-  border-radius: 999px;
-  font-size: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  border: 1px solid;
-}
-.sr-date-badge.due-today { background: rgba(26,158,92,0.12); color: var(--accent2); border-color: rgba(26,158,92,0.3); }
-.sr-date-badge.overdue { background: rgba(214,59,59,0.12); color: var(--red); border-color: rgba(214,59,59,0.3); }
-.sr-date-badge.upcoming { background: rgba(109,74,191,0.10); color: var(--purple2); border-color: rgba(109,74,191,0.25); }
 
 /* ── NEXT TOPIC BOX ──────────────────────────────────── */
 .next-topic-box {
@@ -1463,13 +1295,6 @@ body {
   color: var(--text3); min-width: 22px; flex-shrink: 0; padding-top: 1px;
 }
 .dup-item-text { flex: 1; color: var(--text); line-height: 1.45; }
-.dup-unlink-btn {
-  background: none; border: 1px solid rgba(214,59,59,0.25); border-radius: 6px;
-  color: var(--red); font-size: 10.5px; padding: 2px 8px; cursor: pointer;
-  font-family: 'Inter', sans-serif; font-weight: 500; white-space: nowrap;
-  transition: all 0.15s; flex-shrink: 0;
-}
-.dup-unlink-btn:hover { background: rgba(214,59,59,0.08); border-color: var(--red); }
   display: flex; align-items: center; gap: 10px;
   padding: 9px 14px; border-bottom: 1px solid var(--border);
   transition: background 0.15s;
@@ -1598,11 +1423,7 @@ body {
 .big-cal-day.selected .bcd-dot { background: rgba(255,255,255,0.7); }
 .big-cal-day.empty { cursor: default; opacity: 0.3; }
 .big-cal-day.has-questions { border-color: rgba(26,158,92,0.3); background: rgba(26,158,92,0.04); }
-.big-cal-day.due-review { border-color: rgba(139,92,246,0.5); background: rgba(139,92,246,0.06); }
-/* When a day has both done questions AND SR review, show a purple left-border accent */
-.big-cal-day.has-questions.due-review { border-color: rgba(139,92,246,0.5); background: rgba(26,158,92,0.04); border-left: 3px solid rgba(109,74,191,0.7); }
-/* Today with review pending */
-.big-cal-day.today.due-review { border-color: var(--accent); border-right: 3px solid rgba(109,74,191,0.7); }
+.big-cal-day.due-review { border-color: rgba(139,92,246,0.35); background: rgba(139,92,246,0.04); }
 .bcd-num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
@@ -2092,38 +1913,10 @@ svg.radar { overflow: visible; }
   .nav-tab { padding: 5px 10px; font-size: 11px; }
   .global-search-row { padding: 6px 14px; top: 28px; }
   .app-header { top: 74px; }
-  .amend-quick-btn { padding: 6px 10px; font-size: 11px; }
-  #bigCalendarPanel > div { grid-template-columns: 1fr !important; }
-}
-@media (max-width: 1200px) {
-  #bigCalendarPanel > div { grid-template-columns: 1fr 280px !important; }
 }
 </style>
 </head>
 <body>
-<script>
-// ── EARLY STUBS ──────────────────────────────────────────────────────
-// This file is one big HTML document: the nav bar and other interactive
-// elements appear early in <body>, but the script that defines their real
-// onclick handlers (switchView, etc.) only runs near the end of <body>,
-// after ~9000 lines of markup have been parsed. On a slow load, clicking
-// a nav button in that window throws "X is not defined". These no-op
-// stubs close that gap — they're silently overwritten the instant the
-// real function declarations below are hoisted, so this has zero effect
-// once the page has finished loading (typically well under a second).
-(function(){
-  var names = ['switchView','closeMobileDrawer','openMobileDrawer','applySelectionHighlight',
-    'addCustomSurveyor','addCustomTopic','addQuestion','bigCalNav','calNav','clearAllData',
-    'clearForm','closeModal','debugSM2','doExport','exportPrint','fullReset','getAIAnswer',
-    'pullFromGitHub','pushToGitHub','renderSRSchedulePanel','resetSurveyorsToDefault',
-    'resetTopicsToDefault','saveDataFile','saveEdit','saveSessionLog','selectAI','setDoneFilter',
-    'setGroupDoneSort','setGroupMode','setSortBy','switchSRTab','testGeminiKey',
-    'testGitHubConnection','toggleAddPanel','toggleSortDir','toggleVoiceInput','applyTheme'];
-  names.forEach(function(n){
-    if (typeof window[n] === 'undefined') window[n] = function(){ console.warn('App still loading — try that again in a moment: ' + n); };
-  });
-})();
-</script>
 
 <div id="countdownBanner" class="countdown-banner no-date">⚓ Set your exam date in Settings to see countdown</div>
 
@@ -2149,7 +1942,6 @@ svg.radar { overflow: visible; }
       <span class="search-icon">🔍</span>
       <input type="text" id="globalSearch" placeholder="Search questions, topics, surveyors, answers…" oninput="onGlobalSearch()">
     </div>
-    <button class="amend-quick-btn" id="amendQuickBtn" onclick="switchView('amendments')" title="View latest IMO & DGS Amendments">🌐 Amendments</button>
   </div>
 </div>
 
@@ -2332,47 +2124,17 @@ svg.radar { overflow: visible; }
 
     <!-- Big Calendar Panel -->
     <div id="bigCalendarPanel" style="display:none;">
-      <div style="display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start;">
-        <!-- Left: Calendar -->
-        <div>
-          <div class="big-calendar-wrap">
-            <div class="big-cal-header">
-              <button class="big-cal-nav" onclick="bigCalNav(-1)">‹</button>
-              <span class="big-cal-month-title" id="bigCalTitle"></span>
-              <button class="big-cal-nav" onclick="bigCalNav(1)">›</button>
-            </div>
-            <!-- Calendar legend -->
-            <div style="padding:6px 14px 2px;display:flex;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--border);">
-              <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-family:'Space Grotesk',sans-serif;"><div style="width:11px;height:11px;border-radius:3px;background:rgba(26,158,92,0.18);border:1px solid rgba(26,158,92,0.35);flex-shrink:0;"></div> Questions done</div>
-              <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-family:'Space Grotesk',sans-serif;"><div style="width:11px;height:11px;border-radius:3px;background:rgba(109,74,191,0.12);border:1.5px solid rgba(109,74,191,0.4);flex-shrink:0;"></div> SR review due</div>
-              <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-family:'Space Grotesk',sans-serif;"><div style="width:11px;height:11px;border-radius:3px;background:rgba(214,59,59,0.08);border:1.5px solid rgba(214,59,59,0.4);flex-shrink:0;"></div> Overdue review</div>
-              <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-family:'Space Grotesk',sans-serif;"><div style="width:11px;height:11px;border-radius:3px;background:var(--accent);flex-shrink:0;"></div> Today</div>
-            </div>
-            <div class="big-cal-grid-wrap">
-              <div class="big-cal-grid" id="bigCalGrid"></div>
-            </div>
-            <div class="big-cal-detail" id="bigCalDetail">
-              <div class="big-cal-detail-title">📅 Select a date to view details</div>
-            </div>
-          </div>
+      <div class="big-calendar-wrap">
+        <div class="big-cal-header">
+          <button class="big-cal-nav" onclick="bigCalNav(-1)">‹</button>
+          <span class="big-cal-month-title" id="bigCalTitle"></span>
+          <button class="big-cal-nav" onclick="bigCalNav(1)">›</button>
         </div>
-        <!-- Right: SR Schedule Panel -->
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <div class="sr-outlook-panel">
-            <div class="sr-outlook-header">
-              <div>
-                <div class="sr-outlook-title">🔁 Spaced Repetition Schedule</div>
-                <div style="font-size:11px;color:var(--text3);margin-top:2px;font-family:'Inter',sans-serif;">Topics to revise, based on SM-2 algorithm</div>
-              </div>
-              <button onclick="renderSRSchedulePanel()" style="font-size:10px;padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text3);cursor:pointer;font-family:'Space Grotesk',sans-serif;">↺ Refresh</button>
-            </div>
-            <div class="sr-tabs">
-              <button class="sr-tab active" id="srTabToday" onclick="switchSRTab('today')">📌 Due Now</button>
-              <button class="sr-tab" id="srTabWeek" onclick="switchSRTab('week')">📅 This Week</button>
-              <button class="sr-tab" id="srTabMonth" onclick="switchSRTab('month')">🗓 By Topic</button>
-            </div>
-            <div id="srTabContent"></div>
-          </div>
+        <div class="big-cal-grid-wrap">
+          <div class="big-cal-grid" id="bigCalGrid"></div>
+        </div>
+        <div class="big-cal-detail" id="bigCalDetail">
+          <div class="big-cal-detail-title">📅 Select a date to view questions</div>
         </div>
       </div>
     </div>
@@ -2390,12 +2152,7 @@ svg.radar { overflow: visible; }
     <!-- Settings Panel -->
     <div id="settingsPanel" style="display:none;">
       <div class="settings-wrap">
-        <!-- SM-2 Debug Tool -->
-        <div class="settings-section" style="background:rgba(109,74,191,0.06);border:1px solid rgba(109,74,191,0.2);border-radius:10px;padding:14px 16px;">
-          <div class="settings-section-title" style="color:var(--purple);">🔬 SM-2 Spaced Repetition Debug</div>
-          <div class="settings-desc" style="margin-bottom:10px;">If review dates are showing on wrong days, use this tool to inspect and force-fix all SM-2 dates.</div>
-          <button onclick="debugSM2()" style="padding:7px 18px;border-radius:8px;border:1px solid var(--purple);background:var(--purple);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;cursor:pointer;">🔬 Open SM-2 Debug</button>
-        </div>
+        <!-- Daily Study Target -->
         <div class="settings-section">
           <div class="settings-section-title">🎯 Daily Study Target</div>
           <div class="settings-row">
@@ -2415,7 +2172,7 @@ svg.radar { overflow: visible; }
               <div class="settings-label">Oral Examination Date</div>
               <div class="settings-desc">Countdown will show at the top of every page</div>
             </div>
-            <input type="date" id="examDateInput" class="form-input" style="max-width:200px;" onchange="saveExamDate()" oninput="saveExamDate()">
+            <input type="date" id="examDateInput" class="form-input" style="max-width:200px;" oninput="saveExamDate()">
           </div>
           <div id="examDatePreview" style="font-size:12px;color:var(--accent);margin-top:4px;font-family:'Space Grotesk',sans-serif;"></div>
         </div>
@@ -2780,9 +2537,6 @@ svg.radar { overflow: visible; }
     <div id="cheatsheetPanel" style="display:none;">
       <div id="cheatsheetContent"></div>
     </div>
-    <div id="amendmentsPanel" style="display:none;">
-      <div id="amendmentsContent"></div>
-    </div>
 
     <!-- Mobile Filter Bar (visible only on small screens) -->
     <div class="mobile-filter-bar" id="mobileFilterBar">
@@ -3060,7 +2814,6 @@ let state = {
   sortDir: 'desc',        // 'asc' | 'desc'
   sortSurveyor: '',       // '' = all, or a surveyor name
   groupDoneSort: 'none',  // 'none' | 'done-first' | 'pending-first'
-  dupExclusions: new Set(), // pairs "canonId|dupId" excluded from similarity groups
 };
 
 // Load from localStorage
@@ -3151,55 +2904,9 @@ async function loadState() {
     if (saved) state.questions = saved;
     const savedExpanded = localStorage.getItem('meo_expanded_topics');
     if (savedExpanded) state.expandedTopics = new Set(JSON.parse(savedExpanded));
-    const savedDupExcl = localStorage.getItem('meo_dup_exclusions');
-    if (savedDupExcl) state.dupExclusions = new Set(JSON.parse(savedDupExcl));
   } catch (e) {
     console.error('[Storage] loadState failed:', e.message);
     showToast('⚠️ Could not load saved questions — see console for details', 'error');
-  }
-  await migrateSM2ReviewDates();
-  // Clear legacy migration flags (migration now runs every load)
-  try { localStorage.removeItem('meo_sm2_date_migrated_v1'); localStorage.removeItem('meo_sm2_date_migrated_v2'); localStorage.removeItem('meo_sm2_date_migrated_v3'); } catch(e) {}
-}
-
-// Runs on every load: ensures srNextReview is always correctly set from doneDate,
-// not from the surveyor's asked date or creation time.
-async function migrateSM2ReviewDates() {
-  let changed = 0;
-  // Use LOCAL date to avoid UTC timezone issues (e.g. IST = UTC+5:30)
-  const now = new Date();
-  const today = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-
-  state.questions.forEach(q => {
-    if (q.done) {
-      const base = q.doneDate || today;
-      // Only fix if srNextReview is missing OR is on/before the done date itself
-      // (i.e. it was incorrectly set to the same day as done, not a future date)
-      // Do NOT touch srNextReview if it's already a valid future date beyond doneDate —
-      // that means SM-2 has correctly scheduled it after a review session.
-      const needsFix = !q.srNextReview || q.srNextReview <= base;
-      if (needsFix) {
-        // Schedule first review for the day after doneDate
-        const baseDate = new Date(base + 'T00:00:00');
-        const nextDay = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate() + 1);
-        q.srNextReview = `${nextDay.getFullYear()}-${String(nextDay.getMonth()+1).padStart(2,'0')}-${String(nextDay.getDate()).padStart(2,'0')}`;
-        // Only reset repetitions if this is genuinely a fresh fix (no prior SM-2 data)
-        if (!q.srRepetitions) q.srRepetitions = 0;
-        if (!q.srInterval || q.srInterval < 1) q.srInterval = 1;
-        if (!q.srEaseFactor) q.srEaseFactor = 2.5;
-        changed++;
-      }
-    } else if (!q.done && q.srNextReview) {
-      q.srNextReview = null;
-      q.srRepetitions = 0;
-      q.srInterval = 1;
-      q.srEaseFactor = 2.5;
-      changed++;
-    }
-  });
-  if (changed > 0) {
-    try { await idbSet('meo_questions', state.questions); } catch(e) { console.error('[SM-2 fix] idbSet failed', e); }
-    console.log(`[SM-2] Fixed ${changed} question(s). Today (local) = ${today}`);
   }
 }
 
@@ -3216,7 +2923,6 @@ async function saveState(skipGhSync = false) {
   }
   try {
     localStorage.setItem('meo_expanded_topics', JSON.stringify([...state.expandedTopics]));
-    try { localStorage.setItem('meo_dup_exclusions', JSON.stringify([...state.dupExclusions])); } catch(e) {}
   } catch (e) { /* non-critical, ignore */ }
   if (!skipGhSync) ghTriggerAutoSyncIfEnabled();
 }
@@ -3317,7 +3023,6 @@ function _computeQuestionsFingerprint() {
     const q = state.questions[i];
     fp += q.id + ':' + (q.text ? q.text.length : 0) + ',';
   }
-  fp += '|excl:' + state.dupExclusions.size;
   return fp;
 }
 
@@ -3340,10 +3045,6 @@ function findSimilarQuestions() {
       if (mapped[qs[j].id] !== undefined) continue;
       const sim = cosineSimilarity(qs[i].text, qs[j].text);
       if (sim >= threshold) {
-        // Check if this pair has been manually excluded
-        const exclKey = qs[i].id + '|' + qs[j].id;
-        const exclKeyRev = qs[j].id + '|' + qs[i].id;
-        if (state.dupExclusions.has(exclKey) || state.dupExclusions.has(exclKeyRev)) continue;
         groups[qs[i].id].push(qs[j].id);
         mapped[qs[j].id] = qs[i].id;
       }
@@ -3903,58 +3604,9 @@ function buildGitHubDataBundle() {
   };
 }
 
-// Looks for a plausible "questions" array even if the file isn't shaped
-// exactly the way this app's own export produces. Handles the shapes people
-// actually run into in practice:
-//  - a bare array as the whole file:           [ {...}, {...} ]
-//  - nested one level under a wrapper key:      { data: { questions: [...] } }
-//  - a differently-named top-level array that still looks like questions
-//    (each item has a "text" or "question" field), e.g. { questionBank: [...] }
-//  - the file actually contains a raw GitHub Contents-API response (has
-//    "content" + "encoding":"base64" alongside fields like sha/path/url) —
-//    this happens if the API response was saved as data.json instead of
-//    just the decoded file. We unwrap that one level and try again.
-function amendFindQuestionsArray(raw, _depth) {
-  const depth = _depth || 0;
-  if (Array.isArray(raw)) return raw;
-  if (!raw || typeof raw !== 'object') return null;
-  if (Array.isArray(raw.questions)) return raw.questions;
-
-  const looksLikeQuestion = (item) => item && typeof item === 'object' && (typeof item.text === 'string' || typeof item.question === 'string');
-
-  // One level of nesting under a wrapper object (e.g. data.data.questions)
-  for (const key of Object.keys(raw)) {
-    const v = raw[key];
-    if (v && typeof v === 'object' && !Array.isArray(v) && Array.isArray(v.questions)) return v.questions;
-  }
-  // A differently-named top-level array whose items look like questions
-  for (const key of Object.keys(raw)) {
-    const v = raw[key];
-    if (Array.isArray(v) && v.length && looksLikeQuestion(v[0])) return v;
-  }
-
-  // Looks like a raw GitHub Contents-API object — unwrap its base64 "content"
-  // and search inside that instead. Guard recursion depth in case of a
-  // pathological double-double-wrap.
-  if (depth < 2 && typeof raw.content === 'string' && (raw.encoding === 'base64' || raw.sha)) {
-    try {
-      const decodedText = decodeURIComponent(escape(atob(raw.content.replace(/\n/g, ''))));
-      const decoded = JSON.parse(decodedText);
-      const found = amendFindQuestionsArray(decoded, depth + 1);
-      if (found) return found;
-    } catch (e) { /* not actually base64/JSON inside — give up on this path */ }
-  }
-
-  return null;
-}
-
 function applyGitHubDataBundle(data) {
-  const questions = amendFindQuestionsArray(data);
-  if (!questions) {
-    const keys = (data && typeof data === 'object') ? Object.keys(data).join(', ') : typeof data;
-    throw new Error(`data.json is missing a valid "questions" array. Top-level keys found in the file: [${keys || 'none'}]. Expected one of those to be an array of question objects (or the whole file to be that array).`);
-  }
-  state.questions = questions;
+  if (!data || !Array.isArray(data.questions)) throw new Error('data.json is missing a valid "questions" array');
+  state.questions = data.questions;
   if (Array.isArray(data.topics) && data.topics.length) {
     TOPICS.length = 0;
     data.topics.forEach(t => TOPICS.push(t));
@@ -4037,7 +3689,7 @@ async function pullFromGitHub() {
     applyGitHubDataBundle(file.data);
     renderAll();
     initSettings();
-    ghSetStatus(`✅ Loaded ${state.questions.length} question(s) from GitHub (synced ${file.data.syncedAt ? new Date(file.data.syncedAt).toLocaleString() : 'unknown time'}).`);
+    ghSetStatus(`✅ Loaded ${file.data.questions.length} question(s) from GitHub (synced ${file.data.syncedAt ? new Date(file.data.syncedAt).toLocaleString() : 'unknown time'}).`);
     showToast('✅ Data loaded from GitHub', 'success');
   } catch (e) {
     ghSetStatus('❌ ' + e.message, true);
@@ -4356,7 +4008,7 @@ function addQuestion() {
       srInterval: 1,
       srRepetitions: 0,
       srEaseFactor: 2.5,
-      srNextReview: null,  // set when user marks question as done
+      srNextReview: today,
     };
     state.questions.push(q);
     added++;
@@ -4495,7 +4147,7 @@ function renderSearchPanel() {
     const allInGroup = groups[mapped[q.id]] || [q];
     const otherQs = allInGroup.filter(x => x.id !== q.id);
     const allSurveyors = [...new Set(allInGroup.map(x => x.surveyor).filter(Boolean))];
-    html += buildQuestionCard(q, query, state.expandedQuestions.has(q.id), allSurveyors, otherQs.map(x => ({id: x.id, surveyor: x.surveyor, text: x.text, date: x.date})), String(q.id));
+    html += buildQuestionCard(q, query, state.expandedQuestions.has(q.id), allSurveyors, otherQs.map(x => ({surveyor: x.surveyor, text: x.text, date: x.date})), String(q.id));
   });
   container.innerHTML = html;
 }
@@ -4738,7 +4390,6 @@ function renderByTopic(container, qs, search, groups, mapped) {
           ${(total - done) > 0 ? `<span class="topic-stat stat-pending">${total - done} left</span>` : ''}
           <span class="topic-stat" style="font-size:9px;background:rgba(26,158,92,0.1);color:var(--accent2);">${pct}%</span>
           <button class="bulk-ai-btn" onclick="event.stopPropagation();bulkFetchAIAnswers('topic',${t.id})" title="Fetch AI answer for every question in this topic that doesn't have one yet">🤖 Fetch AI</button>
-          <button class="bulk-ai-btn" onclick="event.stopPropagation();printHighlightedAnswers(${t.id})" title="Print questions with highlighted answer text for this topic" style="background:rgba(109,74,191,0.12);color:var(--purple2);border-color:rgba(109,74,191,0.3);">🖨️ Print Highlights</button>
         </div>
       </div>
       <div style="display:${isOpen ? 'block' : 'none'}">
@@ -4875,7 +4526,7 @@ function renderQuestionCardsSurveyor(qs, search, groups, mapped, currentSurveyor
       : [canonId, ...(groups[canonId] || [])];
     const allInGroup = [...new Set(allGroupIds)].map(id => getQuestionByIdFast(id)).filter(Boolean);
     const otherSurveyors = allInGroup.filter(x => x.id !== q.id && x.surveyor && x.surveyor !== currentSurveyor).map(x => x.surveyor);
-    const otherQsFull = allInGroup.filter(x => x.id !== q.id).map(x => ({id: x.id, surveyor: x.surveyor, text: x.text, date: x.date}));
+    const otherQsFull = allInGroup.filter(x => x.id !== q.id).map(x => ({surveyor: x.surveyor, text: x.text, date: x.date}));
     const isSimilar = allInGroup.length > 1;
 
     const isOpen = state.expandedQuestions.has(q.id + '_' + currentSurveyor);
@@ -4898,7 +4549,7 @@ function renderQuestionCards(qs, search, groups, mapped) {
     const otherQs = allInGroup.filter(x => x.id !== q.id);
 
     const isOpen = state.expandedQuestions.has(String(q.id));
-    html += buildQuestionCard(q, search, isOpen, allSurveyors, otherQs.map(x => ({id: x.id, surveyor: x.surveyor, text: x.text, date: x.date})), String(q.id));
+    html += buildQuestionCard(q, search, isOpen, allSurveyors, otherQs.map(x => ({surveyor: x.surveyor, text: x.text, date: x.date})), String(q.id));
   });
   return html || '<div style="padding:12px; color:var(--text3); font-size:13px;">No questions here.</div>';
 }
@@ -4907,21 +4558,9 @@ function toggleDupSection(dupId) {
   const list = document.getElementById(dupId);
   const icon = document.getElementById(dupId + '-icon');
   if (!list) return;
-  const open = list.style.display !== 'none' && list.style.display !== '';
+  const open = list.style.display !== 'none';
   list.style.display = open ? 'none' : 'block';
   if (icon) icon.textContent = open ? '▶' : '▼';
-}
-
-function removeDuplicateLink(canonId, dupQId) {
-  if (!confirm('Remove this question from the duplicate group? It will appear as a separate question from now on.')) return;
-  // Store both orderings so the exclusion works regardless of which was canonical
-  state.dupExclusions.add(canonId + '|' + dupQId);
-  state.dupExclusions.add(dupQId + '|' + canonId);
-  _similarCache = null; // bust cache
-  _similarCacheFingerprint = null;
-  try { localStorage.setItem('meo_dup_exclusions', JSON.stringify([...state.dupExclusions])); } catch(e) {}
-  renderAll();
-  showToast('🔗 Question unlinked from duplicate group', 'success');
 }
 
 // Fast id -> question lookup map, rebuilt once per render pass (avoids O(n) .find() calls
@@ -4953,25 +4592,19 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
           <span class="q-surveyor-tag">${escHtml(x)}</span>
         </div>`;
       }
-      const unlinkBtn = (x.id !== undefined && q.id !== undefined)
-        ? `<button class="dup-unlink-btn" onclick="event.stopPropagation();removeDuplicateLink(${q.id},${x.id})" title="Remove this question from the duplicate group">🔗 Unlink</button>`
-        : '';
       return `<div class="dup-item">
         <span class="dup-item-num">#${idx+1}</span>
         <span class="dup-item-text">${escHtml(x.text || '')}</span>
-        <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap;">
-          ${x.surveyor ? `<span class="q-surveyor-tag">${escHtml(x.surveyor)}</span>` : ''}
-          ${x.date ? `<span class="q-date" style="font-size:10px;">📅 ${x.date}</span>` : ''}
-          ${unlinkBtn}
-        </div>
+        ${x.surveyor ? `<span class="q-surveyor-tag">${escHtml(x.surveyor)}</span>` : ''}
+        ${x.date ? `<span class="q-date" style="font-size:10px;">📅 ${x.date}</span>` : ''}
       </div>`;
     }).join('');
     return `<div class="dup-section" id="${dupId}-wrap">
       <button class="dup-toggle-btn" onclick="toggleDupSection('${dupId}')">
-        <span class="dup-toggle-icon" id="${dupId}-icon">▼</span>
-        ${similarInfo.length} duplicate${similarInfo.length>1?'s':''} of this question
+        <span class="dup-toggle-icon" id="${dupId}-icon">▶</span>
+        Show ${similarInfo.length} duplicate${similarInfo.length>1?'s':''} of this question
       </button>
-      <div class="dup-list" id="${dupId}">${items}</div>
+      <div class="dup-list" id="${dupId}" style="display:none;">${items}</div>
     </div>`;
   })() : '';
 
@@ -5114,10 +4747,10 @@ function renderCalendar() {
   const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
 
   // Only DONE questions appear on calendar
-  const doneQs = state.questions.filter(q => q.done && (q.doneDate || q.date));
+  const doneQs = state.questions.filter(q => q.done && q.date);
 
-  // Dates that have DONE questions (use doneDate, fallback to q.date for legacy)
-  const datesWithQ = new Set(doneQs.map(q => q.doneDate || q.date));
+  // Dates that have DONE questions
+  const datesWithQ = new Set(doneQs.map(q => q.date));
 
   // SM-2 spaced repetition: use srNextReview field from done questions
   const dueReview = new Set();
@@ -5130,7 +4763,7 @@ function renderCalendar() {
 
   // Count DONE questions per date
   const qCountByDate = {};
-  doneQs.forEach(q => { const d = q.doneDate || q.date; qCountByDate[d] = (qCountByDate[d] || 0) + 1; });
+  doneQs.forEach(q => { qCountByDate[q.date] = (qCountByDate[q.date] || 0) + 1; });
 
   let html = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<div class="cal-day-name">${d}</div>`).join('');
   for (let i = 0; i < firstDay; i++) html += `<div class="cal-day empty"></div>`;
@@ -5159,8 +4792,8 @@ function calSelectDate(dateStr) {
   state.calSelectedDate = dateStr;
   renderCalendar();
 
-  // Only show DONE questions in the calendar detail (match by doneDate, fallback to q.date)
-  const qs = state.questions.filter(q => q.done && (q.doneDate || q.date) === dateStr);
+  // Only show DONE questions in the calendar detail
+  const qs = state.questions.filter(q => q.date === dateStr && q.done);
   const panel = document.getElementById('calDetailPanel');
   const titleEl = document.getElementById('calDetailTitle');
   const countEl = document.getElementById('calDetailCount');
@@ -5252,26 +4885,10 @@ function toggleDone(id) {
   if (q) {
     q.done = !q.done;
     if (q.done) {
-      // Use local date (not UTC) to avoid timezone issues — e.g. IST is UTC+5:30
-      // so at 6 PM IST, new Date().toISOString() gives the correct UTC date,
-      // but setDate(+1) on a UTC-based Date can flip if near midnight UTC.
-      const now = new Date();
-      const localToday = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-      q.doneDate = localToday;
-      // SM-2: schedule first review for tomorrow (interval = 1 day from done date)
-      q.srRepetitions = 0;
-      q.srInterval = 1;
-      q.srEaseFactor = q.srEaseFactor || 2.5;
-      // Calculate tomorrow in local time
-      const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-      q.srNextReview = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth()+1).padStart(2,'0')}-${String(tomorrow.getDate()).padStart(2,'0')}`;
+      q.doneDate = new Date().toISOString().split('T')[0];
       recordTodayStudy();
     } else {
       q.doneDate = null;
-      q.srNextReview = null;
-      q.srRepetitions = 0;
-      q.srInterval = 1;
-      q.srEaseFactor = 2.5;
     }
     saveState(); renderAll();
   }
@@ -5332,9 +4949,6 @@ function switchView(v, _evt) {
   document.querySelectorAll('.mobile-nav-item').forEach(t => t.classList.remove('active'));
   const mnavEl = document.getElementById('mnav-' + v);
   if (mnavEl) mnavEl.classList.add('active');
-  // Update amendments quick button in search row
-  const aqb = document.getElementById('amendQuickBtn');
-  if (aqb) { v === 'amendments' ? aqb.classList.add('active') : aqb.classList.remove('active'); }
 
   const topicCard = document.getElementById('topicSidebarCard');
   const surveyorCard = document.getElementById('surveyorSidebarCard');
@@ -5354,9 +4968,8 @@ function switchView(v, _evt) {
   const cheatsheetPanel = document.getElementById('cheatsheetPanel');
   const searchPanel = document.getElementById('searchPanel');
   const todaypracticePanel = document.getElementById('todaypracticePanel');
-  const amendmentsPanel = document.getElementById('amendmentsPanel');
 
-  [qPanel, dashPanel, mockPanel, bigCalPanel, settingsPanel, flashcardPanel, notesPanel, analyticsPanel, oralPanel, surveyorprofilePanel, cheatsheetPanel, searchPanel, todaypracticePanel, amendmentsPanel].forEach(p => { if(p) p.style.display = 'none'; });
+  [qPanel, dashPanel, mockPanel, bigCalPanel, settingsPanel, flashcardPanel, notesPanel, analyticsPanel, oralPanel, surveyorprofilePanel, cheatsheetPanel, searchPanel, todaypracticePanel].forEach(p => { if(p) p.style.display = 'none'; });
 
   // Always show calendar sidebar card on every tab
   const calSidebarCard = document.getElementById('calendarSidebarCard');
@@ -5453,12 +5066,6 @@ function switchView(v, _evt) {
     surveyorCard.style.display = 'none';
     if(cheatsheetPanel) cheatsheetPanel.style.display = '';
     renderCheatSheet();
-    return;
-  } else if (v === 'amendments') {
-    topicCard.style.display = 'none';
-    surveyorCard.style.display = 'none';
-    if(amendmentsPanel) amendmentsPanel.style.display = '';
-    renderAmendmentsPanel();
     return;
   }
 
@@ -5735,7 +5342,7 @@ function renderTodayPracticeTab() {
 
     const reasonPill = `<span style="font-size:10px;padding:2px 7px;border-radius:8px;background:rgba(26,158,92,0.10);color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:600;margin-left:6px;">${reason}</span>`;
 
-    cardsHtml += buildQuestionCard(q, '', isOpen, allSurveyors, otherQs.map(x => ({id: x.id, surveyor: x.surveyor, text: x.text, date: x.date})), expandKey);
+    cardsHtml += buildQuestionCard(q, '', isOpen, allSurveyors, otherQs.map(x => ({surveyor: x.surveyor, text: x.text, date: x.date})), expandKey);
   });
 
   c.innerHTML = `<div style="max-width:900px;">
@@ -5833,10 +5440,10 @@ function renderDashboard() {
         <div class="dash-card-value" style="color:var(--green)">${done}</div>
         <div class="dash-card-sub">${pct}% of all questions</div>
       </div>
-      <div class="dash-card">
-        <div class="dash-card-label">Total (incl. Repetitions)</div>
-        <div class="dash-card-value" style="color:var(--cyan)">${qs.length}</div>
-        <div class="dash-card-sub">${dupCount > 0 ? `${dupCount} repetition${dupCount>1?'s':''} included` : 'no repetitions'}</div>
+      <div class="dash-card" style="cursor:pointer;" onclick="switchView('mock')">
+        <div class="dash-card-label">Due for Review (SM-2)</div>
+        <div class="dash-card-value" style="color:${due>0?'var(--gold)':'var(--green)'}">${due}</div>
+        <div class="dash-card-sub">${due>0?'Tap to start revision':'All caught up!'}</div>
       </div>
       <div class="dash-card">
         <div class="dash-card-label">Study Streak</div>
@@ -6214,28 +5821,19 @@ function renderBigCalendar() {
   document.getElementById('bigCalTitle').textContent = `${monthNames[month]} ${year}`;
 
   const today = new Date();
-  const todayStr = today.toISOString().split('T')[0];
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  // Count done questions per date (keyed by doneDate)
+  // Count done questions per date (calendar only shows DONE questions)
   const doneByDate = {};
-  const srReviewByDate = {}; // date -> {count, reps: [repNum, ...]} for ALL projected future reviews
-  const todayStr2 = localDateStr(0);
-
+  const srReviewByDate = {};
   state.questions.forEach(q => {
-    if (!q.done) return;
-    const markedDate = q.doneDate || q.date;
-    if (markedDate) doneByDate[markedDate] = (doneByDate[markedDate] || 0) + 1;
-
-    // Project ALL future SM-2 review dates (not just the next one)
-    // so every upcoming rep appears on the calendar
-    const sched = projectSM2Schedule(q, 8);
-    sched.forEach(step => {
-      if (!srReviewByDate[step.date]) srReviewByDate[step.date] = { count: 0, minRep: 99 };
-      srReviewByDate[step.date].count++;
-      if (step.rep < srReviewByDate[step.date].minRep) srReviewByDate[step.date].minRep = step.rep;
-    });
+    if (!q.date || !q.done) return;
+    doneByDate[q.date] = (doneByDate[q.date] || 0) + 1;
+    // Track SM-2 review dates
+    if (q.srNextReview) {
+      srReviewByDate[q.srNextReview] = (srReviewByDate[q.srNextReview] || 0) + 1;
+    }
   });
 
   let html = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<div class="big-cal-day-name">${d}</div>`).join('');
@@ -6245,11 +5843,8 @@ function renderBigCalendar() {
     const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const isToday = d === today.getDate() && month === today.getMonth() && year === today.getFullYear();
     const count = doneByDate[dateStr] || 0;
-    const reviewInfo = srReviewByDate[dateStr];
-    const reviewCount = reviewInfo ? reviewInfo.count : 0;
-    const reviewRep = reviewInfo ? reviewInfo.minRep : 0;
+    const reviewCount = srReviewByDate[dateStr] || 0;
     const isSelected = bigCalState.selected === dateStr;
-    const isOverdue = dateStr < todayStr && reviewCount > 0;
 
     let dotsHtml = '';
     if (count > 0) {
@@ -6257,18 +5852,10 @@ function renderBigCalendar() {
       dotsHtml = `<div class="bcd-dots">${'<div class="bcd-dot"></div>'.repeat(dotCount)}</div><div class="bcd-count">✅ ${count} done</div>`;
     }
     if (reviewCount > 0) {
-      const repLabel = reviewRep > 0 ? ` (R${reviewRep})` : '';
-      const reviewLabel = isOverdue ? `⚠️ ${reviewCount} overdue` : `🔁 ${reviewCount}${repLabel}`;
-      const reviewClass = isOverdue ? 'overdue-count' : '';
-      dotsHtml += `<div class="bcd-count ${reviewClass}">${reviewLabel}</div>`;
+      dotsHtml += `<div class="bcd-count" style="color:var(--purple2);">🔁 ${reviewCount} review</div>`;
     }
 
-    const overdueClass = isOverdue && !isToday ? 'sr-overdue' : '';
-    const hasQClass = count > 0 ? 'has-questions' : '';
-    const reviewClass2 = reviewCount > 0 && !isOverdue ? 'due-review' : '';
-    
-
-    html += `<div class="big-cal-day ${isToday ? 'today' : ''} ${hasQClass} ${reviewClass2} ${overdueClass} ${isSelected ? 'selected' : ''}" onclick="bigCalSelectDate('${dateStr}')">
+    html += `<div class="big-cal-day ${isToday ? 'today' : ''} ${count > 0 ? 'has-questions' : ''} ${reviewCount > 0 && count === 0 ? 'due-review' : ''} ${isSelected ? 'selected' : ''}" onclick="bigCalSelectDate('${dateStr}')">
       <div class="bcd-num">${d}</div>
       ${dotsHtml}
     </div>`;
@@ -6276,12 +5863,10 @@ function renderBigCalendar() {
 
   document.getElementById('bigCalGrid').innerHTML = html;
 
+  // Show detail if date selected
   if (bigCalState.selected) {
     bigCalShowDetail(bigCalState.selected);
   }
-
-  // Render SR schedule panel
-  renderSRSchedulePanel();
 }
 
 function bigCalNav(dir) {
@@ -6297,509 +5882,49 @@ function bigCalSelectDate(dateStr) {
 }
 
 function bigCalShowDetail(dateStr) {
+  // Calendar shows DONE questions on their marked date, AND questions due for SM-2 review on this date
+  const doneQs = state.questions.filter(q => q.date === dateStr && q.done);
+  const reviewQs = state.questions.filter(q => q.srNextReview === dateStr && q.done && q.date !== dateStr);
   const detail = document.getElementById('bigCalDetail');
   if (!detail) return;
 
-  const todayStr = localDateStr(0);
   const d = new Date(dateStr + 'T00:00:00');
   const nice = d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-  const topicName = id => { const t = TOPICS.find(t => t.id === id); return t ? t.name : ''; };
-  const isOverdue = dateStr < todayStr;
-  const isToday = dateStr === todayStr;
+  const topic = id => { const t = TOPICS.find(t => t.id === id); return t ? t.name : ''; };
 
-  // Questions completed on this date
-  const doneQs = state.questions.filter(q => q.done && (q.doneDate || q.date) === dateStr);
-
-  // Questions projected to have a SM-2 review on this date (any rep)
-  const reviewEntries = []; // {q, rep, interval}
-  state.questions.forEach(q => {
-    if (!q.done) return;
-    if ((q.doneDate || q.date) === dateStr) return; // skip questions done on this date
-    const sched = projectSM2Schedule(q, 8);
-    const step = sched.find(s => s.date === dateStr);
-    if (step) reviewEntries.push({ q, rep: step.rep, interval: step.interval });
-  });
-
-  if (!doneQs.length && !reviewEntries.length) {
-    detail.innerHTML = `<div class="big-cal-detail-title">📅 ${nice}</div><div style="color:var(--text3);font-size:13px;font-style:italic;padding:4px 0;">No completed questions or reviews scheduled for this date.</div>`;
+  if (!doneQs.length && !reviewQs.length) {
+    detail.innerHTML = `<div class="big-cal-detail-title">📅 ${nice}</div><div style="color:var(--text3);font-size:13px;font-style:italic;">No completed questions or reviews on this date.</div>`;
     return;
   }
 
   let qHtml = '';
-
   if (doneQs.length) {
-    qHtml += `<div style="font-size:11px;font-weight:700;color:var(--accent2);margin:6px 0 4px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.5px;">✅ Completed on this date</div>`;
-    qHtml += doneQs.map((q,i) => {
-      // Show full projected review schedule inline
-      const sched = projectSM2Schedule(q, 5);
-      const schedHtml = sched.map(s => {
-        const isPast = s.date < todayStr, isTd = s.date === todayStr;
-        const col = isPast ? 'var(--red)' : isTd ? 'var(--accent2)' : 'var(--purple2)';
-        return `<span style="color:${col};font-size:9.5px;font-family:'JetBrains Mono',monospace;">R${s.rep}:${s.date}</span>`;
-      }).join(' → ');
-      return `<div class="big-cal-q-item done-q">
-        <div class="q-topic-tag">T${q.topicId} · ${escHtml(topicName(q.topicId))}${q.surveyor ? ' · 👤 '+escHtml(q.surveyor) : ''}</div>
+    qHtml += `<div style="font-size:11px;font-weight:700;color:var(--accent2);margin:6px 0 4px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.5px;">✅ Completed Questions</div>`;
+    qHtml += doneQs.map((q,i) => `
+      <div class="big-cal-q-item done-q">
+        <div class="q-topic-tag">T${q.topicId} · ${escHtml(topic(q.topicId))}${q.surveyor ? ' · 👤 '+escHtml(q.surveyor) : ''}</div>
         <div class="bq-text">${i+1}. ${escHtml(q.text)}</div>
-        <div style="margin-top:4px;">${schedHtml}</div>
-      </div>`;
-    }).join('');
+        ${q.srNextReview ? `<div class="bq-status">🔁 Next review: ${q.srNextReview}</div>` : '<div class="bq-status">✅ Done</div>'}
+      </div>`).join('');
   }
-
-  if (reviewEntries.length) {
-    // Group by topic
-    const byTopic = {};
-    reviewEntries.forEach(e => {
-      const tname = topicName(e.q.topicId) || `Topic ${e.q.topicId}`;
-      if (!byTopic[tname]) byTopic[tname] = [];
-      byTopic[tname].push(e);
-    });
-
-    const reviewHeadColor = isOverdue ? 'var(--red)' : isToday ? 'var(--accent2)' : 'var(--purple2)';
-    const reviewIcon = isOverdue ? '⚠️ OVERDUE REVIEW' : isToday ? '🔁 DUE TODAY' : '🔁 SM-2 Review Due';
-    // Show the rep number range
-    const reps = [...new Set(reviewEntries.map(e => e.rep))].sort((a,b)=>a-b);
-    const repLabel = reps.length === 1 ? `Rep ${reps[0]}` : `Reps ${reps[0]}–${reps[reps.length-1]}`;
-
-    qHtml += `<div style="font-size:11px;font-weight:700;color:${reviewHeadColor};margin:10px 0 4px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.5px;">${reviewIcon} · ${repLabel}</div>`;
-
-    Object.entries(byTopic).forEach(([tname, entries]) => {
-      qHtml += `<div style="font-size:10.5px;font-weight:700;color:var(--text3);margin:5px 0 2px;font-family:'Space Grotesk',sans-serif;">📚 ${escHtml(tname)} (${entries.length})</div>`;
-      qHtml += entries.map((e,i) => `
-        <div class="big-cal-q-item" style="border-color:${isOverdue?'rgba(214,59,59,0.35)':'rgba(109,74,191,0.3)'};background:${isOverdue?'rgba(214,59,59,0.04)':'rgba(109,74,191,0.04)'};">
-          <div class="bq-text">${i+1}. ${escHtml(e.q.text)}</div>
-          <div style="font-size:10px;color:var(--text3);margin-top:2px;">Done: ${e.q.doneDate} · Rep ${e.rep} · Interval ${e.interval}d</div>
-        </div>`).join('');
-    });
+  if (reviewQs.length) {
+    qHtml += `<div style="font-size:11px;font-weight:700;color:var(--purple2);margin:10px 0 4px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.5px;">🔁 Due for SM-2 Review</div>`;
+    qHtml += reviewQs.map((q,i) => `
+      <div class="big-cal-q-item" style="border-color:rgba(109,74,191,0.3);background:rgba(109,74,191,0.04);">
+        <div class="q-topic-tag" style="color:var(--purple2);">T${q.topicId} · ${escHtml(topic(q.topicId))}${q.surveyor ? ' · 👤 '+escHtml(q.surveyor) : ''}</div>
+        <div class="bq-text">${i+1}. ${escHtml(q.text)}</div>
+        <div style="font-size:10px;color:var(--purple2);margin-top:2px;">Originally done: ${q.date}</div>
+      </div>`).join('');
   }
-
-  const reviewLabel = isOverdue && reviewEntries.length > 0
-    ? `<span style="color:var(--red);font-weight:600;">${reviewEntries.length} overdue!</span>`
-    : `${reviewEntries.length} for review`;
 
   detail.innerHTML = `
-    <div class="big-cal-detail-title">📅 ${nice} &nbsp;<span style="font-size:12px;color:var(--text3);font-weight:400;">${doneQs.length} done · ${reviewLabel}</span></div>
+    <div class="big-cal-detail-title">📅 ${nice} &nbsp;<span style="font-size:12px;color:var(--text3);font-weight:400;">${doneQs.length} done · ${reviewQs.length} for review</span></div>
     <div class="big-cal-qs">${qHtml}</div>`;
 }
 
-// ===================== SR SCHEDULE PANEL =====================
-let _srActiveTab = 'today';
-
-function switchSRTab(tab) {
-  _srActiveTab = tab;
-  ['today','week','month'].forEach(t => {
-    const el = document.getElementById('srTab' + t.charAt(0).toUpperCase() + t.slice(1));
-    if (el) el.classList.toggle('active', t === tab);
-  });
-  renderSRSchedulePanel();
-}
-
-// Returns the SM-2 review schedule from doneDate.
-// SM-2 standard intervals from day 0: Rep1=+1d, Rep2=+6d, Rep3=+14d, Rep4=+30d, Rep5=+66d ...
-// Each subsequent interval = previous_interval * easeFactor
-// Each entry = { date: 'YYYY-MM-DD', interval: N, rep: N }
-function projectSM2Schedule(q, maxReps = 8) {
-  if (!q.done || !q.doneDate) return [];
-  const ease = q.srEaseFactor || 2.5;
-  const schedule = [];
-  const base = new Date(q.doneDate + 'T00:00:00');
-
-  // Standard SM-2 intervals (days from doneDate): 1, 6, 14, 35, 88 ...
-  // Rep 1: interval = 1
-  // Rep 2: interval = 6
-  // Rep 3+: interval = prev_interval * easeFactor
-  let interval = 1;
-  for (let rep = 1; rep <= maxReps; rep++) {
-    const reviewDate = new Date(base.getFullYear(), base.getMonth(), base.getDate() + interval);
-    const dateStr = `${reviewDate.getFullYear()}-${String(reviewDate.getMonth()+1).padStart(2,'0')}-${String(reviewDate.getDate()).padStart(2,'0')}`;
-    schedule.push({ date: dateStr, interval, rep });
-    // Compute NEXT interval
-    if (rep === 1) interval = 6;
-    else interval = Math.round(interval * ease);
-    if (interval > 365) break;
-  }
-  return schedule;
-}
-
-// Local date helper
-function localDateStr(offsetDays = 0) {
-  const now = new Date();
-  const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + offsetDays);
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-}
-
-function renderSRSchedulePanel() {
-  const el = document.getElementById('srTabContent');
-  if (!el) return;
-
-  const todayStr = localDateStr(0);
-  const doneQs = state.questions.filter(q => q.done && q.doneDate);
-
-  if (!doneQs.length) {
-    el.innerHTML = `<div class="sr-empty">No done questions yet.<br>Mark questions as ✅ Done to build your revision schedule.</div>`;
-    return;
-  }
-
-  if (_srActiveTab === 'today') {
-    renderSRTabDueNow(el, doneQs, todayStr);
-  } else if (_srActiveTab === 'week') {
-    renderSRTabWeek(el, doneQs, todayStr);
-  } else {
-    renderSRTabByTopic(el, doneQs, todayStr);
-  }
-}
-
-function renderSRTabDueNow(el, doneQs, todayStr) {
-  const overdue = [];
-  const dueToday = [];
-  doneQs.forEach(q => {
-    const nextDue = q.srNextReview;
-    if (!nextDue) return;
-    if (nextDue < todayStr) overdue.push({ q, nextDue });
-    else if (nextDue === todayStr) dueToday.push({ q, nextDue });
-  });
-
-  if (!overdue.length && !dueToday.length) {
-    el.innerHTML = `<div class="sr-empty">🎉 All caught up!<br>No reviews overdue or due today.<br><br>Check the <strong>"This Week"</strong> tab to see your upcoming revision schedule.</div>`;
-    return;
-  }
-
-  const total = overdue.length + dueToday.length;
-  const summaryColor = overdue.length > 0 ? 'var(--red)' : 'var(--accent2)';
-  const summaryBg = overdue.length ? 'rgba(214,59,59,0.06)' : 'rgba(26,158,92,0.06)';
-  let html = `<div style="padding:8px 14px 7px;background:${summaryBg};border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-size:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;color:${summaryColor};">${overdue.length?'⚠️ Action needed':'✅ On schedule'}</span>
-    <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--text3);">${total} question${total!==1?'s':''} to revise</span>
-  </div>`;
-
-  if (overdue.length) {
-    const byDate = {};
-    overdue.forEach(({q, nextDue}) => { if (!byDate[nextDue]) byDate[nextDue] = []; byDate[nextDue].push(q); });
-    html += `<div class="sr-day-group"><div class="sr-day-label" style="background:rgba(214,59,59,0.06);"><span class="sr-day-label-text past-label">⚠️ Overdue — do these first</span><span class="sr-day-count past-count">${overdue.length}</span></div><div class="sr-q-list">`;
-    Object.entries(byDate).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([date, qs]) => {
-      const daysAgo = Math.round((new Date(todayStr+'T00:00:00') - new Date(date+'T00:00:00')) / 86400000);
-      const byTopicInDate = {};
-      qs.forEach(q => { if (!byTopicInDate[q.topicId]) byTopicInDate[q.topicId] = []; byTopicInDate[q.topicId].push(q); });
-      html += `<div style="font-size:10px;color:var(--red);font-family:'Space Grotesk',sans-serif;font-weight:700;margin:5px 0 2px;">📅 Was due ${date} · ${daysAgo}d overdue</div>`;
-      Object.entries(byTopicInDate).forEach(([tid, tqs]) => {
-        const topic = TOPICS.find(t => t.id === parseInt(tid));
-        html += `<div style="font-size:10px;color:var(--text3);font-family:'Space Grotesk',sans-serif;font-weight:600;margin:3px 0 1px;padding-left:4px;border-left:2px solid var(--red);">📚 T${tid} · ${topic ? escHtml(topic.name.substring(0,35)) : ''} (${tqs.length})</div>`;
-        tqs.forEach(q => { html += `<div class="sr-q-item past-item">${escHtml(q.text.substring(0,90))}${q.text.length>90?'…':''}</div>`; });
-      });
-    });
-    html += `</div></div>`;
-  }
-
-  if (dueToday.length) {
-    const byTopic = {};
-    dueToday.forEach(({q}) => { if (!byTopic[q.topicId]) byTopic[q.topicId] = []; byTopic[q.topicId].push(q); });
-    html += `<div class="sr-day-group"><div class="sr-day-label" style="background:rgba(26,158,92,0.06);"><span class="sr-day-label-text today-label">🔁 Due Today — revise these</span><span class="sr-day-count today-count">${dueToday.length}</span></div><div class="sr-q-list">`;
-    Object.entries(byTopic).forEach(([tid, qs]) => {
-      const topic = TOPICS.find(t => t.id === parseInt(tid));
-      html += `<div style="font-size:10.5px;color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:700;margin:5px 0 2px;padding-left:4px;border-left:2px solid var(--accent);">📚 T${tid} · ${topic ? escHtml(topic.name.substring(0,35)) : ''} <span style="font-weight:400;color:var(--text3);">(${qs.length})</span></div>`;
-      qs.forEach(q => {
-        const rep = (q.srRepetitions || 0) + 1;
-        html += `<div class="sr-q-item today-item">${escHtml(q.text.substring(0,88))}${q.text.length>88?'…':''}<div style="font-size:9px;color:var(--text3);margin-top:2px;font-family:'JetBrains Mono',monospace;">Rep #${rep} · Done: ${q.doneDate}</div></div>`;
-      });
-    });
-    html += `</div></div>`;
-  }
-  el.innerHTML = html;
-}
-
-function renderSRTabWeek(el, doneQs, todayStr) {
-  // Build a map: date -> [{q, rep, interval}] using PROJECTED SM-2 schedule
-  // This shows ALL upcoming review dates, not just the stored srNextReview
-  const byDate = {};
-  const overdueDates = new Set();
-
-  doneQs.forEach(q => {
-    const sched = projectSM2Schedule(q, 8);
-    // The first entry in the projected schedule is the "next due" review.
-    // srNextReview stores where we currently are in that schedule.
-    // Show the next 3 projected review dates per question.
-    let foundCurrent = false;
-    sched.forEach((step, i) => {
-      // Only show dates from today onwards (first 3 future reviews per question)
-      if (step.date >= todayStr && i < 3) {
-        if (!byDate[step.date]) byDate[step.date] = [];
-        byDate[step.date].push({ q, rep: step.rep, interval: step.interval });
-      }
-      if (step.date < todayStr) overdueDates.add(step.date);
-    });
-    // If srNextReview is set and differs from projection, honour it
-    if (q.srNextReview && q.srNextReview >= todayStr) {
-      // already included via projection
-    } else if (q.srNextReview && q.srNextReview < todayStr) {
-      overdueDates.add(q.srNextReview);
-    }
-  });
-
-  // Overdue count = questions whose srNextReview is before today
-  const overdueQs = doneQs.filter(q => q.srNextReview && q.srNextReview < todayStr);
-
-  let html = '';
-  if (overdueQs.length > 0) {
-    html += `<div style="padding:8px 18px;background:rgba(214,59,59,0.06);border-bottom:1px solid rgba(214,59,59,0.2);">
-      <span style="font-size:12px;color:var(--red);font-family:'Space Grotesk',sans-serif;font-weight:700;">⚠️ ${overdueQs.length} question${overdueQs.length>1?'s':''} overdue — check "Due Now" tab</span>
-    </div>`;
-  }
-
-  // Sort future dates
-  const futureDates = Object.keys(byDate).filter(d => d >= todayStr).sort();
-
-  if (!futureDates.length && !overdueQs.length) {
-    html += `<div class="sr-empty">No upcoming reviews projected.<br>Mark questions as done to build your SR schedule!</div>`;
-    el.innerHTML = html;
-    return;
-  }
-
-  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
-  futureDates.forEach(dateStr => {
-    const entries = byDate[dateStr] || [];
-    if (!entries.length) return;
-    const isToday = dateStr === todayStr;
-    const dd = new Date(dateStr + 'T00:00:00');
-    const dayLabel = isToday ? 'TODAY' : dayNames[dd.getDay()];
-    const dateLabel = dd.toLocaleDateString('en-IN', { day:'numeric', month:'short' });
-    // Days from today
-    const daysFromNow = Math.round((new Date(dateStr+'T00:00:00') - new Date(todayStr+'T00:00:00')) / 86400000);
-    const daysLabel = isToday ? '' : daysFromNow === 1 ? ' · tomorrow' : ` · in ${daysFromNow}d`;
-
-    // Group by topic
-    const byTopic = {};
-    entries.forEach(({q, rep, interval}) => {
-      if (!byTopic[q.topicId]) byTopic[q.topicId] = [];
-      byTopic[q.topicId].push({q, rep, interval});
-    });
-    const topicsStr = Object.keys(byTopic).map(tid => 'T'+tid).join(', ');
-
-    html += `<div class="sr-day-group">
-      <div class="sr-day-label" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'':'none'">
-        <span class="sr-day-label-text ${isToday?'today-label':''}">
-          <strong>${dayLabel}</strong> · ${dateLabel}${daysLabel}
-          <span style="font-size:10px;color:var(--text3);margin-left:5px;font-weight:400;">${topicsStr}</span>
-        </span>
-        <span class="sr-day-count ${isToday?'today-count':''}">${entries.length}</span>
-      </div>
-      <div class="sr-q-list" style="${isToday?'display:block':'display:none'}">`;
-
-    Object.entries(byTopic).forEach(([tid, items]) => {
-      const topic = TOPICS.find(t => t.id === parseInt(tid));
-      html += `<div style="font-size:10px;color:var(--text3);font-family:'Space Grotesk',sans-serif;font-weight:700;margin:3px 0 1px;padding-left:3px;border-left:2px solid var(--purple2);">📚 ${topic ? escHtml(topic.name.substring(0,38)) : 'T'+tid} (${items.length})</div>`;
-      items.forEach(({q, rep, interval}) => {
-        html += `<div class="sr-q-item ${isToday?'today-item':''}">
-          ${escHtml(q.text.substring(0,85))}${q.text.length>85?'…':''}
-          <div style="font-size:9px;color:var(--text3);margin-top:2px;font-family:'JetBrains Mono',monospace;">Rep #${rep} · interval ${interval}d · done ${q.doneDate}</div>
-        </div>`;
-      });
-    });
-    html += `</div></div>`;
-  });
-
-  el.innerHTML = html || `<div class="sr-empty">No upcoming reviews in the schedule.</div>`;
-}
-
-function renderSRTabByTopic(el, doneQs, todayStr) {
-  const byTopic = {};
-  doneQs.forEach(q => {
-    const tid = q.topicId;
-    if (!byTopic[tid]) byTopic[tid] = [];
-    byTopic[tid].push(q);
-  });
-
-  const topicList = Object.entries(byTopic).map(([tid, qs]) => {
-    const overdue = qs.filter(q => q.srNextReview && q.srNextReview < todayStr);
-    const dueToday = qs.filter(q => q.srNextReview === todayStr);
-    const nextDate = qs.map(q => q.srNextReview).filter(Boolean).sort()[0];
-    return { tid: parseInt(tid), qs, overdue, dueToday, nextDate };
-  }).sort((a,b) => {
-    const aPrio = a.overdue.length ? 0 : a.dueToday.length ? 1 : 2;
-    const bPrio = b.overdue.length ? 0 : b.dueToday.length ? 1 : 2;
-    if (aPrio !== bPrio) return aPrio - bPrio;
-    return (a.nextDate || '9999').localeCompare(b.nextDate || '9999');
-  });
-
-  let html = `<div style="padding:7px 14px 6px;background:rgba(109,74,191,0.04);border-bottom:1px solid var(--border);font-size:11px;color:var(--text3);font-family:'Space Grotesk',sans-serif;">Showing full SM-2 projected review schedule per topic</div>`;
-
-  topicList.forEach(({ tid, qs, overdue, dueToday, nextDate }) => {
-    const topic = TOPICS.find(t => t.id === tid);
-    const topicName = topic ? topic.name : `Topic ${tid}`;
-
-    let badge = '';
-    if (overdue.length) badge = `<span class="sr-date-badge overdue">⚠️ ${overdue.length} overdue</span>`;
-    else if (dueToday.length) badge = `<span class="sr-date-badge due-today">🔁 ${dueToday.length} due today</span>`;
-    else if (nextDate) badge = `<span class="sr-date-badge upcoming">📅 next: ${nextDate}</span>`;
-
-    // Show projected review dates for up to 3 questions
-    const projSample = qs.slice(0,1).map(q => {
-      const sched = projectSM2Schedule(q, 5);
-      return sched.map(s => {
-        const isPast = s.date < todayStr;
-        const isTd = s.date === todayStr;
-        const color = isPast ? 'var(--red)' : isTd ? 'var(--accent2)' : 'var(--text3)';
-        return `<span style="font-size:10px;color:${color};">Rep${s.rep}: ${s.date}</span>`;
-      }).join(' → ');
-    }).join('');
-
-    html += `<div class="sr-topic-row">
-      <span class="sr-topic-id">T${tid}</span>
-      <div style="flex:1;min-width:0;">
-        <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:3px;">
-          <span class="sr-topic-name">${escHtml(topicName.substring(0,42))}${topicName.length>42?'…':''}</span>
-          ${badge}
-        </div>
-        <div style="font-size:10px;color:var(--text3);">${qs.length} q · ${projSample}</div>
-      </div>
-    </div>`;
-  });
-
-  el.innerHTML = html || `<div class="sr-empty">No topics with SR data yet.</div>`;
-}
-
-
-// ===================== PRINT HIGHLIGHTED ANSWERS =====================
-function printHighlightedAnswers(topicId) {
-  const topic = TOPICS.find(t => t.id === topicId);
-  if (!topic) return;
-
-  // Solid print-friendly colours matching the app's highlight colours
-  const hlColours = {
-    yellow: { bg: '#ffe066', text: '#7a5c00' },
-    green:  { bg: '#6ee7b7', text: '#065f46' },
-    cyan:   { bg: '#7dd3fc', text: '#075985' },
-    pink:   { bg: '#f9a8d4', text: '#831843' },
-    orange: { bg: '#fdba74', text: '#7c2d12' },
-  };
-
-  // Extract all <mark class="ans-hl" data-hl="COLOR">TEXT</mark> from an HTML string
-  // Returns array of { color, text (plain text, no tags) }
-  function extractHighlights(html) {
-    if (!html) return [];
-    const marks = [];
-    // Use regex to find all ans-hl marks (handles nested tags inside mark)
-    const re = /<mark[^>]*class="ans-hl"[^>]*data-hl="([^"]+)"[^>]*>([\s\S]*?)<\/mark>/g;
-    let m;
-    while ((m = re.exec(html)) !== null) {
-      const color = m[1];
-      // Strip inner HTML tags to get plain text
-      const plainText = m[2].replace(/<[^>]+>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ').trim();
-      if (plainText) marks.push({ color, text: plainText });
-    }
-    return marks;
-  }
-
-  // Get all questions for this topic that have at least one highlight mark
-  const qs = state.questions.filter(q => {
-    if (q.topicId !== topicId) return false;
-    const hasHl = (html) => html && /<mark[^>]*class="ans-hl"/.test(html);
-    return hasHl(q.manualAnswer) || hasHl(q.aiAnswer);
-  });
-
-  if (!qs.length) {
-    alert(`No highlighted text found in T${topicId} — ${topic.name}.\n\nSelect text in any answer and use the colour toolbar to add highlights first.`);
-    return;
-  }
-
-  const printDate = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
-
-  // Build question blocks — only highlighted snippets
-  let body = '';
-  qs.forEach((q, i) => {
-    const manualMarks = extractHighlights(q.manualAnswer);
-    const aiMarks     = extractHighlights(q.aiAnswer);
-    if (!manualMarks.length && !aiMarks.length) return;
-
-    body += `<div class="q-block">
-      <div class="q-num">Q${i + 1}</div>
-      <div class="q-text">${escHtml(q.text)}</div>
-      <div class="highlights-wrap">`;
-
-    // Merge all marks, group by colour for a clean layout
-    const allMarks = [
-      ...manualMarks.map(m => ({ ...m, src: 'my' })),
-      ...aiMarks.map(m => ({ ...m, src: 'ai' }))
-    ];
-
-    allMarks.forEach(({ color, text, src }) => {
-      const c = hlColours[color] || hlColours.yellow;
-      body += `<span class="hl-chip" style="background:${c.bg};color:${c.text};" title="${src === 'ai' ? 'AI Answer' : 'My Answer'}">${escHtml(text)}</span>`;
-    });
-
-    body += `</div></div>`;
-  });
-
-  if (!body.trim()) {
-    alert('No highlighted snippets to print in this topic.');
-    return;
-  }
-
-  // Legend HTML
-  const legendHtml = Object.entries(hlColours).map(([name, c]) =>
-    `<span class="leg-item"><span class="leg-dot" style="background:${c.bg};"></span>${name.charAt(0).toUpperCase()+name.slice(1)}</span>`
-  ).join('');
-
-  const printHtml = `<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>MEO — T${topicId} Highlights</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Georgia, serif; font-size: 13px; color: #0f172a; line-height: 1.6; padding: 28px 36px; }
-
-  .print-header { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #1e293b; }
-  .print-header h1 { font-size: 18px; font-weight: 700; }
-  .print-header .sub { font-size: 11px; color: #475569; margin-top: 4px; font-family: sans-serif; }
-  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
-  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-family: sans-serif; color: #334155; }
-  .leg-dot { width: 13px; height: 13px; border-radius: 3px; display: inline-block; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-  .q-block { margin-bottom: 18px; border: 1px solid #e2e8f0; border-radius: 7px; padding: 12px 15px; page-break-inside: avoid; }
-  .q-num { font-size: 10px; font-weight: 700; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
-  .q-text { font-size: 13.5px; font-weight: 700; color: #0f172a; margin-bottom: 10px; line-height: 1.5; }
-
-  .highlights-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-  .hl-chip {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 5px;
-    font-size: 12.5px;
-    line-height: 1.5;
-    font-family: Georgia, serif;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  @media print {
-    body { padding: 16px 22px; }
-    .q-block { page-break-inside: avoid; }
-  }
-</style>
-</head>
-<body>
-  <div class="print-header">
-    <h1>🖍️ T${topicId} — ${escHtml(topic.name)}</h1>
-    <div class="sub">
-      ${qs.length} question${qs.length !== 1 ? 's' : ''} with highlights &nbsp;·&nbsp; MEO Class I &nbsp;·&nbsp; ${printDate}
-    </div>
-    <div class="legend">${legendHtml}</div>
-  </div>
-  ${body}
-  <script>window.onload = () => window.print();<\/script>
-</body>
-</html>`;
-
-  const win = window.open('', '_blank', 'width=860,height=700');
-  if (!win) { alert('Please allow popups for this page to use the print feature.'); return; }
-  win.document.write(printHtml);
-  win.document.close();
-}
-
+// ===================== EXAM DATE / COUNTDOWN =====================
 function saveExamDate() {
-  const examEl = document.getElementById('examDateInput');
-  if (!examEl) return;
-  const val = examEl.value;
+  const val = document.getElementById('examDateInput').value;
   localStorage.setItem('meo_exam_date', val);
   // Exam date changed — today's already-generated plan was based on the old pace, so
   // regenerate it fresh rather than leaving a stale target count in place for the rest of the day.
@@ -7193,27 +6318,18 @@ function loadDataFile(event) {
   if (!file) return;
   const reader = new FileReader();
   reader.onload = function(e) {
-    let data;
     try {
-      data = JSON.parse(e.target.result);
-    } catch (err) {
-      showToast('❌ That file isn\'t valid JSON: ' + err.message, 'error');
-      event.target.value = '';
-      return;
+      const data = JSON.parse(e.target.result);
+      if (!data.questions || !Array.isArray(data.questions)) throw new Error('Invalid file');
+      if (!confirm('This will REPLACE all current questions with the file data. Continue?')) return;
+      state.questions = data.questions;
+      if (data.streak) localStorage.setItem('meo_streak', JSON.stringify(data.streak));
+      saveState();
+      renderAll();
+      showToast('✅ Data loaded! ' + data.questions.length + ' questions imported.', 'success');
+    } catch(err) {
+      showToast('❌ Invalid file. Please use a file exported from this app.', 'error');
     }
-    const questions = amendFindQuestionsArray(data);
-    if (!questions) {
-      const keys = (data && typeof data === 'object') ? Object.keys(data).join(', ') : typeof data;
-      showToast(`❌ No questions array found in this file (top-level keys: [${keys || 'none'}]). Use a file exported from this app.`, 'error');
-      event.target.value = '';
-      return;
-    }
-    if (!confirm('This will REPLACE all current questions with the file data. Continue?')) { event.target.value = ''; return; }
-    state.questions = questions;
-    if (data.streak) localStorage.setItem('meo_streak', JSON.stringify(data.streak));
-    saveState();
-    renderAll();
-    showToast('✅ Data loaded! ' + questions.length + ' questions imported.', 'success');
   };
   reader.readAsText(file);
   event.target.value = '';
@@ -7236,10 +6352,9 @@ function applySM2(q, quality) {
     q.srInterval = 1;
   }
   q.srEaseFactor = Math.max(1.3, q.srEaseFactor + 0.1 - (5-quality)*(0.08 + (5-quality)*0.02));
-  // Use local date to avoid UTC timezone shift issues
-  const now = new Date();
-  const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + q.srInterval);
-  q.srNextReview = `${next.getFullYear()}-${String(next.getMonth()+1).padStart(2,'0')}-${String(next.getDate()).padStart(2,'0')}`;
+  const next = new Date();
+  next.setDate(next.getDate() + q.srInterval);
+  q.srNextReview = next.toISOString().split('T')[0];
 }
 
 function getSRBadge(q) {
@@ -8992,925 +8107,6 @@ function buildCheatPage() {
   </div>`;
 }
 
-// ===================== AMENDMENTS & CIRCULARS TAB =====================
-const AMEND_CATEGORIES = [
-  { id: 'all',      label: '🌐 All' },
-  { id: 'recent',   label: '🆕 Recent (in force)' },
-  { id: 'upcoming', label: '⏳ Upcoming' },
-  { id: 'dgs',      label: '🇮🇳 DGS / DGMA' },
-  { id: 'irclass',  label: '🛡️ IRClass' },
-  { id: 'msc',   label: 'MSC' },
-  { id: 'mepc',  label: 'MEPC' },
-  { id: 'stcw',  label: 'STCW' },
-  { id: 'marpol',label: 'MARPOL' },
-  { id: 'solas', label: 'SOLAS' },
-];
-
-// Curated, hand-verified dataset of real IMO amendments (recent + upcoming) and
-// real Indian DGS/DGMA + IRClass circulars, each with a working official link.
-// This is the baseline shown immediately and on every "Fetch Latest" — it does NOT
-// depend on an LLM's memory, so dates, resolution numbers and links are accurate.
-// "AMEND_DATA_VERSION" below should be bumped whenever this list is revised.
-const AMEND_DATA_VERSION = '2026-06-20';
-const AMEND_CURATED = [
-  // ---- RECENT (entered into force, within last ~2 years) ----
-  {
-    category: 'IMO', status: 'recent', title: 'Mandatory reporting of lost freight containers (MARPOL/SOLAS)',
-    date: '1 January 2026', resolution: 'Res. MSC.476(108) / MEPC.391(82)', inForce: '1 January 2026',
-    summary: 'Masters must now report freight containers lost overboard to nearby ships, the coastal State and the flag State. Amends MARPOL Protocol I and SOLAS reg. V/31–32.',
-    detail: 'Following IMO\'s review of container-loss incidents, MARPOL Protocol I (reports on incidents involving harmful substances) and SOLAS chapter V were amended so the master of any ship involved in a container loss must communicate particulars to ships in the vicinity, the nearest coastal State, and the flag State, who must in turn notify IMO. This addresses navigational hazards and marine pollution from containers lost at sea, a growing concern given rising lost-container incidents.',
-    url: 'https://www.imo.org/en/mediacentre/pressbriefings/pages/raft-of-shipping-rules-in-force-from-1-january-2026.aspx'
-  },
-  {
-    category: 'STCW', status: 'recent', title: 'STCW training on violence, harassment & sexual assault',
-    date: '1 January 2026', resolution: 'Res. MSC.560(108)', inForce: '1 January 2026',
-    summary: 'New mandatory minimum training in STCW Code Table A-VI/1-4 (PSSR) on preventing and responding to bullying, harassment and sexual assault onboard.',
-    detail: 'Amendments to STCW Code Table A-VI/1-4 (personal safety and social responsibility) introduce mandatory basic training and instruction covering awareness of violence, harassment (including sexual harassment), bullying, and appropriate response mechanisms. Several administrations (UK MCA, Norway, Poland) have clarified seafarers with valid PSSR certificates are not required to immediately retake the course — the topic is typically folded into refresher/familiarization training.',
-    url: 'https://www.imo.org/en/mediacentre/pressbriefings/pages/raft-of-shipping-rules-in-force-from-1-january-2026.aspx'
-  },
-  {
-    category: 'SOLAS', status: 'recent', title: 'Mandatory safety requirements for lifting appliances & anchor-handling winches',
-    date: '1 January 2026', resolution: 'New SOLAS reg. II-1/3-13 (Res. MSC.532(107)); winch guidance MSC.1/Circ.1662',
-    inForce: '1 January 2026',
-    summary: 'New SOLAS regulation requires onboard lifting appliances and anchor-handling winches to be designed, installed, tested and periodically examined to the Administration\'s satisfaction.',
-    detail: 'New SOLAS chapter II-1 regulation 3-13 introduces mandatory safety requirements for lifting appliances (cranes, davits, etc.) carried onboard. Anchor-handling winches installed on or after 1 Jan 2026 must be designed/constructed/tested per MSC.1/Circ.1662; winches installed earlier must be tested and examined no later than the first SAFCON renewal survey on/after 1 Jan 2026. DG Shipping issued MS Notice 02 of 2026 to implement this on Indian-flag vessels.',
-    url: 'https://north-standard.com/insights-and-resources/resources/articles/2026-incoming-regulations'
-  },
-  {
-    category: 'IMO', status: 'recent', title: 'LSA Code amendments — lifeboat release hooks & ventilation',
-    date: '1 January 2026', resolution: 'LSA Code amendments (MSC)', inForce: '1 January 2026',
-    summary: 'Lifeboat hooks must not support load unless fully reset and cannot release until the boat is waterborne; totally enclosed lifeboats need improved ventilation (≥5 m³/h per person, operable from inside).',
-    detail: 'IMO amended the LSA Code following lifeboat-release accidents: on-load release hooks must not be capable of supporting any load unless fully reset, and must not release the boat until it is completely waterborne. A separate amendment requires totally enclosed lifeboats to maintain a habitable ventilation rate of at least 5 m³/h per occupant, with the means of ventilation operable from inside the lifeboat.',
-    url: 'https://north-standard.com/insights-and-resources/resources/articles/2026-incoming-regulations'
-  },
-  {
-    category: 'MARPOL', status: 'recent', title: 'IMDG Code Amendment 42-24 enters into force',
-    date: '1 January 2026', resolution: 'MSC.556(108) — IMDG Amdt. 42-24', inForce: '1 January 2026 (voluntary from 1 Jan 2025)',
-    summary: 'Revised IMDG Code incorporating Amendment 42-24 is now mandatory — updated segregation, packing and marking requirements for dangerous goods.',
-    detail: 'The IMDG Code\'s biennial update (Amendment 42-24) became mandatory on 1 January 2026, having been available for voluntary early application from 1 January 2025. Key changes include new segregation requirements for alcoholates, amendments to special provisions SP53/SP48 for liquid organic substances, and clarifications distinguishing UN 1362 (carbon, activated) entries.',
-    url: 'https://www.irclass.org/media/8170/encl-1-new-imo-requirements-coming-into-force-untill-2025.pdf'
-  },
-  {
-    category: 'STCW', status: 'recent', title: 'STCW-F Convention & Code (fishing vessel personnel) enter into force',
-    date: '1 January 2026', resolution: 'Revised STCW-F Convention/Code', inForce: '1 January 2026',
-    summary: 'Harmonised training, certification and competence standards for fishing vessel personnel become mandatory under the revised STCW-F Convention and new mandatory STCW-F Code.',
-    detail: 'Following a comprehensive review, the revised STCW-F Convention annex provides the legal framework for mandatory technical standards in Part A of the new STCW-F Code, with Part B offering non-mandatory guidance on implementation. This establishes, for the first time, harmonised minimum competence levels for fishing vessel crews globally.',
-    url: 'https://maritime-executive.com/corporate/imo-raft-of-shipping-rules-in-force-from-january-1-2026'
-  },
-  {
-    category: 'MARPOL', status: 'recent', title: 'Mediterranean Sulphur Emission Control Area (Med SOx ECA)',
-    date: 'Adopted Dec 2022', resolution: 'MEPC amendments to MARPOL Annex VI', inForce: '1 May 2024 (effect from 1 May 2025)',
-    summary: 'The Mediterranean Sea became a sulphur/PM Emission Control Area — ships must use fuel ≤0.10% sulphur or an equivalent exhaust gas cleaning system.',
-    detail: 'Adopted at MEPC 79, this amendment designates the Mediterranean Sea as an Emission Control Area for SOx and particulate matter, matching the 0.10% sulphur limit already in force in the Baltic, North Sea, and North American ECAs. The amendment entered into force 1 May 2024 but enforcement began 1 May 2025, giving operators a year to adapt bunkering and compliance arrangements.',
-    url: 'https://www.clydeco.com/en/insights/2023/01/adoption-of-amendments-to-marpol-annex-vi'
-  },
-  {
-    category: 'MARPOL', status: 'recent', title: 'Bunker Delivery Note flashpoint info; CII/EEXI data to IMO Ship Fuel Oil DB',
-    date: 'Adopted Dec 2022', resolution: 'MARPOL Annex VI, Appendix V & IX amendments', inForce: '1 May 2024',
-    summary: 'BDNs must state flashpoint (or confirm it is ≥70°C); attained/required CII and EEXI values must be reported to IMO\'s fuel oil consumption database.',
-    detail: 'Appendix V of MARPOL Annex VI was amended to require flashpoint information on the Bunker Delivery Note, with an alternative statement option if flashpoint is confirmed at or above 70°C. Appendix IX was amended so the attained/required Carbon Intensity Indicator (CII), CII rating, and attained EEXI must be reported to the IMO Ship Fuel Oil Consumption Database — both entered into force 1 May 2024, with early voluntary reporting allowed from 1 January 2024.',
-    url: 'https://www.clydeco.com/en/insights/2023/01/adoption-of-amendments-to-marpol-annex-vi'
-  },
-  {
-    category: 'IMO', status: 'recent', title: 'International Code of Safety for Ships Carrying Industrial Personnel (IP Code)',
-    date: 'Adopted 2022', resolution: 'IP Code (mandatory under SOLAS)', inForce: '1 July 2024',
-    summary: 'New mandatory code sets safety standards for ships carrying more than 12 industrial personnel (e.g. offshore wind crew transfer/accommodation vessels).',
-    detail: 'The IP Code addresses the rapid growth of ships transporting industrial personnel — particularly for the offshore renewable energy sector — establishing structural, life-saving, fire-safety and operational requirements distinct from passenger ship rules. It entered into force 1 July 2024 and is now reflected in IMO\'s Member State Audit Scheme survey checklists.',
-    url: 'https://www.imo.org/en/mediacentre/meetingsummaries/pages/iii-11th-session.aspx'
-  },
-
-  // ---- UPCOMING (not yet in force) ----
-  {
-    category: 'IMO', status: 'upcoming', title: 'IMO Net-Zero Framework (GFI standard + GHG pricing / Net-Zero Fund)',
-    date: 'Adopted (extraordinary MEPC session, 2025)', resolution: 'New MARPOL Annex VI Chapter 5', inForce: 'Earliest 1 March 2027',
-    summary: 'Landmark global measure setting a mandatory greenhouse-gas fuel intensity (GFI) standard and GHG pricing mechanism for ships ≥5,000 GT, applying to ~85% of shipping CO2 emissions.',
-    detail: 'The Net-Zero Framework introduces a new Chapter 5 to MARPOL Annex VI, requiring ships above 5,000 GT to meet a declining annual GHG Fuel Intensity (GFI) target (a "Base" and stricter "Direct Compliance" tier) and to participate in an economic mechanism (IMO Net-Zero Fund) for ships that don\'t meet targets. Assuming acceptance under the tacit-acceptance procedure, it enters into force no earlier than 1 March 2027. Roughly sixteen sets of supporting guidelines are being developed through MEPC 84–86 (2026–2027).',
-    url: 'https://www.zerocarbonshipping.com/news/countdown-how-the-imo-process-works-for-the-nzf'
-  },
-  {
-    category: 'MARPOL', status: 'upcoming', title: 'North-East Atlantic designated as new Emission Control Area (ECA)',
-    date: 'Adopted MEPC 84, April/May 2026', resolution: 'MARPOL Annex VI amendment (NE Atlantic ECA)', inForce: '1 September 2027 (SOx/PM limit from Sept 2028)',
-    summary: 'A vast new SOx/NOx/PM Emission Control Area covering UK, Ireland, France, Spain, Portugal, Iceland, Faroes and Greenland waters — set to become the world\'s largest ECA.',
-    detail: 'Adopted at MEPC 84 (27 Apr–1 May 2026), this amendment to MARPOL Annex VI designates the exclusive economic zones and territorial seas (up to 200nm from baselines) of Greenland, Iceland, the Faroes, Ireland, the UK, France, Spain and Portugal as an Emission Control Area. It enters into force 1 September 2027, but the 0.10% sulphur fuel requirement only becomes enforceable from 1 September 2028 (12 months later). Ships built with keel-laid on/after 1 Jan 2027 must additionally meet Tier III NOx limits when transiting Canadian Arctic / Norwegian Sea ECAs from 1 March 2026/2027.',
-    url: 'https://www.manifoldtimes.com/news/dnv-north-east-atlantic-joins-expanding-network-of-ecas'
-  },
-  {
-    category: 'MARPOL', status: 'upcoming', title: 'Canadian Arctic & Norwegian Sea ECAs — sulphur compliance phase-in',
-    date: 'Adopted (MEPC.392(82))', resolution: 'MEPC.392(82)', inForce: 'NOx Tier III: 1 March 2026 · Sulphur 0.10%: 1 March 2027',
-    summary: 'Two new ECAs in the Canadian Arctic and Norwegian Sea begin enforcing low-sulphur fuel rules from March 2027, with Tier III NOx already phasing in from March 2026.',
-    detail: 'MEPC.392(82) designated the Canadian Arctic and the Norwegian Sea as new Emission Control Areas under MARPOL Annex VI. NOx Tier III compliance (for ships with keels laid on/after 1 Jan 2025 operating in the Canadian Arctic ECA) is required from 1 March 2026, while the 0.10% sulphur fuel-content requirement for both ECAs takes effect 1 March 2027.',
-    url: 'https://north-standard.com/insights-and-resources/resources/articles/2026-incoming-regulations'
-  },
-  {
-    category: 'MEPC', status: 'upcoming', title: 'Ballast Water Management Convention — package of amendments (post-EBP review)',
-    date: 'Approved MEPC 84, April/May 2026', resolution: 'BWM Convention amendments (pending adoption)', inForce: 'Expected ~2027–2028 (typical BWM amendment cycle)',
-    summary: 'A package of amendments refining BWM Convention implementation following the Experience-Building Phase review — closing regulatory gaps identified since the Convention\'s 2017 entry into force.',
-    detail: 'MEPC 84 approved amendments to the Ballast Water Management Convention and associated instruments, the outcome of a structured Experience-Building Phase (EBP) review. The amendments touch multiple regulations and Annex appendices to refine practical implementation (e.g. commissioning testing, sampling, and Ballast Water Management Plan requirements). Formal adoption and the resulting entry-into-force date will follow at a subsequent MEPC session.',
-    url: 'https://www.marineinsight.com/imo-progresses-work-on-ship-emissions-pollution-and-ocean-protection/'
-  },
-  {
-    category: 'IMO', status: 'upcoming', title: 'MASS Code (autonomous ships) — non-mandatory code takes effect',
-    date: 'Adopted 2025/26', resolution: 'New International Code of Safety for MASS', inForce: '1 July 2026 (non-mandatory); mandatory code expected 2032',
-    summary: 'IMO\'s first dedicated code for Maritime Autonomous Surface Ships (MASS) takes effect on a non-mandatory basis for cargo ships from 1 July 2026.',
-    detail: 'The MASS Code sets a goal-based framework so remotely-controlled or autonomous ships meet a safety/security/environmental standard equivalent to conventional ships, while remaining subject to SOLAS and other mandatory instruments. It applies to cargo ships and takes effect 1 July 2026 on a non-mandatory basis. IMO\'s roadmap envisions an Experience-Building Phase through 2026–2028, with a mandatory MASS Code targeted for adoption by mid-2030 and entry into force 1 January 2032.',
-    url: 'https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-adopts-mass-code.aspx'
-  },
-  {
-    category: 'MEPC', status: 'upcoming', title: 'CII reduction factors tighten 2027–2030 (11% → 21.5%)',
-    date: 'Adopted (existing CII framework, factors updated)', resolution: 'MARPOL Annex VI, CII reduction factor table', inForce: 'Phasing 1 Jan 2027 – 1 Jan 2030',
-    summary: 'Carbon Intensity Indicator (CII) annual reduction factors step up progressively from 11% (2026 baseline) toward 21.5% by 2030, tightening attainable CII ratings each year.',
-    detail: 'Under the existing CII short-term measure, MEPC has set increasingly stringent annual reduction factors relative to the 2019 baseline, rising from 11% in 2026 to 21.5% in 2030. Ships will need to progressively improve operational efficiency (speed, routing, hull/propeller maintenance) or risk a worsening CII rating, which can trigger corrective action plans under the SEEMP.',
-    url: 'https://dieselnet.com/news/2025/04imo.php'
-  },
-  {
-    category: 'IMO', status: 'upcoming', title: 'III Code / Non-exhaustive list update — new IMSAS survey items',
-    date: 'Adopted IMO Assembly A34, Dec 2025', resolution: 'A.1187 (revoking A.1186/A.1187 series)', inForce: 'New survey guidelines from 1 Jan 2026; obligations to 1 July 2026 captured',
-    summary: 'Updated IMO Instruments Implementation (III) Code "Non-exhaustive list" of obligations — used for IMO Member State Audits — now captures requirements entering into force up to 1 July 2026 (GMDSS, waste reception facilities, hull-thickness measurement auditing, etc).',
-    detail: 'The 34th IMO Assembly (Dec 2025) adopted an updated Non-exhaustive list of obligations under instruments relevant to the III Code, used as the basis for IMO Member State Audit Scheme (IMSAS) audits. It reflects new requirements entering into force by 1 July 2026, including those on GMDSS, regional waste reception facilities, and auditing of firms conducting hull thickness measurements. Revised survey guidelines (remote surveys, ISM/ISPS audits) take effect from 1 January 2026.',
-    url: 'https://www.imo.org/en/mediacentre/meetingsummaries/pages/iii-11th-session.aspx'
-  },
-
-  // ---- INDIA: DGS / DGMA circulars (real, dated) ----
-  {
-    category: 'DGMA', status: 'recent', title: 'DGS Circular 31 of 2026 — Gulf security advisory for Indian seafarers',
-    date: '13 June 2026', resolution: 'DGS Circular No. 31 of 2026', inForce: 'Effective immediately',
-    summary: 'Updated precautionary advisory for Indian seafarers and shipping stakeholders given the heightened security situation in the Gulf region, Strait of Hormuz and adjacent waters.',
-    detail: 'DG Shipping (now transitioning to DGMA) issued this advisory urging continuous monitoring of vessels in the Persian Gulf / Strait of Hormuz / Arabian Sea, strict adherence to maritime security protocols, and close coordination with RPSL companies and ship operators given recent attacks on merchant vessels in the region.',
-    url: 'https://dgma.gov.in/download/1781367001_6a2d80d95b106_dgs-circular-no31-of-2026-advisory-4.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Implementation of Hong Kong Convention (ship recycling) on Indian-flag vessels',
-    date: '18 June 2026', resolution: 'DGMA Circular, June 2026', inForce: 'Effective immediately',
-    summary: 'Guidance on implementing the Hong Kong International Convention for Safe and Environmentally Sound Recycling of Ships, 2009 on Indian-flag vessels, plus type-approval/certification for India-manufactured ship recycling equipment.',
-    detail: 'This circular operationalises the Hong Kong Convention (which entered into force globally on 26 June 2025) for the Indian fleet, covering Inventory of Hazardous Materials (IHM) requirements and the certification pathway for equipment, materials and appliances manufactured in India for shipboard use under the Convention.',
-    url: 'https://dgma.gov.in/download/1781844681_6a34cac9ef380_implementation-of-the-hong-kong-international-convention-for-the-safe-and-environmentally-sound-recycling-of-ships-2009-on-indian-flag-vessels-and-type-approval-certification-of-the-equipment.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Merchant Shipping (Radiocommunication) Rules, 2026 notified',
-    date: '20 May 2026', resolution: 'MS (Radiocommunication) Rules, 2026', inForce: 'As notified, 20 May 2026',
-    summary: 'New rules under the Merchant Shipping Act, 2025 governing GMDSS and radiocommunication requirements for Indian-flag vessels.',
-    detail: 'Notified under the new Merchant Shipping Act, 2025 (which is progressively replacing the 1958 Act), these rules update India\'s domestic radiocommunication/GMDSS requirements to align with current IMO/ITU standards.',
-    url: 'https://dgma.gov.in/download/1780571159_6a215c175c1af_ms-radiocommunication-rules-2026-notified-on-200526.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Merchant Shipping (Prevention of Pollution by Garbage from Vessels) Rules, 2026',
-    date: '20 May 2026', resolution: 'MS (Garbage Pollution Prevention) Rules, 2026', inForce: 'As notified, 20 May 2026',
-    summary: 'Domestic rules implementing MARPOL Annex V (garbage) requirements for Indian-flag vessels under the new Merchant Shipping Act, 2025.',
-    detail: 'These rules transpose MARPOL Annex V garbage management and record-keeping obligations into Indian domestic law under the new Merchant Shipping Act, 2025, replacing the corresponding provisions previously made under the 1958 Act.',
-    url: 'https://dgma.gov.in/download/1781180977_6a2aaa31419ce_ms-prevention-of-pollution-by-garbage-from-vessels-rules-2026-notified-on-200526.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'DGS Circular 21 of 2026 — New Examination Module & data migration for MEO/Deck officers',
-    date: '30 April 2026', resolution: 'DGS Circular No. 21 of 2026', inForce: 'Effective per rollout schedule',
-    summary: 'Launch of the new online examination module for Merchant Navy officer examinations (including MEO grades) and migration of candidate data to the new e-Samudra-linked system.',
-    detail: 'This circular announces DG Shipping\'s rollout of a revamped examination module for officer CoC examinations, with candidate records migrated to the new system. Candidates preparing for MEO Class I/II should check the latest exam schedule and notices on the DGMA site for module-specific instructions.',
-    url: 'https://dgma.gov.in/download/1777556445_69f35bdde4430_dgscircular21of2026.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Extension of validity of CoCs/CoPs/STCW certificates — Middle East security situation',
-    date: '29 March 2026', resolution: 'DGS Circular No. 17 of 2026', inForce: 'Effective immediately, time-limited extension',
-    summary: 'Temporary extension of validity for Certificates of Competency, Certificates of Proficiency and other STCW certificates for seafarers unable to attend renewal/examination due to the security situation in the Middle East / West Asia.',
-    detail: 'In response to travel and operational disruption from the regional security situation, DG Shipping granted a time-bound extension to CoC/CoP/STCW certificate validity so affected seafarers are not penalised for being unable to attend renewal courses or examinations on schedule.',
-    url: 'https://dgma.gov.in/download/1774790234_69c9265a152b6_dgs-cir-17-of-2026-extension-of-cocs-and-certificates.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Implementation of STCW Polar Waters training requirements (Reg. V/4)',
-    date: '9 March 2026', resolution: 'MSC.416(97) & MSC.417(97); DGS Circular 13 of 2026', inForce: 'Implementation circular issued 9 March 2026',
-    summary: 'DG Shipping circular implementing the 2016 STCW amendments on training/certification for officers serving on ships operating in polar waters.',
-    detail: 'This circular operationalises IMO resolutions MSC.416(97) and MSC.417(97) — the STCW Polar Code training requirements (Basic and Advanced Training for Ships Operating in Polar Waters, regulation V/4) — specifying how Indian seafarers and MTIs should comply.',
-    url: 'https://dgma.gov.in/download/1775416747_69d2b5abd7224_202603091244007796538dgscir13of2026.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Implementation of STCW Reg. V/2 — passenger ship training requirements (2016 amendments)',
-    date: '9 March 2026', resolution: 'DGS Circular No. 12 of 2026', inForce: 'Implementation circular issued 9 March 2026',
-    summary: 'DG Shipping circular implementing the 2016 STCW amendments to regulation V/2 — training and certification requirements for personnel serving on passenger ships.',
-    detail: 'This circular gives Indian implementation guidance for STCW regulation V/2 training requirements (crowd management, crisis management, human behaviour, safety/survival training and passenger ship familiarisation) applicable to officers and crew on passenger ships.',
-    url: 'https://dgma.gov.in/download/1775417064_69d2b6e89757a_202603091242458600381dgscir12of2026.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'Requirements for carriage of plastic pellets by sea in freight containers',
-    date: '3 April 2026', resolution: 'DGS Circular, April 2026', inForce: 'Effective immediately',
-    summary: 'New Indian requirements for the safe carriage of plastic pellets (a growing source of marine microplastic pollution) in freight containers, ahead of IMO\'s mandatory code under development.',
-    detail: 'This circular pre-empts IMO\'s mandatory code for plastic pellet carriage (currently being drafted by PPR 14 under MEPC instruction) by setting interim Indian requirements for packaging, container condition checks and documentation when shipping plastic pellets, following several high-profile pellet-spill pollution incidents worldwide.',
-    url: 'https://dgma.gov.in/download/1775725749_69d76cb5c1317_final-dgs-cir-on-plastic-pellets-03042026.pdf'
-  },
-  {
-    category: 'DGMA', status: 'recent', title: 'MS Notice 02 of 2026 — Lifting appliances & anchor-handling winches on Indian-flag vessels',
-    date: '22 January 2026', resolution: 'Merchant Shipping Notice No. 02 of 2026', inForce: '1 January 2026 (aligned with SOLAS reg. II-1/3-13)',
-    summary: 'Indian implementation notice for the new SOLAS regulation II-1/3-13 mandatory safety requirements for shipboard lifting appliances and anchor-handling winches.',
-    detail: 'Mirrors the IMO entry-into-force date of 1 January 2026 for SOLAS reg. II-1/3-13, giving Indian-flag vessel owners/operators specific guidance on survey, certification and testing of cranes, davits and anchor-handling winches per MSC.1/Circ.1662.',
-    url: 'https://dgma.gov.in/download/1769084232_69721548e82c4_ms-notice-02-of-2026-on-lifting-appliances-21012026-1.pdf'
-  },
-
-  // ---- INDIA: IRClass technical circulars ----
-  {
-    category: 'IRCLASS', status: 'recent', title: 'IRClass: Elevation of ship security level — Arabian Gulf / Strait of Hormuz',
-    date: '2026 (Technical Circular No. 008/2026)', resolution: 'IRClass Technical Circular No. 008/2026', inForce: 'Effective immediately',
-    summary: 'IRClass circular flagging the elevated ship security level due to military operations in the Arabian Gulf, Gulf of Oman, Strait of Hormuz and Arabian Sea.',
-    detail: 'Indian Register of Shipping (IRClass) issued this technical circular advising flag/classed vessels of heightened security risk in the region, aligning with DG Shipping advisories, and recommending enhanced ISPS Code vigilance and voyage planning precautions.',
-    url: 'https://www.irclass.org/technical-circulars/'
-  },
-  {
-    category: 'IRCLASS', status: 'recent', title: 'IRClass: PSC detainable deficiencies — China MSA & Black Sea MoU (Panama-flag, 2025 data)',
-    date: '2026 (Technical Circular No. 009/2026)', resolution: 'IRClass Technical Circular No. 009/2026', inForce: 'Informational',
-    summary: 'Summary of key detainable deficiencies identified by China MSA and Black Sea MoU Port State Control during 2025 inspections of Panama-flagged vessels, for owner/operator awareness.',
-    detail: 'IRClass periodically issues PSC-deficiency trend circulars to help owners and crews anticipate common inspection findings. This circular covers detainable deficiencies found by China MSA and the Black Sea MoU specifically on Panama-flagged tonnage during 2025.',
-    url: 'https://www.irclass.org/technical-circulars/'
-  },
-  {
-    category: 'IRCLASS', status: 'recent', title: 'IRClass: Safe voyage planning advisory for ageing general cargo ships near A&N Islands',
-    date: '2026 (Technical Circular No. 010/2026)', resolution: 'IRClass Technical Circular No. 010/2026; ref. DGS Circular 58 of 2025', inForce: 'Effective immediately',
-    summary: 'Advisory for general cargo ships over 20 years old operating between mainland India and the Andaman & Nicobar Islands during monsoon/rough weather.',
-    detail: 'Following incidents involving older tonnage on the mainland–A&N Islands routes, this circular reiterates DG Shipping\'s Circular 58 of 2025 guidance on enhanced voyage planning, weather routing and seaworthiness checks for general cargo vessels over 20 years of age transiting these waters in monsoon conditions.',
-    url: 'https://www.irclass.org/technical-circulars/'
-  },
-  {
-    category: 'IRCLASS', status: 'recent', title: 'IRClass: New IMO requirements coming into force — consolidated 2026 summary',
-    date: 'December 2025 / January 2026', resolution: 'IRClass enclosure to circular', inForce: 'Various dates through 2026',
-    summary: 'IRClass\'s consolidated table of new IMO requirements coming into force in 2026 — covering IMSBC Code, IMDG Code, anchor-handling winches, fire extinguishers, lifeboat ventilation, VDR performance standards and more.',
-    detail: 'This widely-referenced IRClass enclosure tabulates, instrument-by-instrument, every IMO requirement taking effect in 2026 — including IMSBC Code Amendment 08-25 changes (radioactive material segregation, terminology), portable fire extinguisher placement in fuel-related spaces, VDR rolling-motion performance standards (MSC.333(90) as amended), and the lifeboat ventilation/anchor-winch items also listed above. A go-to single reference for MEO Class I prep on "what changed in 2026."',
-    url: 'https://www.irclass.org/media/8170/encl-1-new-imo-requirements-coming-into-force-untill-2025.pdf'
-  },
-];
-
-let _amendState = {
-  category: 'all',
-  query: '',
-  results: [],
-  loading: false,
-  lastFetched: null,
-  error: null,
-  source: 'curated', // 'curated' | 'ai' (generic supplement) | 'ai-search' (live, query-grounded)
-  aiSources: [] // real URLs Gemini's Google Search grounding actually consulted, for the last live search
-};
-
-// ---- Helpers: persistence + date parsing for recency window ----
-const AMEND_STORAGE_KEY = 'meo_amend_cache_v1';
-const AMEND_RECENT_WINDOW_DAYS = 730; // "Recent" = within ~2 years
-
-function amendParseDate(str) {
-  if (!str) return null;
-  // Try to extract a clean "D Month YYYY" or "Month YYYY" or "1 January 2026" pattern
-  const cleaned = String(str).replace(/\(.*?\)/g, '').split('·')[0].split(',')[0].trim();
-  const d = new Date(cleaned);
-  if (!isNaN(d.getTime())) return d;
-  // Fallback: try to pull a 4-digit year
-  const yearMatch = String(str).match(/20\d{2}/);
-  if (yearMatch) return new Date(parseInt(yearMatch[0], 10), 0, 1);
-  return null;
-}
-
-function amendLoadCache() {
-  try {
-    const raw = localStorage.getItem(AMEND_STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch (e) { return null; }
-}
-
-function amendSaveCache(items, fetchedAt, aiExtras) {
-  try {
-    localStorage.setItem(AMEND_STORAGE_KEY, JSON.stringify({
-      items, fetchedAt, aiExtras: aiExtras || [], version: AMEND_DATA_VERSION
-    }));
-  } catch (e) {}
-}
-
-// Returns true if the cache is from a previous calendar day (or missing) — used to
-// auto-refresh once per day without the user needing to press the button.
-function amendCacheIsStale(cache) {
-  if (!cache || !cache.fetchedAt) return true;
-  const last = new Date(cache.fetchedAt);
-  const now = new Date();
-  return last.toDateString() !== now.toDateString();
-}
-
-function renderAmendmentsPanel() {
-  const c = document.getElementById('amendmentsContent');
-  if (!c) return;
-
-  // First paint: load from cache, or seed from curated data, then auto-refresh if stale.
-  if (!_amendState.results.length && !_amendState.loading) {
-    const cache = amendLoadCache();
-    if (cache && cache.items && cache.items.length) {
-      _amendState.results = cache.items;
-      _amendState.lastFetched = cache.fetchedAt;
-    } else {
-      amendApplyCurated();
-    }
-  }
-
-  c.innerHTML = `
-  <style>
-    .amend-wrap { max-width: 960px; }
-    .amend-header { margin-bottom: 20px; }
-    .amend-title { font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:var(--text); }
-    .amend-sub { font-size:13px; color:var(--text3); margin-top:4px; }
-    .amend-cats { display:flex; flex-wrap:wrap; gap:6px; margin:16px 0; }
-    .amend-cat-btn { font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 12px; border-radius:999px; border:1px solid var(--border2); background:var(--surface2); color:var(--text2); cursor:pointer; transition:all 0.15s; white-space:nowrap; }
-    .amend-cat-btn:hover { background:var(--surface3); }
-    .amend-cat-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
-    .amend-search-row { display:flex; gap:8px; margin-bottom:10px; }
-    .amend-search-input { flex:1; padding:9px 14px; border-radius:8px; border:1px solid var(--border2); background:var(--surface2); color:var(--text); font-size:13px; font-family:'Space Grotesk',sans-serif; outline:none; }
-    .amend-search-input:focus { border-color:var(--accent); }
-    .amend-fetch-btn { padding:9px 18px; border-radius:8px; border:none; background:var(--accent); color:#fff; font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; }
-    .amend-fetch-btn:disabled { opacity:0.5; cursor:not-allowed; }
-    .amend-meta-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:16px; font-size:11.5px; color:var(--text3); }
-    .amend-cards { display:flex; flex-direction:column; gap:10px; }
-    .amend-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; cursor:pointer; transition:border-color 0.15s; }
-    .amend-card:hover { border-color:var(--accent2); }
-    .amend-card-top { display:flex; align-items:flex-start; gap:12px; }
-    .amend-badge { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; padding:3px 8px; border-radius:6px; white-space:nowrap; flex-shrink:0; margin-top:2px; }
-    .amend-badge.imo   { background:rgba(26,158,92,0.12); color:var(--accent2); }
-    .amend-badge.msc   { background:rgba(59,130,246,0.12); color:#3b82f6; }
-    .amend-badge.mepc  { background:rgba(16,185,129,0.12); color:#10b981; }
-    .amend-badge.fal   { background:rgba(245,158,11,0.12); color:var(--gold); }
-    .amend-badge.stcw  { background:rgba(139,92,246,0.12); color:#8b5cf6; }
-    .amend-badge.marpol{ background:rgba(6,182,212,0.12); color:#06b6d4; }
-    .amend-badge.solas { background:rgba(239,68,68,0.12); color:#ef4444; }
-    .amend-badge.llc   { background:rgba(107,114,128,0.12); color:var(--text2); }
-    .amend-badge.dgma  { background:rgba(249,115,22,0.12); color:#f97316; }
-    .amend-badge.irclass{ background:rgba(16,150,168,0.12); color:var(--cyan); }
-    .amend-status-pill { font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; padding:2px 7px; border-radius:999px; white-space:nowrap; flex-shrink:0; margin-top:2px; text-transform:uppercase; letter-spacing:0.3px; }
-    .amend-status-pill.recent   { background:rgba(26,158,92,0.14); color:var(--accent2); }
-    .amend-status-pill.upcoming { background:rgba(192,124,26,0.14); color:var(--gold); }
-    .amend-card-body { flex:1; min-width:0; }
-    .amend-card-title { font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; line-height:1.4; }
-    .amend-card-date { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text3); margin-bottom:6px; }
-    .amend-card-summary { font-size:13px; color:var(--text2); line-height:1.6; }
-    .amend-card-expand { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); font-size:13px; color:var(--text2); line-height:1.7; }
-    .amend-card.open .amend-card-expand { display:block; }
-    .amend-card-actions { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
-    .amend-act-btn { font-size:11px; padding:4px 10px; border-radius:6px; border:1px solid var(--border2); background:var(--surface2); color:var(--text2); cursor:pointer; }
-    .amend-act-btn:hover { background:var(--surface3); }
-    .amend-loading { text-align:center; padding:48px 24px; color:var(--text3); font-size:14px; }
-    .amend-spinner { display:inline-block; width:24px; height:24px; border:2px solid var(--border2); border-top-color:var(--accent); border-radius:50%; animation:spin 0.7s linear infinite; margin-bottom:12px; }
-    @keyframes spin { to { transform:rotate(360deg); } }
-    .amend-empty { text-align:center; padding:48px 24px; color:var(--text3); }
-    .amend-empty-icon { font-size:36px; margin-bottom:12px; }
-    .amend-save-btn { font-size:11px; padding:4px 10px; border-radius:6px; border:1px solid rgba(26,158,92,0.4); background:rgba(26,158,92,0.08); color:var(--accent2); cursor:pointer; }
-    .amend-search-hint { font-size:11px; color:var(--text3); margin:-4px 0 14px 2px; line-height:1.5; }
-    .amend-pill-ai { font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; padding:2px 7px; border-radius:999px; white-space:nowrap; flex-shrink:0; margin-top:2px; text-transform:uppercase; letter-spacing:0.3px; background:rgba(66,133,244,0.14); color:#4285f4; }
-    .amend-ai-sources { margin-top:14px; padding:12px 14px; border:1px dashed var(--border2); border-radius:10px; background:var(--surface2); }
-    .amend-ai-sources-title { font-size:11.5px; font-weight:600; color:var(--text2); margin-bottom:8px; }
-    .amend-ai-source-link { display:block; font-size:12px; color:var(--cyan); text-decoration:none; margin-bottom:5px; word-break:break-all; }
-    .amend-ai-source-link:hover { text-decoration:underline; }
-  </style>
-  <div class="amend-wrap">
-    <div class="amend-header">
-      <div class="amend-title">🌐 Maritime Amendments & Circulars</div>
-      <div class="amend-sub">Recent (last 2 yrs) & upcoming IMO entry-into-force amendments, plus Indian DGS/DGMA and IRClass circulars — each with a clickable official source link</div>
-    </div>
-    <div class="amend-cats" id="amendCats">
-      ${AMEND_CATEGORIES.map(cat => `<button class="amend-cat-btn ${_amendState.category === cat.id ? 'active' : ''}" onclick="setAmendCategory('${cat.id}')">${cat.label}</button>`).join('')}
-    </div>
-    <div class="amend-search-row">
-      <input class="amend-search-input" id="amendSearchInput" placeholder="Search amendments, resolution numbers, keywords…" value="${escHtml(_amendState.query)}" onkeydown="if(event.key==='Enter')fetchAmendments()">
-      <button class="amend-fetch-btn" id="amendFetchBtn" onclick="fetchAmendments()" ${_amendState.loading ? 'disabled' : ''}>
-        ${_amendState.loading ? '⏳ Fetching…' : (_amendState.query ? '🔎 Search Web' : '🔍 Fetch Latest')}
-      </button>
-    </div>
-    <div class="amend-search-hint" id="amendSearchHint">${amendSearchHintHtml()}</div>
-    <div class="amend-meta-row" id="amendMetaRow">${amendMetaRowHtml()}</div>
-    <div id="amendResults">
-      ${_amendState.loading ? renderAmendLoading() : amendFilteredResults().length ? renderAmendCards() : renderAmendEmpty()}
-    </div>
-  </div>`;
-
-  // Auto-refresh once per day in the background (doesn't block initial paint).
-  const cacheCheck = amendLoadCache();
-  if (amendCacheIsStale(cacheCheck) && !_amendState.loading && !_amendState._autoRefreshed) {
-    _amendState._autoRefreshed = true;
-    fetchAmendments(true);
-  }
-}
-
-function amendMetaRowHtml() {
-  const n = amendFilteredResults().length;
-  const stamp = _amendState.lastFetched ? new Date(_amendState.lastFetched).toLocaleString() : 'never';
-  const srcLabel = _amendState.source === 'ai-search' ? 'curated list + live AI web search'
-    : _amendState.source === 'ai' ? 'curated list + AI supplement'
-    : 'curated official list';
-  return `<span>📅 Last updated: <strong style="color:var(--text2);">${stamp}</strong> · ${srcLabel}</span><span>${n} item${n===1?'':'s'} shown · refreshes daily, or press Fetch Latest</span>`;
-}
-
-// Helper text under the search bar — nudges users toward the live web-search
-// path when they've typed a query, and toward getting a (free) Gemini key if
-// they don't have one configured yet.
-function amendSearchHintHtml() {
-  const hasKey = !!getGeminiKey();
-  if (!hasKey) {
-    return '💡 Add a free Gemini API key in ⚙️ Settings → AI Integration to also pull live results from official maritime sites (IMO, DG Shipping, IRClass, etc.) for any search term — not just the curated list below.';
-  }
-  return 'Press Enter or 🔎 Search Web to pull live circulars and PDFs from official maritime sites matching your search term, in addition to the curated list below.';
-}
-
-function amendApplyCurated() {
-  _amendState.results = AMEND_CURATED.slice();
-  _amendState.lastFetched = Date.now();
-  _amendState.source = 'curated';
-  amendSaveCache(_amendState.results, _amendState.lastFetched, []);
-}
-
-// Filters the in-memory result set by the active category/search query, and
-// enforces the "recent = within last 2 years" rule for the recent bucket.
-function amendFilteredResults() {
-  const cat = _amendState.category;
-  const q = (_amendState.query || '').toLowerCase().trim();
-  const cutoff = Date.now() - AMEND_RECENT_WINDOW_DAYS * 24 * 60 * 60 * 1000;
-
-  let list = _amendState.results.slice();
-
-  list = list.filter(r => {
-    if (r._aiWebResult) return true; // live search results: don't second-guess with the recency window
-    if (r.status === 'recent') {
-      const d = amendParseDate(r.inForce && r.inForce !== 'Effective immediately' && r.inForce !== 'Informational' ? r.inForce : r.date);
-      if (d && d.getTime() < cutoff) return false; // older than 2-year recent window
-    }
-    return true;
-  });
-
-  if (cat === 'recent') list = list.filter(r => r.status === 'recent' && r.category !== 'DGMA' && r.category !== 'IRCLASS');
-  else if (cat === 'upcoming') list = list.filter(r => r.status === 'upcoming');
-  else if (cat === 'dgs') list = list.filter(r => r.category === 'DGMA');
-  else if (cat === 'irclass') list = list.filter(r => r.category === 'IRCLASS');
-  else if (cat !== 'all') list = list.filter(r => (r.category || '').toLowerCase() === cat);
-
-  if (q) {
-    list = list.filter(r => {
-      // Live web-search results were already matched to the query by the AI
-      // itself (semantically, not by literal substring) — re-applying a strict
-      // substring filter here would wrongly hide good results whose title
-      // doesn't happen to contain the exact search phrase.
-      if (r._aiWebResult) return true;
-      return (r.title||'').toLowerCase().includes(q) ||
-        (r.summary||'').toLowerCase().includes(q) ||
-        (r.detail||'').toLowerCase().includes(q) ||
-        (r.resolution||'').toLowerCase().includes(q) ||
-        (r.category||'').toLowerCase().includes(q);
-    });
-  }
-
-  // Sort: upcoming first by soonest entry-into-force, then recent by most-recent first.
-  list.sort((a, b) => {
-    if (a.status !== b.status) return a.status === 'upcoming' ? -1 : 1;
-    const da = amendParseDate(a.inForce || a.date) || new Date(0);
-    const db = amendParseDate(b.inForce || b.date) || new Date(0);
-    return a.status === 'upcoming' ? da - db : db - da;
-  });
-
-  return list;
-}
-
-function renderAmendLoading() {
-  const msg = _amendState.query ? `🔎 Searching the live web for "${escHtml(_amendState.query)}"…` : 'Refreshing amendments…';
-  return `<div class="amend-loading"><div class="amend-spinner"></div><div>${msg}</div></div>`;
-}
-
-// Shared "live web pages consulted" block — surfaced regardless of whether
-// structured items were successfully parsed, so a real search that found
-// real pages never silently disappears just because field-extraction failed.
-function amendAiSourcesBlockHtml() {
-  if (!(_amendState.source === 'ai-search' && _amendState.aiSources && _amendState.aiSources.length)) return '';
-  return `<div class="amend-ai-sources">
-        <div class="amend-ai-sources-title">🌐 Live web pages Gemini consulted for "${escHtml(_amendState.query)}" (Google Search grounding — these are real, currently-live URLs):</div>
-        ${_amendState.aiSources.slice(0, 8).map(s => `<a class="amend-ai-source-link" href="${escHtml(s.uri)}" target="_blank" rel="noopener">🔗 ${escHtml(s.title || s.uri)}</a>`).join('')}
-      </div>`;
-}
-
-function renderAmendEmpty() {
-  const sourcesBlock = amendAiSourcesBlockHtml();
-  if (_amendState.error) {
-    return `<div class="amend-empty"><div class="amend-empty-icon">⚠️</div><div style="color:var(--red);font-size:13px;">${escHtml(_amendState.error)}</div><div style="margin-top:8px;font-size:12px;color:var(--text3);">Showing the built-in curated list below instead.</div></div>${sourcesBlock}`;
-  }
-  return `<div class="amend-empty"><div class="amend-empty-icon">🌐</div><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px;">No items match this filter</div><div style="font-size:13px;color:var(--text3);">Try a different category or clear your search.</div></div>${sourcesBlock}`;
-}
-
-function renderAmendCards() {
-  const list = amendFilteredResults();
-  const sourcesBlock = amendAiSourcesBlockHtml();
-  return `<div class="amend-cards">${list.map((r, i) => renderAmendCard(r, i)).join('')}</div>
-  ${sourcesBlock}
-  <div style="margin-top:12px;font-size:11px;color:var(--text3);text-align:center;">${list.length} item${list.length===1?'':'s'} · curated from official IMO / DGS·DGMA / IRClass sources — always verify against the linked original before relying on it for compliance</div>`;
-}
-
-function renderAmendCard(r, i) {
-  const badgeCls = (r.category || 'imo').toLowerCase().replace(/\s+/g,'');
-  const statusLabel = r.status === 'upcoming' ? '⏳ Upcoming' : '🆕 Recent';
-  const aiPill = r._aiWebResult ? `<span class="amend-pill-ai">🔎 Live Web Result</span>`
-    : r._aiSupplement ? `<span class="amend-pill-ai">✨ AI Supplement</span>` : '';
-  return `<div class="amend-card" id="amend-card-${i}" onclick="toggleAmendCard(${i})">
-    <div class="amend-card-top">
-      <span class="amend-badge ${badgeCls}">${(r.category||'IMO').toUpperCase()}</span>
-      <span class="amend-status-pill ${r.status||'recent'}">${statusLabel}</span>
-      ${aiPill}
-      <div class="amend-card-body">
-        <div class="amend-card-title">${escHtml(r.title)}</div>
-        <div class="amend-card-date">${escHtml(r.date||'')}${r.resolution ? ' · ' + escHtml(r.resolution) : ''}${r.inForce ? ' · In force: ' + escHtml(r.inForce) : ''}</div>
-        <div class="amend-card-summary">${escHtml(r.summary)}</div>
-        <div class="amend-card-expand">${escHtml(r.detail || r.summary)}</div>
-        <div class="amend-card-actions">
-          <button class="amend-save-btn" onclick="event.stopPropagation();saveAmendAsNote(${i})">📌 Save as Note</button>
-          <button class="amend-act-btn" onclick="event.stopPropagation();askAmendQuestion(${i})">💬 Ask Question</button>
-          ${r.url ? `<button class="amend-act-btn" onclick="event.stopPropagation();window.open('${escHtml(r.url)}','_blank')">🔗 Open Official Source</button>` : ''}
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-
-function toggleAmendCard(i) {
-  document.getElementById('amend-card-' + i)?.classList.toggle('open');
-}
-
-function setAmendCategory(cat) {
-  _amendState.category = cat;
-  _amendState.error = null;
-  renderAmendmentsPanel();
-}
-
-// "Fetch Latest" (and the once-daily auto-refresh), when there is NO search query,
-// re-applies the curated dataset (always accurate, always has real links) and, if a
-// Gemini key is configured, asks the AI ONLY to flag items newer than AMEND_DATA_VERSION
-// that aren't yet in the curated list — those are appended as supplementary
-// "Unverified — check source" cards rather than replacing the trusted baseline.
-async function amendRunGenericSupplement() {
-  const apiKey = getGeminiKey();
-  if (!apiKey) return;
-
-  const prompt = `You are a maritime regulatory analyst. Today's date is ${new Date().toDateString()}. I already track all IMO/MARPOL/SOLAS/STCW amendments and Indian DGS/DGMA/IRClass circulars up to ${AMEND_DATA_VERSION}. ONLY tell me about items you are highly confident are real and were published or entered into force AFTER ${AMEND_DATA_VERSION} that I might be missing — do not repeat anything dated before that.
-
-Return a JSON array (can be empty: []) of up to 6 NEW items only. Each item must have exactly these fields:
-- "category": one of IMO, MSC, MEPC, STCW, MARPOL, SOLAS, DGMA, IRCLASS
-- "status": "recent" or "upcoming"
-- "title": short descriptive title (max 14 words)
-- "date": adoption/issue date
-- "resolution": resolution/circular number or null
-- "inForce": entry-into-force date or null
-- "summary": 2 sentence plain-English summary
-- "detail": 3-4 sentence detail
-- "url": official source URL if known, else null
-
-Respond with ONLY the raw JSON array — no preamble, no markdown fences. If you have nothing new and confident to add, return [].`;
-
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0, maxOutputTokens: 4096 }
-      })
-    }
-  );
-  if (typeof incrementGeminiDailyCount === 'function') incrementGeminiDailyCount();
-
-  if (response.ok) {
-    const data = await response.json();
-    const finishReason = data?.candidates?.[0]?.finishReason;
-    const text = (!finishReason || finishReason === 'STOP') ? (data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '') : '';
-    const arrStart = text.indexOf('[');
-    const arrEnd = text.lastIndexOf(']');
-    if (arrStart !== -1 && arrEnd !== -1 && arrEnd > arrStart) {
-      const parsed = JSON.parse(text.slice(arrStart, arrEnd + 1));
-      if (Array.isArray(parsed) && parsed.length) {
-        const extras = parsed.map(p => ({ ...p, _aiSupplement: true, summary: '⚠️ Unverified AI suggestion — confirm at source. ' + (p.summary||'') }));
-        _amendState.results = _amendState.results.concat(extras);
-        _amendState.source = 'ai';
-      }
-    }
-  }
-}
-
-// Robustly pulls a JSON array out of a Gemini response that may contain
-// search-grounded prose, inline citation markers like "[1]", or stray
-// brackets mixed in with the requested JSON. Strategy:
-//  1. Prefer the content between explicit ###RESULTS_START###/END markers
-//     (the model is asked to emit these), so citation brackets elsewhere in
-//     the prose can't be confused with the array we actually want.
-//  2. Within that scope, scan every "[" and walk forward tracking bracket
-//     depth + string state (so brackets/quotes inside string values don't
-//     break the count) to find each balanced array candidate.
-//  3. Prefer whichever candidate actually looks like our expected shape
-//     (an array of objects with a "title" field) over things like a stray
-//     "[1]" citation that also happens to be valid (but useless) JSON.
-function amendExtractJsonArray(text) {
-  if (!text) return [];
-  const startMarker = '###RESULTS_START###';
-  const endMarker = '###RESULTS_END###';
-  const sIdx = text.indexOf(startMarker);
-  const eIdx = text.indexOf(endMarker);
-  const scoped = (sIdx !== -1 && eIdx !== -1 && eIdx > sIdx) ? text.slice(sIdx + startMarker.length, eIdx) : text;
-
-  const candidates = [];
-  for (let i = 0; i < scoped.length; i++) {
-    if (scoped[i] !== '[') continue;
-    let depth = 0, inStr = false, strCh = '', esc = false, j = i;
-    for (; j < scoped.length; j++) {
-      const c = scoped[j];
-      if (inStr) {
-        if (esc) esc = false;
-        else if (c === '\\') esc = true;
-        else if (c === strCh) inStr = false;
-        continue;
-      }
-      if (c === '"' || c === "'") { inStr = true; strCh = c; continue; }
-      if (c === '[') depth++;
-      else if (c === ']') { depth--; if (depth === 0) break; }
-    }
-    if (depth === 0 && j < scoped.length) {
-      try {
-        const parsed = JSON.parse(scoped.slice(i, j + 1));
-        if (Array.isArray(parsed)) candidates.push(parsed);
-      } catch (e) { /* not valid JSON, skip */ }
-    }
-    i = j; // continue scanning after this candidate
-  }
-
-  const objArrays = candidates.filter(c => c.length && typeof c[0] === 'object' && c[0] !== null && 'title' in c[0]);
-  if (objArrays.length) return objArrays.reduce((a, b) => (b.length > a.length ? b : a));
-  if (candidates.some(c => c.length === 0)) return []; // model explicitly said "no results"
-  return [];
-}
-
-// Query-driven LIVE web search. Unlike the generic supplement above, this is
-// triggered whenever the user searches for a specific circular/term and uses
-// Gemini's Google Search grounding tool, so the model actually looks things up
-// on the live web (imo.org, dgshipping.gov.in, dgma.gov.in, irclass.org, etc.)
-// instead of relying on its training memory. The real URLs it consulted
-// (groundingMetadata) are surfaced separately as "Live web pages consulted" so
-// the user always has authentic, verifiable links even if a structured field
-// is imperfect — and if structured parsing fails entirely but the search DID
-// find real pages, we synthesize basic cards directly from those grounding
-// sources so a real, successful search never renders as "nothing found".
-async function amendRunWebSearch(query) {
-  const apiKey = getGeminiKey();
-  if (!apiKey) {
-    _amendState.error = `Add a Gemini API key in ⚙️ Settings → AI Integration to search the live web for circulars matching "${query}".`;
-    return;
-  }
-
-  const prompt = `You are a maritime regulatory research assistant helping a marine engineering officer (MEO Class I, India) find official circulars, amendments, notices and PDFs. Today's date is ${new Date().toDateString()}.
-
-Use live web search to find REAL, currently-published, official documents relevant to this search term: "${query}"
-
-This can be a general regulatory topic (e.g. "marine litter", "ballast water", "garbage management") as well as a specific circular number — for a general topic, find the most relevant official conventions, annexes, guidelines or circulars that govern it, not just items with that exact phrase in the title.
-
-Only use authentic, official maritime sources — for example: imo.org, dgshipping.gov.in, dgma.gov.in (DG Shipping / DGMA India), irclass.org, mca.gov.uk (UK MCA), uscg.mil, classnk.or.jp, eagle.org (ABS), dnv.com, lr.org (Lloyd's Register), bureauveritas.com, parismou.org, tokyo-mou.org, equasis.org, or other flag-state / classification-society / IMO domains and their PDF circulars. Do NOT use forums, blogs, Wikipedia, or unofficial aggregator sites.
-
-Find up to 8 items you are confident are real and genuinely relevant to the search term. Each item needs exactly these fields:
-- "category": one of IMO, MSC, MEPC, STCW, MARPOL, SOLAS, DGMA, IRCLASS
-- "status": "recent" or "upcoming"
-- "title": short descriptive title (max 16 words)
-- "date": issue/adoption date if known, else "Unknown"
-- "resolution": circular/resolution number if known, else null
-- "inForce": entry-into-force date if known, else null
-- "summary": 2-sentence plain-English summary of what it covers
-- "detail": 3-4 sentence detail
-- "url": the exact, real URL of the official source page or PDF you found
-
-You may briefly reason or mention sources in plain text first if you need to. But your response MUST end with exactly this block and nothing after it (no markdown fences inside it):
-###RESULTS_START###
-[ ...the JSON array described above, or [] if you found nothing genuine... ]
-###RESULTS_END###`;
-
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        tools: [{ google_search: {} }],
-        generationConfig: { temperature: 0.1, maxOutputTokens: 4096 }
-      })
-    }
-  );
-  if (typeof incrementGeminiDailyCount === 'function') incrementGeminiDailyCount();
-
-  if (!response.ok) {
-    let detail = '';
-    try { detail = (await response.text()).slice(0, 200); } catch(e) {}
-    throw new Error(`Gemini web search failed (${response.status})${detail ? ': ' + detail : ''}`);
-  }
-
-  const data = await response.json();
-  const finishReason = data?.candidates?.[0]?.finishReason;
-  const text = (!finishReason || finishReason === 'STOP' || finishReason === 'MAX_TOKENS')
-    ? (data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '')
-    : '';
-
-  // The real pages Gemini actually visited via Google Search grounding —
-  // a trust signal, and also our fallback data source if JSON parsing fails.
-  const groundingChunks = data?.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-  const groundedSources = groundingChunks
-    .map(g => g.web ? { uri: g.web.uri, title: g.web.title } : null)
-    .filter(Boolean);
-
-  let items = amendExtractJsonArray(text);
-  if (!Array.isArray(items)) items = [];
-
-  let tagged = items.filter(it => it && it.title && it.url).map(it => ({
-    ...it,
-    summary: '🔎 Found via live web search — verify at the source link. ' + (it.summary || ''),
-    _aiWebResult: true
-  }));
-
-  // Structured extraction came up empty, but the search genuinely found real
-  // pages — make a second Gemini call to summarize each source properly
-  // before presenting cards, rather than showing a generic "couldn't summarize" message.
-  if (!tagged.length && groundedSources.length) {
-    const sourcesToSummarize = groundedSources.slice(0, 6);
-    const summarizePrompt = `You are a maritime regulatory assistant. The following URLs were found by a Google Search for the query: "${query}".
-For each URL, provide a structured maritime amendment/circular entry. Respond ONLY with a JSON array (no markdown, no extra text) where each object has:
-- "title": short descriptive title (max 16 words)
-- "category": one of IMO, MSC, MEPC, STCW, MARPOL, SOLAS, DGMA, IRCLASS
-- "status": "recent" or "upcoming"
-- "date": issue/adoption date if known, else "Unknown"
-- "resolution": circular/resolution number if known, else null
-- "inForce": entry-into-force date if known, else null
-- "summary": 2-sentence plain-English summary of what it covers and why it matters
-- "detail": 3-4 sentence explanation covering what changed, which convention it amends, when it enters force, and key exam points
-- "url": the source URL (copy from input)
-
-Sources to summarize:
-${sourcesToSummarize.map((s, i) => `${i + 1}. Title: "${s.title || 'Unknown'}" | URL: ${s.uri}`).join('\n')}
-
-Respond ONLY with the JSON array. No preamble, no markdown fences.`;
-
-    try {
-      const sumResponse = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: summarizePrompt }] }],
-            generationConfig: { temperature: 0.1, maxOutputTokens: 4096 }
-          })
-        }
-      );
-      if (typeof incrementGeminiDailyCount === 'function') incrementGeminiDailyCount();
-      if (sumResponse.ok) {
-        const sumData = await sumResponse.json();
-        const sumText = sumData?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '';
-        let sumItems = amendExtractJsonArray(sumText);
-        if (!Array.isArray(sumItems)) sumItems = [];
-        tagged = sumItems.filter(it => it && it.title).map((it, idx) => ({
-          ...it,
-          url: it.url || (sourcesToSummarize[idx] ? sourcesToSummarize[idx].uri : ''),
-          summary: '🔎 ' + (it.summary || ''),
-          _aiWebResult: true
-        }));
-      }
-    } catch(e) {
-      console.warn('[Amendments] summarize pass failed:', e.message);
-    }
-
-    // If summarization also failed, fall back to minimal cards without the unhelpful message
-    if (!tagged.length) {
-      tagged = sourcesToSummarize.map(s => ({
-        category: 'IMO', status: 'recent',
-        title: s.title || (s.uri || '').replace(/^https?:\/\//, '').slice(0, 80),
-        date: 'See source', resolution: null, inForce: null,
-        summary: `🔎 Found via live web search for "${query}". Open the source link to review this document.`,
-        detail: `This page was returned by a live Google Search for "${query}". Open the link to review the original document.`,
-        url: s.uri,
-        _aiWebResult: true
-      }));
-    }
-  }
-
-  if (tagged.length) {
-    _amendState.results = _amendState.results.concat(tagged);
-  }
-  _amendState.aiSources = groundedSources;
-  _amendState.source = 'ai-search';
-
-  if (!tagged.length && !groundedSources.length) {
-    _amendState.error = `No verifiable live results found for "${query}". Showing the curated list filtered by your search term instead.`;
-  }
-}
-
-async function fetchAmendments(isAutoRefresh) {
-  const _searchEl = document.getElementById('amendSearchInput');
-  _amendState.query = _searchEl ? _searchEl.value.trim() : (_amendState.query || '');
-  _amendState.loading = true;
-  _amendState.error = null;
-  _amendState.aiSources = [];
-  updateAmendUI();
-
-  // Always start from the accurate curated baseline.
-  amendApplyCurated();
-
-  const hasQuery = !!_amendState.query;
-
-  try {
-    if (hasQuery && !isAutoRefresh) {
-      // User is searching for something specific — go look it up live instead
-      // of just flagging generic "what's new" items.
-      await amendRunWebSearch(_amendState.query);
-    } else {
-      await amendRunGenericSupplement();
-    }
-  } catch (e) {
-    console.warn('[Amendments] fetch failed:', e.message);
-    if (hasQuery) _amendState.error = e.message;
-    // Non-fatal — curated baseline still stands.
-  }
-
-  _amendState.lastFetched = Date.now();
-  // Don't persist ephemeral, query-specific web-search results into the daily
-  // cache — only the curated baseline + generic supplement get cached, so a
-  // fresh page load always starts from a clean, query-free state.
-  if (!hasQuery) {
-    amendSaveCache(_amendState.results, _amendState.lastFetched, []);
-  }
-  _amendState.loading = false;
-  updateAmendUI();
-}
-
-function updateAmendUI() {
-  const resultsEl = document.getElementById('amendResults');
-  const btn = document.getElementById('amendFetchBtn');
-  const metaEl = document.getElementById('amendMetaRow');
-  const hintEl = document.getElementById('amendSearchHint');
-  if (btn) { btn.disabled = _amendState.loading; btn.textContent = _amendState.loading ? '⏳ Fetching…' : (_amendState.query ? '🔎 Search Web' : '🔍 Fetch Latest'); }
-  if (metaEl) { metaEl.innerHTML = amendMetaRowHtml(); }
-  if (hintEl) { hintEl.innerHTML = amendSearchHintHtml(); }
-  if (resultsEl) {
-    resultsEl.innerHTML = _amendState.loading ? renderAmendLoading() : amendFilteredResults().length ? renderAmendCards() : renderAmendEmpty();
-  }
-}
-
-function saveAmendAsNote(i) {
-  const r = amendFilteredResults()[i];
-  if (!r) return;
-  const notesKey = 'meo_notes';
-  let notes = '';
-  try { notes = localStorage.getItem(notesKey) || ''; } catch(e) {}
-  const entry = `\n\n--- ${r.category} | ${r.title} | ${r.date || ''} ---\n${r.resolution ? r.resolution + '\n' : ''}${r.detail || r.summary}`;
-  localStorage.setItem(notesKey, notes + entry);
-  showToast('📌 Saved to Notes', 'success');
-}
-
-function askAmendQuestion(i) {
-  const r = amendFilteredResults()[i];
-  if (!r) return;
-  const q = `Tell me more about: ${r.title}${r.resolution ? ' (' + r.resolution + ')' : ''}. How might this be examined in MEO Class I?`;
-  // Switch to a question view and pre-fill — or just show it in an overlay
-  showAmendQA(q, r);
-}
-
-function showAmendQA(question, r) {
-  let overlay = document.getElementById('amendQAOverlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'amendQAOverlay';
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;padding:20px;';
-    overlay.innerHTML = `<div style="background:var(--surface);border-radius:16px;max-width:680px;width:100%;max-height:80vh;overflow-y:auto;padding:24px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--text);">💬 Ask AI</div>
-        <button onclick="document.getElementById('amendQAOverlay').remove()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--text3);">✕</button>
-      </div>
-      <div id="amendQAQuestion" style="font-size:13px;color:var(--text2);margin-bottom:12px;padding:10px 12px;background:var(--surface2);border-radius:8px;"></div>
-      <div id="amendQAAnswer" style="font-size:13px;color:var(--text2);line-height:1.7;white-space:pre-wrap;"></div>
-    </div>`;
-    document.body.appendChild(overlay);
-  }
-  overlay.style.display = 'flex';
-  document.getElementById('amendQAQuestion').textContent = question;
-  document.getElementById('amendQAAnswer').textContent = '⏳ Fetching answer…';
-
-  const prompt = `You are a maritime expert and MEO Class I exam coach. Answer this question thoroughly for an exam candidate:\n\n${question}\n\nContext:\nTitle: ${r.title}\nResolution: ${r.resolution||'N/A'}\nDate: ${r.date||'N/A'}\nSummary: ${r.summary}\n\nProvide: (1) What was changed, (2) Which convention/regulation it amends, (3) When it enters force, (4) Typical exam questions on this topic, (5) Key points to remember.`;
-
-  const qaApiKey = getGeminiKey();
-  if (!qaApiKey) {
-    const el = document.getElementById('amendQAAnswer');
-    if (el) el.textContent = '⚠️ No API key configured. Please add your Gemini API key in ⚙️ Settings → AI Integration.';
-    return;
-  }
-  fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${qaApiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.3, maxOutputTokens: 1000 }
-      })
-    }
-  ).then(r => r.json()).then(data => {
-    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '';
-    const el = document.getElementById('amendQAAnswer');
-    if (el) el.textContent = text;
-  }).catch(e => {
-    const el = document.getElementById('amendQAAnswer');
-    if (el) el.textContent = '⚠️ Error: ' + e.message;
-  });
-}
-
 // ===================== ANALYTICS: RADAR CHART =====================
 function renderRadarChart(container) {
   const qs = state.questions;
@@ -10021,75 +8217,3 @@ function renderAnalytics() {
 </div>
 </body>
 </html>
-<script>
-// ── SM-2 DEBUG TOOL ──────────────────────────────────────
-function debugSM2() {
-  const done = state.questions.filter(q => q.done);
-  const rows = done.map(q => {
-    const ok = q.srNextReview && q.doneDate && q.srNextReview > q.doneDate;
-    return `<tr style="font-size:11px;font-family:'JetBrains Mono',monospace;border-bottom:1px solid #ccc;">
-      <td style="padding:4px 8px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${(q.text||'').slice(0,55).replace(/</g,'&lt;')}</td>
-      <td style="padding:4px 8px;">${q.date||'—'}</td>
-      <td style="padding:4px 8px;color:#1a9e5c;">${q.doneDate||'—'}</td>
-      <td style="padding:4px 8px;font-weight:700;color:${ok?'#12a05c':'#d63b3b'};">${q.srNextReview||'—'}</td>
-      <td style="padding:4px 8px;">${q.srInterval||1}</td>
-      <td style="padding:4px 8px;">${q.srRepetitions||0}</td>
-    </tr>`;
-  }).join('');
-  const el = document.getElementById('sm2debugOverlay');
-  if (el) el.remove();
-  const overlay = document.createElement('div');
-  overlay.id = 'sm2debugOverlay';
-  overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;padding:20px;';
-  overlay.innerHTML = `<div style="background:#fff;border-radius:14px;max-width:860px;width:100%;max-height:85vh;overflow-y:auto;padding:24px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-      <b style="font-size:15px;">🔬 SM-2 Debug — ${done.length} done questions</b>
-      <button onclick="document.getElementById('sm2debugOverlay').remove()" style="border:none;background:#eee;border-radius:6px;padding:4px 12px;cursor:pointer;">✕</button>
-    </div>
-    <p style="font-size:11px;color:#666;margin-bottom:10px;">Green srNextReview = correctly AFTER doneDate &nbsp;|&nbsp; <b style="color:red;">Red = broken</b></p>
-    <button onclick="forcefixSM2()" style="margin-bottom:12px;padding:7px 18px;border-radius:8px;border:none;background:#1a9e5c;color:#fff;font-weight:700;font-size:13px;cursor:pointer;">🔧 Force Fix All & Save</button>
-    <table style="width:100%;border-collapse:collapse;font-size:11px;">
-      <thead><tr style="background:#f0f0f0;font-size:10px;text-transform:uppercase;letter-spacing:0.5px;">
-        <th style="padding:4px 8px;text-align:left;">Question</th>
-        <th style="padding:4px 8px;">Asked</th>
-        <th style="padding:4px 8px;">DoneDate</th>
-        <th style="padding:4px 8px;">srNextReview</th>
-        <th style="padding:4px 8px;">Interval</th>
-        <th style="padding:4px 8px;">Reps</th>
-      </tr></thead>
-      <tbody>${rows||'<tr><td colspan="6" style="padding:12px;color:#999;">No done questions.</td></tr>'}</tbody>
-    </table>
-  </div>`;
-  document.body.appendChild(overlay);
-}
-
-async function forcefixSM2() {
-  let fixed = 0;
-  const today = new Date().toISOString().split('T')[0];
-  const sample = [];
-  state.questions.forEach(q => {
-    if (q.done) {
-      const base = q.doneDate || today;
-      const d = new Date(base + 'T00:00:00');
-      d.setDate(d.getDate() + 1);
-      const newDate = d.toISOString().split('T')[0];
-      if (fixed < 3) sample.push(`"${(q.text||'').slice(0,30)}" doneDate=${base} → srNextReview=${newDate}`);
-      q.srNextReview = newDate;
-      q.srRepetitions = 0;
-      q.srInterval = 1;
-      q.srEaseFactor = 2.5;
-      fixed++;
-    }
-  });
-  // Write directly to IDB, skip sync ping to avoid race
-  try { await idbSet('meo_questions', state.questions); } catch(e) { alert('IDB write failed: ' + e); }
-  alert('Force fixed ' + fixed + ' questions.\n\nSamples:\n' + sample.join('\n') + '\n\nNow check the debug table again to confirm.');
-  renderAll();
-  renderCalendar();
-  if (typeof renderBigCalendar === 'function') renderBigCalendar();
-  const ov = document.getElementById('sm2debugOverlay');
-  if (ov) ov.remove();
-  showToast('✅ Force-fixed SM-2 dates for ' + fixed + ' questions', 'success');
-  setTimeout(debugSM2, 400);
-}
-</script>
