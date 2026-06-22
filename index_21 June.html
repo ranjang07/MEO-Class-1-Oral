@@ -2098,182 +2098,6 @@ svg.radar { overflow: visible; }
 @media (max-width: 1200px) {
   #bigCalendarPanel > div { grid-template-columns: 1fr 280px !important; }
 }
-
-/* ── MIC / STT BUTTON ────────────────────────────────────── */
-.mic-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  border: 1.5px solid var(--border);
-  background: var(--surface2);
-  color: var(--text2);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s;
-  user-select: none;
-}
-.mic-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(26,158,92,0.07); }
-.mic-btn.listening {
-  background: rgba(214,59,59,0.10);
-  border-color: var(--red);
-  color: var(--red);
-  animation: micPulse 1s ease-in-out infinite;
-}
-@keyframes micPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(214,59,59,0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(214,59,59,0); }
-}
-
-/* Floating STT status bar */
-#sttFloatingBar {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 20000;
-  background: var(--surface);
-  border: 1.5px solid var(--red);
-  border-radius: 14px;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 8px 28px rgba(214,59,59,0.18), 0 2px 8px rgba(0,0,0,0.10);
-  font-family: 'Space Grotesk', sans-serif;
-  transform: translateY(80px);
-  transition: transform 0.32s cubic-bezier(.34,1.56,.64,1);
-  min-width: 240px;
-}
-#sttFloatingBar.visible { transform: translateY(0); }
-#sttFloatingBar .sfb-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--red);
-  animation: micPulse 1s ease-in-out infinite;
-  flex-shrink: 0;
-}
-#sttFloatingBar .sfb-label {
-  flex: 1;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--text);
-}
-#sttFloatingBar .sfb-interim {
-  font-size: 11px;
-  color: var(--text3);
-  font-style: italic;
-  display: block;
-  margin-top: 1px;
-  max-width: 180px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-#sttStopBtn {
-  padding: 6px 14px;
-  border-radius: 8px;
-  border: none;
-  background: var(--red);
-  color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background 0.15s;
-}
-#sttStopBtn:hover { background: #b91c1c; }
-
-/* ── VOICE / TTS FEATURE ─────────────────────────────────────── */
-.voice-speak-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface2);
-  color: var(--text2);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s;
-  user-select: none;
-}
-.voice-speak-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(26,158,92,0.07); }
-.voice-speak-btn.speaking {
-  background: rgba(26,158,92,0.14);
-  border-color: var(--accent);
-  color: var(--accent2);
-  animation: voicePulse 1.4s ease-in-out infinite;
-}
-@keyframes voicePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(26,158,92,0.35); }
-  50% { box-shadow: 0 0 0 5px rgba(26,158,92,0); }
-}
-
-/* Floating voice bar */
-#voiceFloatingBar {
-  position: fixed;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  z-index: 19999;
-  background: var(--surface);
-  border: 1.5px solid var(--accent);
-  border-radius: 16px;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  box-shadow: 0 8px 32px rgba(26,158,92,0.22), 0 2px 8px rgba(0,0,0,0.12);
-  font-family: 'Space Grotesk', sans-serif;
-  transition: transform 0.32s cubic-bezier(.34,1.56,.64,1);
-  min-width: 280px;
-}
-#voiceFloatingBar.visible {
-  transform: translateX(-50%) translateY(0);
-}
-#voiceFloatingBar .vfb-icon {
-  font-size: 22px;
-  animation: voicePulse 1.4s ease-in-out infinite;
-}
-#voiceFloatingBar .vfb-label {
-  flex: 1;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 180px;
-}
-#voiceFloatingBar .vfb-sub {
-  font-size: 10.5px;
-  color: var(--text3);
-  font-weight: 400;
-  display: block;
-  margin-top: 1px;
-}
-#voiceStopBtn {
-  padding: 7px 16px;
-  border-radius: 10px;
-  border: none;
-  background: var(--red);
-  color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background 0.15s, transform 0.1s;
-}
-#voiceStopBtn:hover { background: #b91c1c; transform: scale(1.04); }
-#voiceStopBtn:active { transform: scale(0.97); }
 </style>
 </head>
 <body>
@@ -2464,9 +2288,6 @@ svg.radar { overflow: visible; }
         <div class="form-group">
           <label class="form-label">Manual Answer <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0;">(your own notes)</span></label>
           <textarea class="form-textarea" id="manualAnswer" rows="4" placeholder="Type your own answer / notes here..."></textarea>
-          <div style="margin-top:6px;">
-            <button class="mic-btn" id="mic-manualAnswer" onclick="sttToggle('manualAnswer','mic-manualAnswer')" title="Speak to type">🎤 Dictate</button>
-          </div>
         </div>
         <div class="form-group">
           <label class="form-label">Tags <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0;">(press Enter to add)</span></label>
@@ -2486,9 +2307,6 @@ svg.radar { overflow: visible; }
             </div>
           </div>
           <div class="ai-answer-box" id="aiAnswerBox">Click "Get AI Answer" to fetch answer from AI...</div>
-          <div style="margin-top:8px;">
-            <button class="voice-speak-btn" id="voiceBtnAnswerBox" onclick="voiceReadAnswerBox(this)" title="Read answer aloud">🔊 Read Aloud</button>
-          </div>
         </div>
         <div class="form-actions">
           <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
@@ -4120,14 +3938,7 @@ function amendFindQuestionsArray(raw, _depth) {
   // pathological double-double-wrap.
   if (depth < 2 && typeof raw.content === 'string' && (raw.encoding === 'base64' || raw.sha)) {
     try {
-      const cleanB64 = raw.content.replace(/[\r\n]/g, '');
-      let decodedText;
-      try {
-        decodedText = decodeURIComponent(escape(atob(cleanB64)));
-      } catch (e) {
-        const bytes = Uint8Array.from(atob(cleanB64), c => c.charCodeAt(0));
-        decodedText = new TextDecoder('utf-8').decode(bytes);
-      }
+      const decodedText = decodeURIComponent(escape(atob(raw.content.replace(/\n/g, ''))));
       const decoded = JSON.parse(decodedText);
       const found = amendFindQuestionsArray(decoded, depth + 1);
       if (found) return found;
@@ -4162,84 +3973,53 @@ function applyGitHubDataBundle(data) {
   saveTopics();
 }
 
-// Decode a GitHub base64 blob (may be split across chunks) into a parsed JS object.
-// Uses TextDecoder so multi-byte UTF-8 characters are handled correctly.
-function ghDecodeBase64Json(b64) {
-  const clean = b64.replace(/[\r\n\s]/g, '');
-  const bytes = Uint8Array.from(atob(clean), c => c.charCodeAt(0));
-  const text = new TextDecoder('utf-8').decode(bytes);
-  return JSON.parse(text);
-}
-
-// Fetch current file metadata (sha) + content.
-// sha is required by GitHub to update an existing file.
-// Handles files of ANY size — including 30MB+ — by using the Git Blobs API
-// which streams base64 in chunks with no size cap.
+// Fetch current file (content + sha) — sha is required by GitHub to update an existing file
 async function ghGetFile(cfg, branch) {
-  const jsonHeaders = cfg.token
+  const headers = cfg.token
     ? { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github+json' }
     : { 'Accept': 'application/vnd.github+json' };
 
-  // Step 1: Contents API — gives us the blob sha and download_url.
-  // For files >1MB the `content` field is empty, but sha and download_url are always present.
-  const contentsUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${GH_DATA_PATH}?ref=${encodeURIComponent(branch)}`;
-  const metaRes = await fetch(contentsUrl, { headers: jsonHeaders, mode: 'cors', credentials: 'omit' });
-  if (metaRes.status === 404) return { exists: false, sha: null, data: null };
-  if (!metaRes.ok) {
-    const raw = await metaRes.text().catch(() => '');
-    let msg = `GitHub read failed (HTTP ${metaRes.status})`;
-    try { const p = JSON.parse(raw); if (p.message) msg = p.message; } catch(e) {}
+  // Use the Contents API for both sha AND content — it is fully CORS-safe from any origin
+  // including file://. For files under ~1MB the API returns base64-encoded content inline.
+  // For larger files GitHub omits the content field but we can add Accept: application/vnd.github.raw+json
+  // to get raw text directly — also CORS-safe.
+  const url = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${GH_DATA_PATH}?ref=${encodeURIComponent(branch)}`;
+
+  // First request: standard JSON to get sha + content (works for files up to ~1MB)
+  const res = await fetch(url, { headers, mode: 'cors', credentials: 'omit' });
+  if (res.status === 404) return { exists: false, sha: null, data: null };
+  if (!res.ok) {
+    const raw = await res.text().catch(() => '');
+    let msg = `GitHub read failed (HTTP ${res.status})`;
+    try { const parsed = JSON.parse(raw); if (parsed.message) msg = parsed.message; } catch(e) {}
     throw new Error(msg);
   }
-  const meta = await ghSafeJson(metaRes, 'Reading data.json metadata');
+  const meta = await ghSafeJson(res, 'Reading data.json');
   const sha = meta.sha;
-  if (!sha) throw new Error('GitHub did not return a sha for data.json.');
+  if (!sha) throw new Error('Reading data.json: GitHub did not return a sha.');
 
-  let parsedData = null;
-
-  // Strategy A — Git Blobs API (no size limit, works for 30MB+).
-  // Returns the full base64-encoded blob in one response, CORS-safe.
-  // Requires auth for private repos (token already in headers).
-  if (cfg.token) {
+  let parsedData;
+  if (meta.content) {
+    // Inline base64 content — decode it
+    const text = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
     try {
-      const blobUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/git/blobs/${sha}`;
-      const blobRes = await fetch(blobUrl, { headers: jsonHeaders, mode: 'cors', credentials: 'omit' });
-      if (blobRes.ok) {
-        const blob = await blobRes.json();
-        if (blob.content && blob.encoding === 'base64') {
-          parsedData = ghDecodeBase64Json(blob.content);
-        }
-      }
+      parsedData = JSON.parse(text);
     } catch (e) {
-      console.warn('[GitHub] Blobs API failed, trying next strategy:', e.message);
+      throw new Error(`data.json is not valid JSON: ${e.message}`);
     }
-  }
-
-  // Strategy B — raw.githubusercontent.com via download_url.
-  // Works for public repos and private repos (URL contains embedded token).
-  // GitHub serves files up to ~100MB this way.
-  if (!parsedData && meta.download_url) {
+  } else {
+    // File too large for inline content — fetch raw text via Accept header (still CORS-safe)
+    const rawRes = await fetch(url, {
+      headers: { ...headers, 'Accept': 'application/vnd.github.raw+json' },
+      mode: 'cors', credentials: 'omit'
+    });
+    if (!rawRes.ok) throw new Error(`GitHub raw fetch failed (HTTP ${rawRes.status})`);
+    const text = await rawRes.text();
     try {
-      const rawRes = await fetch(meta.download_url, { mode: 'cors', credentials: 'omit' });
-      if (rawRes.ok) {
-        parsedData = JSON.parse(await rawRes.text());
-      }
+      parsedData = JSON.parse(text);
     } catch (e) {
-      console.warn('[GitHub] download_url fetch failed, trying base64 fallback:', e.message);
+      throw new Error(`data.json is not valid JSON: ${e.message}`);
     }
-  }
-
-  // Strategy C — inline base64 content field (only present for files <1MB).
-  if (!parsedData && meta.content) {
-    try {
-      parsedData = ghDecodeBase64Json(meta.content);
-    } catch (e) {
-      throw new Error('data.json: could not decode content from GitHub. (' + e.message + ')');
-    }
-  }
-
-  if (!parsedData) {
-    throw new Error('Could not retrieve data.json from GitHub. For files over 25MB a GitHub token is required — please add one in Settings.');
   }
 
   return { exists: true, sha, data: parsedData };
@@ -5227,9 +5007,7 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
           : `<div style="color:var(--text3);font-size:12px;font-style:italic;margin-bottom:8px;">No manual answer yet.</div>`}
         <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center;">
           <button class="q-action-btn" onclick="editInlineRich(${q.id},'${expandKey}')">✏️ ${manualContent ? 'Edit' : 'Add Answer'}</button>
-          <button class="mic-btn" id="mic-rich-${expandKey}" onclick="editInlineRich(${q.id},'${expandKey}');setTimeout(()=>sttToggle('ans-manual-editor-${expandKey}','mic-rich-${expandKey}'),120)" title="Dictate into My Answer">🎤 Dictate</button>
           ${manualContent ? `<button class="highlight-toggle-btn ${q.manualAnswerHighlighted ? 'active' : ''}" id="hl-manual-btn-${expandKey}" onclick="toggleAnswerHighlight(${q.id},'manual','${expandKey}')" title="${q.manualAnswerHighlighted ? 'Remove highlight' : 'Highlight this answer'}">${q.manualAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight'}</button>` : ''}
-          ${manualContent ? `<button class="voice-speak-btn" id="voice-manual-${expandKey}" onclick="voiceReadManual('${expandKey}',this)" title="Read my notes aloud">🔊 Read Aloud</button>` : ''}
         </div>
         <div id="ans-manual-edit-${expandKey}" style="display:none;">
           <div class="rich-toolbar" id="rt-${expandKey}">
@@ -5252,10 +5030,9 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
             <button class="rt-btn" onclick="rfmt('justifyCenter','${expandKey}')" title="Center">☰</button>
           </div>
           <div class="rich-editor" id="ans-manual-editor-${expandKey}" contenteditable="true" spellcheck="true">${manualContent}</div>
-          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;align-items:center;">
+          <div style="display:flex;gap:6px;margin-top:6px;">
             <button class="ans-save-btn" onclick="saveInlineRich(${q.id},'${expandKey}','manual')">💾 Save</button>
             <button class="q-action-btn" onclick="cancelInlineRich('${expandKey}','manual')">Cancel</button>
-            <button class="mic-btn" id="mic-rich-${expandKey}" onclick="sttToggle('ans-manual-editor-${expandKey}','mic-rich-${expandKey}')" title="Dictate into My Answer">🎤 Dictate</button>
           </div>
         </div>
       </div>
@@ -5267,7 +5044,6 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
           <button class="get-answer-btn" style="font-size:12px;padding:7px 14px;" onclick="getAIForExistingFromCard(${q.id},'${expandKey}')">🤖 Fetch AI Answer</button>
           ${aiContent ? `<button class="q-action-btn" onclick="editInlineAI(${q.id},'${expandKey}')">✏️ Edit AI Answer</button>` : ''}
           ${aiContent ? `<button class="highlight-toggle-btn ${q.aiAnswerHighlighted ? 'active-ai' : ''}" id="hl-ai-btn-${expandKey}" onclick="toggleAnswerHighlight(${q.id},'ai','${expandKey}')" title="${q.aiAnswerHighlighted ? 'Remove highlight' : 'Highlight AI answer'}">${q.aiAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight'}</button>` : ''}
-          ${aiContent ? `<button class="voice-speak-btn" id="voice-ai-${expandKey}" onclick="voiceReadAI('${expandKey}',this)" title="Read AI answer aloud">🔊 Read Aloud</button>` : ''}
         </div>
         <div id="ai-loading-${expandKey}" style="display:none;margin-top:8px;color:var(--text3);font-size:12px;font-style:italic;">⏳ Fetching from AI...</div>
         <div id="ans-ai-edit-${expandKey}" style="display:none;margin-top:8px;">
@@ -5295,20 +5071,16 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
           <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--text);line-height:1.55;white-space:pre-wrap;">${escHtml(q.myAnswer)}</div>
           <div class="my-answer-actions">
             <button class="my-answer-btn" onclick="openMyAnswer(${q.id},'${expandKey}')">✏️ Edit</button>
-            <button class="mic-btn" id="mic-mya-${expandKey}" onclick="openMyAnswer(${q.id},'${expandKey}');setTimeout(()=>sttToggle('my-ans-input-${expandKey}','mic-mya-${expandKey}'),80)" title="Dictate to edit answer">🎤 Dictate</button>
             <button class="my-answer-btn" onclick="compareAnswers(${q.id},'${expandKey}')">🔍 Compare with AI</button>
           </div>
         ` : `
-          <div class="my-answer-actions">
-            <button class="my-answer-btn" onclick="openMyAnswer(${q.id},'${expandKey}')">+ Write My Answer</button>
-            <button class="mic-btn" id="mic-mya-${expandKey}" onclick="openMyAnswer(${q.id},'${expandKey}');setTimeout(()=>sttToggle('my-ans-input-${expandKey}','mic-mya-${expandKey}'),80)" title="Speak your answer">🎤 Dictate</button>
-          </div>
+          <button class="my-answer-btn" onclick="openMyAnswer(${q.id},'${expandKey}')">+ Write My Answer</button>
         `}
         <div id="my-ans-editor-${expandKey}" style="display:none;margin-top:8px;">
           <textarea class="my-answer-textarea" id="my-ans-input-${expandKey}" placeholder="Write your answer here to practice recalling from memory...">${escHtml(q.myAnswer||'')}</textarea>
           <div class="my-answer-actions">
             <button class="my-answer-btn save" onclick="saveMyAnswer(${q.id},'${expandKey}')">💾 Save</button>
-            <button class="my-answer-btn" onclick="sttStop();document.getElementById('my-ans-editor-${expandKey}').style.display='none'">Cancel</button>
+            <button class="my-answer-btn" onclick="document.getElementById('my-ans-editor-${expandKey}').style.display='none'">Cancel</button>
           </div>
         </div>
         <div id="my-ans-compare-${expandKey}" style="display:none;margin-top:10px;"></div>
@@ -6974,33 +6746,33 @@ function printHighlightedAnswers(topicId) {
 <title>MEO — T${topicId} Highlights</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Georgia, serif; font-size: 7px; color: #0f172a; line-height: 1.5; padding: 14px 20px; }
+  body { font-family: Georgia, serif; font-size: 13px; color: #0f172a; line-height: 1.6; padding: 28px 36px; }
 
-  .print-header { margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1.5px solid #1e293b; }
-  .print-header h1 { font-size: 11px; font-weight: 700; }
-  .print-header .sub { font-size: 7px; color: #475569; margin-top: 3px; font-family: sans-serif; }
-  .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 5px; }
-  .leg-item { display: flex; align-items: center; gap: 3px; font-size: 7px; font-family: sans-serif; color: #334155; }
-  .leg-dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .print-header { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #1e293b; }
+  .print-header h1 { font-size: 18px; font-weight: 700; }
+  .print-header .sub { font-size: 11px; color: #475569; margin-top: 4px; font-family: sans-serif; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-family: sans-serif; color: #334155; }
+  .leg-dot { width: 13px; height: 13px; border-radius: 3px; display: inline-block; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-  .q-block { margin-bottom: 10px; border: 1px solid #e2e8f0; border-radius: 5px; padding: 7px 9px; page-break-inside: avoid; }
-  .q-num { font-size: 6px; font-weight: 700; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
-  .q-text { font-size: 10px; font-weight: 700; color: #0f172a; margin-bottom: 6px; line-height: 1.45; }
+  .q-block { margin-bottom: 18px; border: 1px solid #e2e8f0; border-radius: 7px; padding: 12px 15px; page-break-inside: avoid; }
+  .q-num { font-size: 10px; font-weight: 700; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  .q-text { font-size: 13.5px; font-weight: 700; color: #0f172a; margin-bottom: 10px; line-height: 1.5; }
 
-  .highlights-wrap { display: flex; flex-wrap: wrap; gap: 4px; }
+  .highlights-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
   .hl-chip {
     display: inline-block;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 7px;
-    line-height: 1.45;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12.5px;
+    line-height: 1.5;
     font-family: Georgia, serif;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
   @media print {
-    body { padding: 10px 14px; }
+    body { padding: 16px 22px; }
     .q-block { page-break-inside: avoid; }
   }
 </style>
@@ -10247,385 +10019,6 @@ function renderAnalytics() {
 <div style="text-align:center;padding:24px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--text3);border-top:1px solid var(--border);margin-top:20px;">
   Made with ❤️ by <span style="color:var(--accent);font-weight:600;">Gaurav Ranjan</span>
 </div>
-
-<!-- ── FLOATING STT BAR ── -->
-<div id="sttFloatingBar">
-  <span class="sfb-dot"></span>
-  <div>
-    <span class="sfb-label">🎤 Listening…</span>
-    <span class="sfb-interim" id="sfbInterim">Speak now</span>
-  </div>
-  <button id="sttStopBtn" onclick="sttStop()">⏹ Stop</button>
-</div>
-
-<script>
-// ══════════════════════════════════════════════════════
-//  STT MODULE  — Speech-to-text → types into textarea
-//  Manual stop only. Continuous mode (no auto-cutoff).
-// ══════════════════════════════════════════════════════
-(function() {
-  'use strict';
-
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) {
-    // Graceful degradation: hide all mic buttons when not supported
-    window.sttToggle = function() {
-      alert('Speech recognition is not supported in this browser.\nPlease use Chrome or Edge.');
-    };
-    window.sttStop = function() {};
-    return;
-  }
-
-  let _rec        = null;   // SpeechRecognition instance
-  let _targetId   = null;   // textarea / input id
-  let _btnId      = null;   // mic button id
-  let _listening  = false;
-  let _finalText  = '';     // accumulated final transcript this session
-
-  // ── DOM helpers ─────────────────────────────────────
-  function getBar()     { return document.getElementById('sttFloatingBar'); }
-  function getInterim() { return document.getElementById('sfbInterim'); }
-  function getTarget()  { return document.getElementById(_targetId); }
-  function getBtn()     { return document.getElementById(_btnId); }
-
-  function showBar() { getBar().classList.add('visible'); }
-  function hideBar() { getBar().classList.remove('visible'); }
-
-  function setInterim(txt) {
-    const el = getInterim();
-    if (el) el.textContent = txt || 'Speak now…';
-  }
-
-  function markBtnOn(btn) {
-    if (!btn) return;
-    btn.classList.add('listening');
-    btn.textContent = '⏹ Stop Dictation';
-    btn.title = 'Click to stop dictating';
-    btn._sttHandler = function() { sttStop(); };
-    btn.addEventListener('click', btn._sttHandler);
-  }
-
-  function markBtnOff(btn) {
-    if (!btn) return;
-    btn.classList.remove('listening');
-    btn.textContent = '🎤 Dictate';
-    btn.title = 'Speak to type';
-    if (btn._sttHandler) {
-      btn.removeEventListener('click', btn._sttHandler);
-      delete btn._sttHandler;
-    }
-  }
-
-  // ── Append text to target textarea ──────────────────
-  function appendToTarget(text) {
-    const el = getTarget();
-    if (!el) return;
-    if (el.isContentEditable) {
-      // contenteditable div — insert at cursor position if focused, else append to end
-      el.focus();
-      const sel = window.getSelection();
-      if (sel && sel.rangeCount) {
-        const range = sel.getRangeAt(0);
-        range.collapse(false);
-        // Add a space before if the preceding text doesn't end in space
-        const before = range.startContainer.textContent.slice(0, range.startOffset);
-        const sep = (before && !before.endsWith(' ') && !before.endsWith('\n')) ? ' ' : '';
-        const node = document.createTextNode(sep + text);
-        range.insertNode(node);
-        range.setStartAfter(node);
-        range.collapse(true);
-        sel.removeAllRanges();
-        sel.addRange(range);
-      } else {
-        // No selection — just append as text node
-        const cur = el.innerText;
-        const sep = (cur && !cur.endsWith(' ') && !cur.endsWith('\n')) ? ' ' : '';
-        el.appendChild(document.createTextNode(sep + text));
-      }
-      el.dispatchEvent(new Event('input', { bubbles: true }));
-      el.scrollTop = el.scrollHeight;
-    } else {
-      // Regular textarea / input
-      const cur = el.value;
-      const sep = (cur && !cur.endsWith(' ') && !cur.endsWith('\n')) ? ' ' : '';
-      el.value = cur + sep + text;
-      el.scrollTop = el.scrollHeight;
-      el.dispatchEvent(new Event('input', { bubbles: true }));
-    }
-  }
-
-  // ── Public: stop ────────────────────────────────────
-  window.sttStop = function() {
-    if (_rec) {
-      try { _rec.stop(); } catch(e) {}
-      _rec = null;
-    }
-    _listening = false;
-    markBtnOff(getBtn());
-    hideBar();
-    setInterim('');
-    _finalText = '';
-    _targetId  = null;
-    _btnId     = null;
-  };
-
-  // ── Public: toggle (called by mic button onclick) ──
-  window.sttToggle = function(targetId, btnId) {
-    // If already listening to this same target → stop
-    if (_listening && _targetId === targetId) {
-      sttStop();
-      return;
-    }
-    // If listening to a different target → stop first
-    if (_listening) sttStop();
-
-    // Make sure the target element is visible and its parent editor section is open
-    const targetEl = document.getElementById(targetId);
-    if (!targetEl) return;
-    // Case 1: textarea inside "my-ans-editor-*" div
-    const parentMyAns = targetEl.closest('[id^="my-ans-editor-"]');
-    if (parentMyAns && parentMyAns.style.display === 'none') {
-      parentMyAns.style.display = 'block';
-    }
-    // Case 2: contenteditable inside "ans-manual-edit-*" div (rich editor)
-    const parentRich = targetEl.closest('[id^="ans-manual-edit-"]');
-    if (parentRich && parentRich.style.display === 'none') {
-      parentRich.style.display = 'block';
-    }
-    // Focus the target so dictated text lands at cursor
-    if (targetEl.isContentEditable) {
-      targetEl.focus();
-      // Move cursor to end if nothing selected
-      const sel = window.getSelection();
-      if (sel && sel.rangeCount === 0) {
-        const r = document.createRange();
-        r.selectNodeContents(targetEl);
-        r.collapse(false);
-        sel.addRange(r);
-      }
-    }
-
-    _targetId  = targetId;
-    _btnId     = btnId;
-    _finalText = '';
-    _listening = true;
-
-    markBtnOn(getBtn());
-    showBar();
-    setInterim('Initializing…');
-
-    const rec = new SR();
-    _rec = rec;
-
-    rec.lang         = 'en-US';
-    rec.continuous   = true;   // keep listening until we stop it
-    rec.interimResults = true; // show live partial results
-
-    rec.onresult = function(e) {
-      let interim = '';
-      for (let i = e.resultIndex; i < e.results.length; i++) {
-        const t = e.results[i][0].transcript;
-        if (e.results[i].isFinal) {
-          _finalText += (_finalText ? ' ' : '') + t.trim();
-          appendToTarget(t.trim());
-          setInterim('');
-        } else {
-          interim += t;
-        }
-      }
-      if (interim) setInterim(interim);
-    };
-
-    rec.onerror = function(e) {
-      if (e.error === 'no-speech') {
-        // No speech detected — just restart quietly so it keeps listening
-        if (_listening && _rec) {
-          try { _rec.start(); } catch(err) {}
-        }
-        return;
-      }
-      if (e.error === 'not-allowed') {
-        alert('Microphone access was denied.\nPlease allow microphone access in your browser settings and try again.');
-      }
-      sttStop();
-    };
-
-    // When rec ends naturally (network timeout etc.) — restart if still listening
-    rec.onend = function() {
-      if (_listening) {
-        // Keep alive: restart recognition so user doesn't have to press again
-        try {
-          const newRec = new SR();
-          newRec.lang           = 'en-US';
-          newRec.continuous     = true;
-          newRec.interimResults = true;
-          newRec.onresult = rec.onresult;
-          newRec.onerror  = rec.onerror;
-          newRec.onend    = rec.onend;
-          _rec = newRec;
-          newRec.start();
-        } catch(e) {
-          sttStop();
-        }
-      }
-    };
-
-    try {
-      rec.start();
-    } catch(e) {
-      alert('Could not start microphone: ' + e.message);
-      sttStop();
-    }
-  };
-
-})();
-</script>
-
-<!-- ── FLOATING VOICE BAR ── -->
-<div id="voiceFloatingBar">
-  <span class="vfb-icon">🔊</span>
-  <div>
-    <span class="vfb-label" id="vfbLabel">Reading answer…</span>
-    <span class="vfb-sub" id="vfbSub">Press Stop when done</span>
-  </div>
-  <button id="voiceStopBtn" onclick="voiceStop()">⏹ Stop</button>
-</div>
-
-<script>
-// ══════════════════════════════════════════════════════
-//  VOICE / TTS MODULE  — Manual stop only, no auto-stop
-// ══════════════════════════════════════════════════════
-(function() {
-  'use strict';
-
-  // ── State ──────────────────────────────────────────
-  let _utterance   = null;   // current SpeechSynthesisUtterance
-  let _activeBtn   = null;   // the button that triggered speaking
-  let _speaking    = false;
-
-  // ── Helpers ────────────────────────────────────────
-  function floatBar() { return document.getElementById('voiceFloatingBar'); }
-  function floatLabel() { return document.getElementById('vfbLabel'); }
-  function floatSub()   { return document.getElementById('vfbSub'); }
-
-  function showBar(label) {
-    const bar = floatBar();
-    floatLabel().textContent = label || 'Reading answer…';
-    floatSub().textContent   = 'Press ⏹ Stop when done';
-    bar.classList.add('visible');
-  }
-  function hideBar() { floatBar().classList.remove('visible'); }
-
-  function markBtn(btn, on) {
-    if (!btn) return;
-    if (on) {
-      btn.classList.add('speaking');
-      btn.textContent = '⏹ Stop';
-      btn.title = 'Click to stop reading';
-      // clicking the active button also stops
-      btn._voiceHandler = function() { voiceStop(); };
-      btn.addEventListener('click', btn._voiceHandler);
-    } else {
-      btn.classList.remove('speaking');
-      btn.textContent = '🔊 Read Aloud';
-      btn.title = 'Read answer aloud';
-      if (btn._voiceHandler) {
-        btn.removeEventListener('click', btn._voiceHandler);
-        delete btn._voiceHandler;
-      }
-    }
-  }
-
-  // ── Public: stop ───────────────────────────────────
-  window.voiceStop = function() {
-    window.speechSynthesis.cancel();
-    _speaking = false;
-    markBtn(_activeBtn, false);
-    _activeBtn = null;
-    _utterance = null;
-    hideBar();
-  };
-
-  // ── Public: speak(text, btn, label) ───────────────
-  //  btn   – the DOM button element (so we can toggle its look)
-  //  label – short label for floating bar (e.g. "AI Answer")
-  window.voiceSpeak = function(text, btn, label) {
-    if (!window.speechSynthesis) {
-      alert('Sorry, your browser does not support text-to-speech.');
-      return;
-    }
-    // If already speaking, stop first
-    if (_speaking) voiceStop();
-
-    // Strip HTML tags from text
-    const clean = text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-    if (!clean) return;
-
-    _utterance = new SpeechSynthesisUtterance(clean);
-    _utterance.lang  = 'en-US';
-    _utterance.rate  = 0.92;
-    _utterance.pitch = 1.0;
-
-    // ── KEY: disable auto-stop by re-queuing on page-hide ──
-    // Chrome pauses speech after ~15 s in background tab;
-    // we prevent that by resuming on visibility change.
-    function keepAlive() {
-      if (_speaking && window.speechSynthesis.paused) {
-        window.speechSynthesis.resume();
-      }
-    }
-    const keepAliveInterval = setInterval(keepAlive, 10000);
-
-    // On natural end — clear state (user may stop manually OR text finishes)
-    _utterance.onend = function() {
-      clearInterval(keepAliveInterval);
-      if (_speaking) {          // finished naturally (text ended)
-        _speaking = false;
-        markBtn(_activeBtn, false);
-        _activeBtn = null;
-        _utterance = null;
-        hideBar();
-      }
-    };
-    _utterance.onerror = function() {
-      clearInterval(keepAliveInterval);
-      _speaking = false;
-      markBtn(_activeBtn, false);
-      _activeBtn = null;
-      _utterance = null;
-      hideBar();
-    };
-
-    _activeBtn = btn || null;
-    _speaking  = true;
-    markBtn(_activeBtn, true);
-    showBar(label || 'Reading answer…');
-    window.speechSynthesis.speak(_utterance);
-  };
-
-  // ── Public helper: read AI answer for a card ──────
-  window.voiceReadAI = function(expandKey, btn) {
-    const el = document.getElementById('ans-ai-view-' + expandKey);
-    const text = el ? el.textContent : '';
-    window.voiceSpeak(text, btn, '✨ AI Answer');
-  };
-
-  // ── Public helper: read manual answer for a card ──
-  window.voiceReadManual = function(expandKey, btn) {
-    const el = document.getElementById('ans-manual-editor-' + expandKey);
-    const text = el ? el.innerText || el.textContent : '';
-    window.voiceSpeak(text, btn, '✏️ My Notes');
-  };
-
-  // ── Public helper: read aiAnswerBox (add-question panel) ──
-  window.voiceReadAnswerBox = function(btn) {
-    const el = document.getElementById('aiAnswerBox');
-    const text = el ? el.textContent : '';
-    window.voiceSpeak(text, btn, '✨ AI Answer');
-  };
-
-})();
-</script>
 </body>
 </html>
 <script>
