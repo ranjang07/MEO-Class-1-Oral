@@ -1000,103 +1000,13 @@ body {
   box-shadow: 0 0 0 1px rgba(26, 158, 92, 0.07) inset;
 }
 
-/* ── ORAL ANSWER BOX ───────────────────────────────────── */
-.oral-answer-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 13px;
-  border-radius: 8px;
-  border: 1.5px solid rgba(109,74,191,0.45);
-  background: rgba(109,74,191,0.08);
-  color: var(--purple);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s;
-  white-space: nowrap;
-}
-.oral-answer-btn:hover {
-  background: rgba(109,74,191,0.16);
-  border-color: var(--purple2);
-  color: var(--purple2);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(109,74,191,0.18);
-}
-.oral-answer-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
-.oral-answer-box {
-  margin-top: 10px;
-  padding: 12px 14px;
-  background: linear-gradient(135deg, rgba(109,74,191,0.07), rgba(26,158,92,0.05));
-  border: 1.5px solid rgba(109,74,191,0.30);
-  border-radius: 10px;
-  font-size: 13.5px;
-  line-height: 1.75;
-  color: var(--text);
-  white-space: pre-wrap;
-  position: relative;
-}
-.oral-answer-box-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--purple2);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 8px;
-}
-.oral-answer-box-label .oral-src-tag {
-  font-size: 9.5px;
-  padding: 1px 7px;
-  border-radius: 999px;
-  background: rgba(109,74,191,0.12);
-  border: 1px solid rgba(109,74,191,0.25);
-  color: var(--purple2);
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0;
-}
-.oral-copy-btn {
-  position: absolute;
-  top: 10px; right: 10px;
-  padding: 3px 9px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text3);
-  font-size: 11px;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: 'Inter', sans-serif;
-}
-.oral-copy-btn:hover { color: var(--accent); border-color: var(--accent); }
-.oral-speak-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(109,74,191,0.30);
-  background: transparent;
-  color: var(--purple2);
-  font-size: 11.5px;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: 'Inter', sans-serif;
-}
-.oral-speak-btn:hover { background: rgba(109,74,191,0.10); }
-
 /* ── Floating text-selection highlight toolbar ── */
 #selHighlightBar {
   position: fixed;
   z-index: 9999;
   display: none;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   background: var(--surface);
   border: 1px solid var(--border2);
   border-radius: 10px;
@@ -1104,30 +1014,21 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.18);
   pointer-events: all;
   user-select: none;
-  flex-wrap: wrap;
-  max-width: 340px;
 }
 #selHighlightBar .hl-chip {
-  width: 18px; height: 18px;
+  width: 20px; height: 20px;
   border-radius: 50%;
   border: 2px solid transparent;
   cursor: pointer;
   transition: transform 0.12s, border-color 0.12s;
   flex-shrink: 0;
 }
-#selHighlightBar .hl-chip:hover { transform: scale(1.3); border-color: rgba(0,0,0,0.22); }
-#selHighlightBar .hl-chip.hl-yellow  { background: #f59e0b; }
+#selHighlightBar .hl-chip:hover { transform: scale(1.25); border-color: rgba(0,0,0,0.18); }
+#selHighlightBar .hl-chip.hl-yellow  { background: #ffe066; }
 #selHighlightBar .hl-chip.hl-green   { background: #6ee7b7; }
 #selHighlightBar .hl-chip.hl-cyan    { background: #7dd3fc; }
 #selHighlightBar .hl-chip.hl-pink    { background: #f9a8d4; }
 #selHighlightBar .hl-chip.hl-orange  { background: #fdba74; }
-#selHighlightBar .hl-chip.hl-purple  { background: #c4b5fd; }
-#selHighlightBar .hl-chip.hl-red     { background: #fca5a5; }
-#selHighlightBar .hl-chip.hl-lime    { background: #bef264; }
-#selHighlightBar .hl-chip.hl-teal    { background: #5eead4; }
-#selHighlightBar .hl-chip.hl-indigo  { background: #a5b4fc; }
-#selHighlightBar .hl-chip.hl-coral   { background: #fb923c; }
-#selHighlightBar .hl-chip.hl-mint    { background: #86efac; }
 #selHighlightBar .hl-chip.hl-erase {
   background: var(--surface2);
   font-size: 13px;
@@ -1147,13 +1048,6 @@ body {
 .ans-hl[data-hl="cyan"]   { background: rgba(125,211,252,0.55); }
 .ans-hl[data-hl="pink"]   { background: rgba(249,168,212,0.55); }
 .ans-hl[data-hl="orange"] { background: rgba(253,186,116,0.55); }
-.ans-hl[data-hl="purple"] { background: rgba(196,181,253,0.55); }
-.ans-hl[data-hl="red"]    { background: rgba(252,165,165,0.60); }
-.ans-hl[data-hl="lime"]   { background: rgba(190,242,100,0.55); }
-.ans-hl[data-hl="teal"]   { background: rgba(94,234,212,0.50); }
-.ans-hl[data-hl="indigo"] { background: rgba(165,180,252,0.55); }
-.ans-hl[data-hl="coral"]  { background: rgba(251,146,60,0.45); }
-.ans-hl[data-hl="mint"]   { background: rgba(134,239,172,0.50); }
 .highlight-toggle-btn {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -2412,17 +2306,10 @@ svg.radar { overflow: visible; }
 <!-- Floating text-selection highlight bar -->
 <div id="selHighlightBar" onmousedown="event.preventDefault()">
   <div class="hl-chip hl-yellow"  title="Yellow"  onclick="applySelectionHighlight('yellow')"></div>
-  <div class="hl-chip hl-orange"  title="Orange"  onclick="applySelectionHighlight('orange')"></div>
-  <div class="hl-chip hl-coral"   title="Coral"   onclick="applySelectionHighlight('coral')"></div>
-  <div class="hl-chip hl-red"     title="Red"     onclick="applySelectionHighlight('red')"></div>
-  <div class="hl-chip hl-pink"    title="Pink"    onclick="applySelectionHighlight('pink')"></div>
-  <div class="hl-chip hl-purple"  title="Purple"  onclick="applySelectionHighlight('purple')"></div>
-  <div class="hl-chip hl-indigo"  title="Indigo"  onclick="applySelectionHighlight('indigo')"></div>
-  <div class="hl-chip hl-cyan"    title="Blue"    onclick="applySelectionHighlight('cyan')"></div>
-  <div class="hl-chip hl-teal"    title="Teal"    onclick="applySelectionHighlight('teal')"></div>
   <div class="hl-chip hl-green"   title="Green"   onclick="applySelectionHighlight('green')"></div>
-  <div class="hl-chip hl-mint"    title="Mint"    onclick="applySelectionHighlight('mint')"></div>
-  <div class="hl-chip hl-lime"    title="Lime"    onclick="applySelectionHighlight('lime')"></div>
+  <div class="hl-chip hl-cyan"    title="Blue"    onclick="applySelectionHighlight('cyan')"></div>
+  <div class="hl-chip hl-pink"    title="Pink"    onclick="applySelectionHighlight('pink')"></div>
+  <div class="hl-chip hl-orange"  title="Orange"  onclick="applySelectionHighlight('orange')"></div>
   <div class="hl-sep"></div>
   <div class="hl-chip hl-erase"   title="Remove highlight" onclick="applySelectionHighlight('erase')">✕</div>
 </div>
@@ -5048,15 +4935,6 @@ function renderByTopic(container, qs, search, groups, mapped) {
     let topicQs = byTopic[t.id];
     if (!topicQs || !topicQs.length) return;
 
-    // Sort by latest date first (newest questions at the top)
-    topicQs = [...topicQs].sort((a, b) => {
-      const da = a.date || '';
-      const db = b.date || '';
-      if (db > da) return 1;
-      if (db < da) return -1;
-      return 0;
-    });
-
     // Apply done/not-done sort within group
     if (state.groupDoneSort === 'done-first') {
       topicQs = [...topicQs.filter(q => q.done), ...topicQs.filter(q => !q.done)];
@@ -5080,7 +4958,6 @@ function renderByTopic(container, qs, search, groups, mapped) {
           ${(total - done) > 0 ? `<span class="topic-stat stat-pending">${total - done} left</span>` : ''}
           <span class="topic-stat" style="font-size:9px;background:rgba(26,158,92,0.1);color:var(--accent2);">${pct}%</span>
           <button class="bulk-ai-btn" onclick="event.stopPropagation();bulkFetchAIAnswers('topic',${t.id})" title="Fetch AI answer for every question in this topic that doesn't have one yet">🤖 Fetch AI</button>
-          <button class="bulk-ai-btn" onclick="event.stopPropagation();bulkFetchOralAnswers(${t.id})" title="Generate Oral Prep answers for all done questions in this topic" style="background:rgba(109,74,191,0.12);color:var(--purple2);border-color:rgba(109,74,191,0.3);">🎙️ Oral Prep</button>
           <button class="bulk-ai-btn" onclick="event.stopPropagation();printHighlightedAnswers(${t.id})" title="Print questions with highlighted answer text for this topic" style="background:rgba(109,74,191,0.12);color:var(--purple2);border-color:rgba(109,74,191,0.3);">🖨️ Print Highlights</button>
         </div>
       </div>
@@ -5113,15 +4990,6 @@ function renderBySurveyor(container, qs, search, groups, mapped) {
   [...SURVEYORS, 'Unknown'].forEach(s => {
     let sQs = bySurveyor[s];
     if (!sQs || !sQs.length) return;
-
-    // Sort by latest date first (newest questions at the top)
-    sQs = [...sQs].sort((a, b) => {
-      const da = a.date || '';
-      const db = b.date || '';
-      if (db > da) return 1;
-      if (db < da) return -1;
-      return 0;
-    });
 
     // Apply done/not-done sort within group
     if (state.groupDoneSort === 'done-first') {
@@ -5359,7 +5227,7 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
           : `<div style="color:var(--text3);font-size:12px;font-style:italic;margin-bottom:8px;">No manual answer yet.</div>`}
         <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center;">
           <button class="q-action-btn" onclick="editInlineRich(${q.id},'${expandKey}')">✏️ ${manualContent ? 'Edit' : 'Add Answer'}</button>
-          <button class="mic-btn" id="mic-rich-${expandKey}" onclick="openAndDictateRich(${q.id},'${expandKey}')" title="Dictate into My Answer">🎤 Dictate</button>
+          <button class="mic-btn" id="mic-rich-${expandKey}" onclick="editInlineRich(${q.id},'${expandKey}');setTimeout(()=>sttToggle('ans-manual-editor-${expandKey}','mic-rich-${expandKey}'),120)" title="Dictate into My Answer">🎤 Dictate</button>
           ${manualContent ? `<button class="highlight-toggle-btn ${q.manualAnswerHighlighted ? 'active' : ''}" id="hl-manual-btn-${expandKey}" onclick="toggleAnswerHighlight(${q.id},'manual','${expandKey}')" title="${q.manualAnswerHighlighted ? 'Remove highlight' : 'Highlight this answer'}">${q.manualAnswerHighlighted ? '🖍️ Highlighted' : '🖍️ Highlight'}</button>` : ''}
           ${manualContent ? `<button class="voice-speak-btn" id="voice-manual-${expandKey}" onclick="voiceReadManual('${expandKey}',this)" title="Read my notes aloud">🔊 Read Aloud</button>` : ''}
         </div>
@@ -5387,30 +5255,8 @@ function buildQuestionCard(q, search, isOpen, allSurveyors, similarInfo, expandK
           <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;align-items:center;">
             <button class="ans-save-btn" onclick="saveInlineRich(${q.id},'${expandKey}','manual')">💾 Save</button>
             <button class="q-action-btn" onclick="cancelInlineRich('${expandKey}','manual')">Cancel</button>
-            <button class="mic-btn" id="mic-rich-${expandKey}" onclick="openAndDictateRich(${q.id},'${expandKey}')" title="Dictate into My Answer">🎤 Dictate</button>
+            <button class="mic-btn" id="mic-rich-${expandKey}" onclick="sttToggle('ans-manual-editor-${expandKey}','mic-rich-${expandKey}')" title="Dictate into My Answer">🎤 Dictate</button>
           </div>
-        </div>
-        <!-- ORAL PREP SECTION — in My Answer tab -->
-        <div style="margin-top:14px;padding-top:12px;border-top:1px dashed rgba(109,74,191,0.25);">
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <button class="oral-answer-btn" id="oral-btn-${expandKey}" onclick="getOralAnswer(${q.id},'${expandKey}')" title="Generate a short, concise, impactful oral exam answer from your highlighted text">
-              🎙️ Oral Prep Answer
-            </button>
-            <span style="font-size:11px;color:var(--text3);">Uses your highlights → concise spoken answer for examiner</span>
-          </div>
-          <div id="oral-loading-${expandKey}" style="display:none;margin-top:10px;"><span style="color:var(--purple2);font-size:12px;font-style:italic;">⏳ Generating oral answer from highlights…</span></div>
-          ${q.oralAnswer ? `
-          <div class="oral-answer-box" id="oral-box-${expandKey}">
-            <div class="oral-answer-box-label">
-              🎙️ Oral Prep Answer
-              <span class="oral-src-tag">${q.oralAnswerSrc === 'highlights' ? '🖍️ from highlights' : q.oralAnswerSrc === 'ai' ? '✨ from AI answer' : '✏️ from my answer'}</span>
-            </div>
-            <button class="oral-copy-btn" onclick="copyOralAnswer('${expandKey}')">📋 Copy</button>
-            <div id="oral-text-${expandKey}" style="white-space:pre-wrap;">${escHtml(q.oralAnswer)}</div>
-            <div style="margin-top:8px;">
-              <button class="oral-speak-btn" onclick="voiceSpeak(document.getElementById('oral-text-${expandKey}').textContent,this,'🎙️ Oral Answer')">🔊 Read Aloud</button>
-            </div>
-          </div>` : `<div id="oral-box-${expandKey}"></div>`}
         </div>
       </div>
       <div class="ans-tab-content" id="ans-ai-${expandKey}">
@@ -5885,23 +5731,9 @@ function editInlineRich(qid, expandKey) {
   const q = state.questions.find(x => x.id === qid);
   const editDiv = document.getElementById('ans-manual-edit-' + expandKey);
   const editor = document.getElementById('ans-manual-editor-' + expandKey);
-  // Only reset content if the editor is currently closed — prevents wiping
-  // dictated text when stop+restart dictation re-calls this function
-  if (editDiv && editDiv.style.display === 'none') {
-    if (q && editor) editor.innerHTML = q.manualAnswer || q.answer || '';
-    editDiv.style.display = 'block';
-  }
+  if (q && editor) editor.innerHTML = q.manualAnswer || q.answer || '';
+  editDiv.style.display = 'block';
   if (editor) editor.focus();
-}
-
-// Opens the rich editor if not already open, then toggles STT.
-// Safe to call on every click — never resets content if editor is already open.
-function openAndDictateRich(qid, expandKey) {
-  editInlineRich(qid, expandKey); // no-op if already open
-  const btnId = 'mic-rich-' + expandKey;
-  const targetId = 'ans-manual-editor-' + expandKey;
-  // Small delay so the editor div is visible before STT tries to focus it
-  setTimeout(() => sttToggle(targetId, btnId), 80);
 }
 
 function cancelInlineRich(expandKey, type) {
@@ -5978,335 +5810,6 @@ async function getAIForExistingFromCard(qid, expandKey) {
 }
 
 
-
-// ===================== ORAL PREP ANSWER =====================
-// Generates a structured, impactful oral exam answer from highlighted text (or full answer as fallback).
-// Priority: highlighted snippets (manual first, then AI) → full AI answer → full manual answer.
-async function getOralAnswer(qid, expandKey) {
-  const q = state.questions.find(x => x.id === qid);
-  if (!q) return;
-
-  const btn = document.getElementById('oral-btn-' + expandKey);
-  const loadingEl = document.getElementById('oral-loading-' + expandKey);
-  const boxEl = document.getElementById('oral-box-' + expandKey);
-
-  if (btn) btn.disabled = true;
-  if (loadingEl) loadingEl.style.display = 'block';
-
-  try {
-    // --- Collect source material ---
-    const manualHighlights = extractHighlights(q.manualAnswer || '');
-    const aiHighlights     = extractHighlights(q.aiAnswer || '');
-    const allHighlights    = [...manualHighlights, ...aiHighlights];
-
-    let sourceText = '';
-    let sourceName = '';
-    let highlightCount = 0;
-
-    if (allHighlights.length) {
-      highlightCount = allHighlights.length;
-      // Number each highlight so AI understands the breadth of material
-      sourceText = allHighlights.map((h, i) => `[${i+1}] ${h.text}`).join('\n');
-      sourceName = 'highlights';
-    } else if ((q.aiAnswer || '').trim()) {
-      sourceText = q.aiAnswer.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-      sourceName = 'ai';
-    } else if ((q.manualAnswer || q.answer || '').trim()) {
-      sourceText = (q.manualAnswer || q.answer || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-      sourceName = 'manual';
-    }
-
-    if (!sourceText) {
-      showToast('⚠️ No answer or highlights found. Add an AI/manual answer or highlight key points first.', 'error');
-      return;
-    }
-
-    // Build prompt — different instruction when many highlights exist
-    const isLargeSet = highlightCount >= 10;
-    const prompt = `You are an expert MEO Class I (Chief Engineer) oral exam coach. Your job is to turn study notes into a COMPLETE, WELL-STRUCTURED spoken answer that a candidate delivers confidently to the examiner.
-
-QUESTION: "${q.text}"
-
-${sourceName === 'highlights'
-  ? `The candidate has highlighted ${highlightCount} key points from their study material. ALL of these points represent knowledge the examiner expects — cover them all:\n\n${sourceText}`
-  : `Candidate's study material:\n\n${sourceText}`}
-
-TASK: Write a spoken oral exam answer that:
-
-1. OPENING LINE — Answer the question directly and confidently in one sentence (no preamble like "Sir, ..." or "That's a good question").
-2. CORE CONTENT — Systematically cover every key point from the material above. Group related points naturally. Use numbered steps or clear sequence where relevant (e.g., procedures). Do NOT skip or compress any significant point.
-3. REGULATIONS / CODES — If any regulation, rule, or code is mentioned in the material, state it clearly (e.g., "Under SOLAS Chapter II-1..." or "As per ISM Code Clause 10...").
-4. PRACTICAL EMPHASIS — Include any practical actions, onboard procedures, or "as Chief Engineer I would..." statements if relevant.
-5. CLOSING LINE — End with a confident summary sentence.
-
-FORMAT RULES:
-- Write in flowing, spoken paragraphs — NOT bullet points or markdown
-- Use natural spoken English as if talking to an examiner face-to-face
-- Technical terms are fine and expected
-- Aim for a 90–180 second spoken answer (roughly 250–450 words)
-- Do NOT add asterisks, bold markers, or markdown formatting of any kind`;
-
-    const apiKey = getGeminiKey ? getGeminiKey() : null;
-    if (!apiKey) throw new Error('No Gemini API key set. Go to Settings → AI Integration to add your key.');
-
-    // Gemini 2.5 Flash uses "thinking tokens" by default that eat into the output budget,
-    // causing truncation on large inputs. We disable thinking (not needed for structured writing)
-    // and raise maxOutputTokens to 8192 to ensure the full answer always arrives in one shot.
-    const callGeminiOral = async (promptText) => {
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: promptText }] }],
-            generationConfig: {
-              temperature: 0.60,
-              maxOutputTokens: 8192,
-              thinkingConfig: { thinkingBudget: 0 }  // disable thinking to preserve output tokens
-            }
-          })
-        }
-      );
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error?.message || `API error ${res.status}`);
-      }
-      const d = await res.json();
-      const finishReason = d.candidates?.[0]?.finishReason;
-      const text = d.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '';
-      return { text, finishReason };
-    };
-
-    let { text: oralText, finishReason } = await callGeminiOral(prompt);
-
-    // If still truncated (MAX_TOKENS), retry once with a tighter prompt
-    if (finishReason === 'MAX_TOKENS' || !oralText) {
-      showToast('⚠️ First attempt truncated — retrying with optimised prompt…', 'error');
-      const retryPrompt = prompt + '\n\nIMPORTANT: You MUST complete the full answer in one response. Be thorough but do not pad unnecessarily.';
-      const retry = await callGeminiOral(retryPrompt);
-      oralText = retry.text;
-    }
-
-    if (!oralText) throw new Error('No response from Gemini');
-
-    // Strip any stray markdown bold/italic markers the model may have snuck in
-    oralText = oralText.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1').trim();
-
-    q.oralAnswer    = oralText;
-    q.oralAnswerSrc = sourceName;
-    saveState();
-
-    // Update the box in-place
-    if (boxEl) {
-      const srcLabel = sourceName === 'highlights'
-        ? `🖍️ from ${highlightCount} highlights`
-        : sourceName === 'ai' ? '✨ from AI answer' : '✏️ from my answer';
-      boxEl.style.display = '';
-      boxEl.className = 'oral-answer-box';
-      boxEl.innerHTML = `
-        <div class="oral-answer-box-label">
-          🎙️ Oral Prep Answer
-          <span class="oral-src-tag">${srcLabel}</span>
-        </div>
-        <button class="oral-copy-btn" onclick="copyOralAnswer('${expandKey}')">📋 Copy</button>
-        <div id="oral-text-${expandKey}" style="white-space:pre-wrap;">${escHtml(oralText)}</div>
-        <div style="margin-top:10px;display:flex;gap:8px;align-items:center;">
-          <button class="oral-speak-btn" onclick="voiceSpeak(document.getElementById('oral-text-${expandKey}').textContent,this,'🎙️ Oral Answer')">🔊 Read Aloud</button>
-          <span style="font-size:10.5px;color:var(--text3);">~${Math.round(oralText.split(/\s+/).length/130)} min spoken</span>
-        </div>`;
-    }
-
-    showToast('🎙️ Oral answer ready! (' + (q.oralAnswer.split(/\s+/).length) + ' words)', 'success');
-  } catch(e) {
-    showToast('❌ Oral Answer Error: ' + e.message, 'error');
-  } finally {
-    if (btn) btn.disabled = false;
-    if (loadingEl) loadingEl.style.display = 'none';
-  }
-}
-
-function copyOralAnswer(expandKey) {
-  const el = document.getElementById('oral-text-' + expandKey);
-  if (!el) return;
-  const text = el.textContent || el.innerText || '';
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('📋 Oral answer copied!', 'success');
-  }).catch(() => {
-    // fallback
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast('📋 Copied!', 'success');
-  });
-}
-
-// ===================== BULK ORAL PREP (per topic) =====================
-let _bulkOralRunning = false;
-
-async function bulkFetchOralAnswers(topicId) {
-  if (_bulkOralRunning) { showToast('⚠️ Oral Prep bulk run already in progress — please wait', 'error'); return; }
-
-  const apiKey = getGeminiKey ? getGeminiKey() : null;
-  if (!apiKey) { showToast('Add your Gemini API key in Settings → AI Integration first', 'error'); return; }
-
-  const topic = TOPICS.find(t => t.id === topicId);
-  const topicName = topic ? topic.name : 'Topic ' + topicId;
-
-  // Only done questions that have at least an AI or manual answer (or highlights)
-  const targetQs = state.questions.filter(q => {
-    if (q.topicId !== topicId || !q.done) return false;
-    const hasHighlights = extractHighlights(q.manualAnswer || '').length > 0 || extractHighlights(q.aiAnswer || '').length > 0;
-    return hasHighlights || (q.aiAnswer || '').trim() || (q.manualAnswer || q.answer || '').trim();
-  });
-
-  if (!targetQs.length) {
-    showToast(`⚠️ No done questions with answers/highlights found in T${topicId} — ${topicName}`, 'error');
-    return;
-  }
-
-  const alreadyDone = targetQs.filter(q => q.oralAnswer).length;
-  const toDo = targetQs.filter(q => !q.oralAnswer);
-
-  const confirmMsg = `Generate 🎙️ Oral Prep answers for T${topicId} — ${topicName}?\n\n` +
-    `• ${toDo.length} done questions need an oral answer\n` +
-    (alreadyDone ? `• ${alreadyDone} already have one (will be skipped)\n` : '') +
-    `\nEstimated time: ~${Math.ceil(toDo.length * 8)}s (processes one at a time to avoid rate limits)`;
-
-  if (!confirm(confirmMsg)) return;
-
-  _bulkOralRunning = true;
-
-  // Progress toast
-  const container = document.getElementById('toastContainer');
-  const progressToast = document.createElement('div');
-  progressToast.className = 'toast';
-  progressToast.style.cssText = 'max-width:400px;background:rgba(109,74,191,0.95);color:#fff;';
-  container.appendChild(progressToast);
-
-  const updateProgress = (done, total, currentQ) => {
-    progressToast.innerHTML = `<div style="font-weight:700;margin-bottom:4px;">🎙️ Generating Oral Answers — T${topicId}</div>
-      <div style="font-size:12px;margin-bottom:6px;">${done}/${total} done${currentQ ? ` · <em>${currentQ.slice(0,50)}…</em>` : ''}</div>
-      <div style="background:rgba(255,255,255,0.2);border-radius:4px;height:5px;"><div style="background:#fff;height:5px;border-radius:4px;width:${Math.round(done/total*100)}%;transition:width 0.4s;"></div></div>`;
-  };
-
-  // Core Gemini oral call — same settings as single getOralAnswer (thinkingBudget:0, maxOutputTokens:8192)
-  const callGeminiOralBulk = async (promptText) => {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: promptText }] }],
-          generationConfig: {
-            temperature: 0.60,
-            maxOutputTokens: 8192,
-            thinkingConfig: { thinkingBudget: 0 }
-          }
-        })
-      }
-    );
-    if (!res.ok) {
-      if (res.status === 429) {
-        // Rate limit — wait 8s and retry once
-        await new Promise(r => setTimeout(r, 8000));
-        return callGeminiOralBulk(promptText);
-      }
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.error?.message || `API ${res.status}`);
-    }
-    const d = await res.json();
-    const finishReason = d.candidates?.[0]?.finishReason;
-    const text = d.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '';
-    return { text, finishReason };
-  };
-
-  const buildOralPrompt = (q, sourceText, highlightCount) => {
-    return `You are an expert MEO Class I (Chief Engineer) oral exam coach. Write a COMPLETE, well-structured spoken answer for the examiner.
-
-QUESTION: "${q.text}"
-
-${highlightCount > 0
-  ? `The candidate has highlighted ${highlightCount} key points — cover ALL of them:\n\n${sourceText}`
-  : `Candidate's study material:\n\n${sourceText}`}
-
-Write a spoken oral exam answer that:
-1. Opens with a direct confident statement answering the question immediately.
-2. Covers every key point systematically. Group related points. Use numbered steps for procedures.
-3. States any regulations, codes, or rules clearly (SOLAS, ISM, MARPOL, etc.).
-4. Includes practical "as Chief Engineer I would..." context where relevant.
-5. Ends with a confident one-sentence summary.
-
-Format: flowing spoken paragraphs, NO bullet points, NO markdown, NO asterisks. Aim for 250–450 words (90–180 seconds spoken). Complete the answer fully — do not truncate.`;
-  };
-
-  let succeeded = 0, failed = 0;
-  const total = toDo.length;
-
-  for (let i = 0; i < toDo.length; i++) {
-    const q = toDo[i];
-    updateProgress(i, total, q.text);
-
-    try {
-      // Build source material
-      const manualHl = extractHighlights(q.manualAnswer || '');
-      const aiHl     = extractHighlights(q.aiAnswer || '');
-      const allHl    = [...manualHl, ...aiHl];
-      let sourceText = '', sourceName = '', hlCount = 0;
-
-      if (allHl.length) {
-        hlCount = allHl.length;
-        sourceText = allHl.map((h, idx) => `[${idx+1}] ${h.text}`).join('\n');
-        sourceName = 'highlights';
-      } else if ((q.aiAnswer || '').trim()) {
-        sourceText = q.aiAnswer.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        sourceName = 'ai';
-      } else {
-        sourceText = (q.manualAnswer || q.answer || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        sourceName = 'manual';
-      }
-
-      const prompt = buildOralPrompt(q, sourceText, hlCount);
-      let { text, finishReason } = await callGeminiOralBulk(prompt);
-
-      // Auto-retry if truncated
-      if (finishReason === 'MAX_TOKENS' || !text) {
-        await new Promise(r => setTimeout(r, 2000));
-        const retry = await callGeminiOralBulk(prompt + '\n\nCOMPLETE the answer fully in one response.');
-        text = retry.text;
-      }
-
-      if (!text) throw new Error('Empty response');
-
-      // Strip stray markdown
-      text = text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1').trim();
-
-      q.oralAnswer    = text;
-      q.oralAnswerSrc = sourceName;
-      succeeded++;
-
-      // Pace to avoid rate limits (1.5s gap between calls)
-      if (i < toDo.length - 1) await new Promise(r => setTimeout(r, 1500));
-    } catch(e) {
-      console.warn('Oral bulk failed for q', q.id, e.message);
-      failed++;
-    }
-  }
-
-  saveState();
-  progressToast.remove();
-  _bulkOralRunning = false;
-
-  renderAll();
-  showToast(
-    `🎙️ Oral Prep done — ${succeeded} generated${failed ? `, ${failed} failed` : ''} for T${topicId}`,
-    failed ? 'error' : 'success'
-  );
-}
 
 // ===================== STAR / PRIORITY =====================
 function toggleStar(id) {
@@ -6945,8 +6448,7 @@ function renderBigCalendar() {
 
   // Count done questions per date (keyed by doneDate)
   const doneByDate = {};
-  const srReviewByDate = {}; // date -> {count, minRep} for FUTURE reviews only
-  const overdueByDate = {};  // date -> count where srNextReview is actually in the past
+  const srReviewByDate = {}; // date -> {count, reps: [repNum, ...]} for ALL projected future reviews
   const todayStr2 = localDateStr(0);
 
   state.questions.forEach(q => {
@@ -6954,20 +6456,14 @@ function renderBigCalendar() {
     const markedDate = q.doneDate || q.date;
     if (markedDate) doneByDate[markedDate] = (doneByDate[markedDate] || 0) + 1;
 
-    if (!q.srNextReview) return;
-
-    if (q.srNextReview < todayStr2) {
-      // Actually overdue: bucket on the date it was due, not a projection
-      overdueByDate[q.srNextReview] = (overdueByDate[q.srNextReview] || 0) + 1;
-    } else {
-      // Future/today: project forward from current SM-2 state (respects completed reviews)
-      const sched = projectSM2Schedule(q, 8);
-      sched.forEach(step => {
-        if (!srReviewByDate[step.date]) srReviewByDate[step.date] = { count: 0, minRep: 99 };
-        srReviewByDate[step.date].count++;
-        if (step.rep < srReviewByDate[step.date].minRep) srReviewByDate[step.date].minRep = step.rep;
-      });
-    }
+    // Project ALL future SM-2 review dates (not just the next one)
+    // so every upcoming rep appears on the calendar
+    const sched = projectSM2Schedule(q, 8);
+    sched.forEach(step => {
+      if (!srReviewByDate[step.date]) srReviewByDate[step.date] = { count: 0, minRep: 99 };
+      srReviewByDate[step.date].count++;
+      if (step.rep < srReviewByDate[step.date].minRep) srReviewByDate[step.date].minRep = step.rep;
+    });
   });
 
   let html = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<div class="big-cal-day-name">${d}</div>`).join('');
@@ -6977,31 +6473,28 @@ function renderBigCalendar() {
     const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const isToday = d === today.getDate() && month === today.getMonth() && year === today.getFullYear();
     const count = doneByDate[dateStr] || 0;
-    const overdueCount  = overdueByDate[dateStr] || 0;   // actually overdue (srNextReview in past)
-    const reviewInfo    = srReviewByDate[dateStr];        // future projected reviews
-    const reviewCount   = reviewInfo ? reviewInfo.count : 0;
-    const reviewRep     = reviewInfo ? reviewInfo.minRep : 0;
-    const isSelected    = bigCalState.selected === dateStr;
-    const isPast        = dateStr < todayStr2;
+    const reviewInfo = srReviewByDate[dateStr];
+    const reviewCount = reviewInfo ? reviewInfo.count : 0;
+    const reviewRep = reviewInfo ? reviewInfo.minRep : 0;
+    const isSelected = bigCalState.selected === dateStr;
+    const isOverdue = dateStr < todayStr && reviewCount > 0;
 
     let dotsHtml = '';
     if (count > 0) {
       const dotCount = Math.min(count, 5);
       dotsHtml = `<div class="bcd-dots">${'<div class="bcd-dot"></div>'.repeat(dotCount)}</div><div class="bcd-count">✅ ${count} done</div>`;
     }
-    // Show overdue badge only when questions are genuinely still overdue
-    if (overdueCount > 0) {
-      dotsHtml += `<div class="bcd-count overdue-count">⚠️ ${overdueCount} overdue</div>`;
-    }
-    // Show future review badge
-    if (reviewCount > 0 && !isPast) {
+    if (reviewCount > 0) {
       const repLabel = reviewRep > 0 ? ` (R${reviewRep})` : '';
-      dotsHtml += `<div class="bcd-count">🔁 ${reviewCount}${repLabel}</div>`;
+      const reviewLabel = isOverdue ? `⚠️ ${reviewCount} overdue` : `🔁 ${reviewCount}${repLabel}`;
+      const reviewClass = isOverdue ? 'overdue-count' : '';
+      dotsHtml += `<div class="bcd-count ${reviewClass}">${reviewLabel}</div>`;
     }
 
-    const overdueClass  = overdueCount > 0 && !isToday ? 'sr-overdue' : '';
-    const hasQClass     = count > 0 ? 'has-questions' : '';
-    const reviewClass2  = reviewCount > 0 && !isPast ? 'due-review' : '';
+    const overdueClass = isOverdue && !isToday ? 'sr-overdue' : '';
+    const hasQClass = count > 0 ? 'has-questions' : '';
+    const reviewClass2 = reviewCount > 0 && !isOverdue ? 'due-review' : '';
+    
 
     html += `<div class="big-cal-day ${isToday ? 'today' : ''} ${hasQClass} ${reviewClass2} ${overdueClass} ${isSelected ? 'selected' : ''}" onclick="bigCalSelectDate('${dateStr}')">
       <div class="bcd-num">${d}</div>
@@ -7045,21 +6538,14 @@ function bigCalShowDetail(dateStr) {
   // Questions completed on this date
   const doneQs = state.questions.filter(q => q.done && (q.doneDate || q.date) === dateStr);
 
-  // For past/today: only show questions whose actual srNextReview === dateStr (not projections).
-  // For future dates: use projectSM2Schedule so upcoming reps appear correctly.
-  const reviewEntries = [];
+  // Questions projected to have a SM-2 review on this date (any rep)
+  const reviewEntries = []; // {q, rep, interval}
   state.questions.forEach(q => {
     if (!q.done) return;
-    if ((q.doneDate || q.date) === dateStr) return;
-    if (isOverdue || isToday) {
-      if (q.srNextReview === dateStr) {
-        reviewEntries.push({ q, rep: (q.srRepetitions || 0) + 1, interval: q.srInterval || 1 });
-      }
-    } else {
-      const sched = projectSM2Schedule(q, 8);
-      const step = sched.find(s => s.date === dateStr);
-      if (step) reviewEntries.push({ q, rep: step.rep, interval: step.interval });
-    }
+    if ((q.doneDate || q.date) === dateStr) return; // skip questions done on this date
+    const sched = projectSM2Schedule(q, 8);
+    const step = sched.find(s => s.date === dateStr);
+    if (step) reviewEntries.push({ q, rep: step.rep, interval: step.interval });
   });
 
   if (!doneQs.length && !reviewEntries.length) {
@@ -7135,48 +6621,26 @@ function switchSRTab(tab) {
   renderSRSchedulePanel();
 }
 
-// Returns the SM-2 review schedule from the question's CURRENT state.
-// Uses srNextReview + srRepetitions + srInterval (the actual live SM-2 position)
-// rather than always projecting from doneDate, so completed reviews don't
-// show as overdue on the calendar.
+// Returns the SM-2 review schedule from doneDate.
+// SM-2 standard intervals from day 0: Rep1=+1d, Rep2=+6d, Rep3=+14d, Rep4=+30d, Rep5=+66d ...
+// Each subsequent interval = previous_interval * easeFactor
+// Each entry = { date: 'YYYY-MM-DD', interval: N, rep: N }
 function projectSM2Schedule(q, maxReps = 8) {
   if (!q.done || !q.doneDate) return [];
   const ease = q.srEaseFactor || 2.5;
   const schedule = [];
-
-  // If the question has an active srNextReview, start projecting from there
-  // using the current srInterval and srRepetitions as the base state.
-  if (q.srNextReview && q.srRepetitions > 0) {
-    // We know the next review is srNextReview at rep (srRepetitions + 1).
-    // Project forward from that point.
-    let interval = q.srInterval || 1;
-    let rep = (q.srRepetitions || 0) + 1;
-    const anchor = new Date(q.srNextReview + 'T00:00:00');
-
-    // First entry = srNextReview itself
-    schedule.push({ date: q.srNextReview, interval, rep });
-
-    // Project subsequent reps from srNextReview
-    let prevInterval = interval;
-    for (let i = 1; i < maxReps; i++) {
-      if (rep === 1) prevInterval = 6;
-      else prevInterval = Math.round(prevInterval * ease);
-      if (prevInterval > 365) break;
-      rep++;
-      const reviewDate = new Date(anchor.getFullYear(), anchor.getMonth(), anchor.getDate() + prevInterval);
-      const dateStr = `${reviewDate.getFullYear()}-${String(reviewDate.getMonth()+1).padStart(2,'0')}-${String(reviewDate.getDate()).padStart(2,'0')}`;
-      schedule.push({ date: dateStr, interval: prevInterval, rep });
-    }
-    return schedule;
-  }
-
-  // Fallback for questions that were just done (rep 0) — project from doneDate
   const base = new Date(q.doneDate + 'T00:00:00');
+
+  // Standard SM-2 intervals (days from doneDate): 1, 6, 14, 35, 88 ...
+  // Rep 1: interval = 1
+  // Rep 2: interval = 6
+  // Rep 3+: interval = prev_interval * easeFactor
   let interval = 1;
   for (let rep = 1; rep <= maxReps; rep++) {
     const reviewDate = new Date(base.getFullYear(), base.getMonth(), base.getDate() + interval);
     const dateStr = `${reviewDate.getFullYear()}-${String(reviewDate.getMonth()+1).padStart(2,'0')}-${String(reviewDate.getDate()).padStart(2,'0')}`;
     schedule.push({ date: dateStr, interval, rep });
+    // Compute NEXT interval
     if (rep === 1) interval = 6;
     else interval = Math.round(interval * ease);
     if (interval > 365) break;
@@ -7230,45 +6694,15 @@ function renderSRTabDueNow(el, doneQs, todayStr) {
   const total = overdue.length + dueToday.length;
   const summaryColor = overdue.length > 0 ? 'var(--red)' : 'var(--accent2)';
   const summaryBg = overdue.length ? 'rgba(214,59,59,0.06)' : 'rgba(26,158,92,0.06)';
-
-  let html = `<div style="padding:8px 14px 7px;background:${summaryBg};border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+  let html = `<div style="padding:8px 14px 7px;background:${summaryBg};border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
     <span style="font-size:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;color:${summaryColor};">${overdue.length?'⚠️ Action needed':'✅ On schedule'}</span>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--text3);">${total} to revise</span>
-      <button onclick="markAllSRReviewed()" style="padding:4px 12px;border-radius:7px;border:1.5px solid var(--accent2);background:rgba(26,158,92,0.1);color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;cursor:pointer;" title="Mark all as reviewed (Good rating)">✅ Mark All Done</button>
-    </div>
+    <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--text3);">${total} question${total!==1?'s':''} to revise</span>
   </div>`;
-
-  // Helper: render a single question item with rating buttons
-  function srQHtml(q, extraClass) {
-    const rep = (q.srRepetitions || 0) + 1;
-    const daysOverdue = q.srNextReview < todayStr
-      ? Math.round((new Date(todayStr+'T00:00:00') - new Date(q.srNextReview+'T00:00:00')) / 86400000)
-      : 0;
-    const overdueTag = daysOverdue > 0
-      ? `<span style="font-size:9px;padding:1px 6px;border-radius:999px;background:rgba(214,59,59,0.12);color:var(--red);font-weight:700;font-family:'Space Grotesk',sans-serif;">${daysOverdue}d overdue</span>`
-      : '';
-    return `<div class="sr-q-item ${extraClass}" id="sr-item-${q.id}" style="position:relative;">
-      <div style="margin-bottom:5px;line-height:1.45;">${escHtml(q.text.substring(0,110))}${q.text.length>110?'…':''} ${overdueTag}</div>
-      <div style="font-size:9px;color:var(--text3);margin-bottom:7px;font-family:'JetBrains Mono',monospace;">Rep #${rep} · Done: ${q.doneDate}${q.srNextReview?' · Due: '+q.srNextReview:''}</div>
-      <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
-        <span style="font-size:10px;color:var(--text3);font-family:'Space Grotesk',sans-serif;font-weight:600;margin-right:2px;">How well do you know it?</span>
-        <button onclick="markSRReviewed(${q.id},'good')"  style="padding:3px 10px;border-radius:6px;border:1.5px solid rgba(26,158,92,0.4);background:rgba(26,158,92,0.08);color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;cursor:pointer;" title="Confident — long interval">😊 Good</button>
-        <button onclick="markSRReviewed(${q.id},'ok')"    style="padding:3px 10px;border-radius:6px;border:1.5px solid rgba(245,158,11,0.4);background:rgba(245,158,11,0.08);color:var(--gold);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;cursor:pointer;" title="Partial recall — medium interval">😐 OK</button>
-        <button onclick="markSRReviewed(${q.id},'poor')"  style="padding:3px 10px;border-radius:6px;border:1.5px solid rgba(214,59,59,0.4);background:rgba(214,59,59,0.08);color:var(--red);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;cursor:pointer;" title="Forgot — resets to tomorrow">😓 Poor</button>
-      </div>
-    </div>`;
-  }
 
   if (overdue.length) {
     const byDate = {};
     overdue.forEach(({q, nextDue}) => { if (!byDate[nextDue]) byDate[nextDue] = []; byDate[nextDue].push(q); });
-    html += `<div class="sr-day-group">
-      <div class="sr-day-label" style="background:rgba(214,59,59,0.06);" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-        <span class="sr-day-label-text past-label">⚠️ Overdue — do these first</span>
-        <span class="sr-day-count past-count">${overdue.length}</span>
-      </div>
-      <div class="sr-q-list" style="display:block;">`;
+    html += `<div class="sr-day-group"><div class="sr-day-label" style="background:rgba(214,59,59,0.06);"><span class="sr-day-label-text past-label">⚠️ Overdue — do these first</span><span class="sr-day-count past-count">${overdue.length}</span></div><div class="sr-q-list">`;
     Object.entries(byDate).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([date, qs]) => {
       const daysAgo = Math.round((new Date(todayStr+'T00:00:00') - new Date(date+'T00:00:00')) / 86400000);
       const byTopicInDate = {};
@@ -7277,7 +6711,7 @@ function renderSRTabDueNow(el, doneQs, todayStr) {
       Object.entries(byTopicInDate).forEach(([tid, tqs]) => {
         const topic = TOPICS.find(t => t.id === parseInt(tid));
         html += `<div style="font-size:10px;color:var(--text3);font-family:'Space Grotesk',sans-serif;font-weight:600;margin:3px 0 1px;padding-left:4px;border-left:2px solid var(--red);">📚 T${tid} · ${topic ? escHtml(topic.name.substring(0,35)) : ''} (${tqs.length})</div>`;
-        tqs.forEach(q => { html += srQHtml(q, 'past-item'); });
+        tqs.forEach(q => { html += `<div class="sr-q-item past-item">${escHtml(q.text.substring(0,90))}${q.text.length>90?'…':''}</div>`; });
       });
     });
     html += `</div></div>`;
@@ -7286,16 +6720,14 @@ function renderSRTabDueNow(el, doneQs, todayStr) {
   if (dueToday.length) {
     const byTopic = {};
     dueToday.forEach(({q}) => { if (!byTopic[q.topicId]) byTopic[q.topicId] = []; byTopic[q.topicId].push(q); });
-    html += `<div class="sr-day-group">
-      <div class="sr-day-label" style="background:rgba(26,158,92,0.06);" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-        <span class="sr-day-label-text today-label">🔁 Due Today — revise these</span>
-        <span class="sr-day-count today-count">${dueToday.length}</span>
-      </div>
-      <div class="sr-q-list" style="display:block;">`;
+    html += `<div class="sr-day-group"><div class="sr-day-label" style="background:rgba(26,158,92,0.06);"><span class="sr-day-label-text today-label">🔁 Due Today — revise these</span><span class="sr-day-count today-count">${dueToday.length}</span></div><div class="sr-q-list">`;
     Object.entries(byTopic).forEach(([tid, qs]) => {
       const topic = TOPICS.find(t => t.id === parseInt(tid));
       html += `<div style="font-size:10.5px;color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:700;margin:5px 0 2px;padding-left:4px;border-left:2px solid var(--accent);">📚 T${tid} · ${topic ? escHtml(topic.name.substring(0,35)) : ''} <span style="font-weight:400;color:var(--text3);">(${qs.length})</span></div>`;
-      qs.forEach(q => { html += srQHtml(q, 'today-item'); });
+      qs.forEach(q => {
+        const rep = (q.srRepetitions || 0) + 1;
+        html += `<div class="sr-q-item today-item">${escHtml(q.text.substring(0,88))}${q.text.length>88?'…':''}<div style="font-size:9px;color:var(--text3);margin-top:2px;font-family:'JetBrains Mono',monospace;">Rep #${rep} · Done: ${q.doneDate}</div></div>`;
+      });
     });
     html += `</div></div>`;
   }
@@ -7455,216 +6887,83 @@ function renderSRTabByTopic(el, doneQs, todayStr) {
 
 
 // ===================== PRINT HIGHLIGHTED ANSWERS =====================
-
-// Shared helper: extract <mark class="ans-hl" data-hl="COLOR"> snippets from HTML
-function extractHighlights(html) {
-  if (!html) return [];
-  const marks = [];
-  const re = /<mark[^>]*class="ans-hl"[^>]*data-hl="([^"]+)"[^>]*>([\s\S]*?)<\/mark>/g;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const color = m[1];
-    const plainText = m[2].replace(/<[^>]+>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ').trim();
-    if (plainText) marks.push({ color, text: plainText });
-  }
-  return marks;
-}
-
-// Solid print-friendly colours
-const HL_COLOURS = {
-  yellow: { bg: '#f59e0b', text: '#000000' },
-  orange: { bg: '#fdba74', text: '#7c2d12' },
-  coral:  { bg: '#fb923c', text: '#7c2d12' },
-  red:    { bg: '#fca5a5', text: '#7f1d1d' },
-  pink:   { bg: '#f9a8d4', text: '#831843' },
-  purple: { bg: '#c4b5fd', text: '#4c1d95' },
-  indigo: { bg: '#a5b4fc', text: '#312e81' },
-  cyan:   { bg: '#7dd3fc', text: '#075985' },
-  teal:   { bg: '#5eead4', text: '#134e4a' },
-  green:  { bg: '#6ee7b7', text: '#065f46' },
-  mint:   { bg: '#86efac', text: '#14532d' },
-  lime:   { bg: '#bef264', text: '#365314' },
-};
-
 function printHighlightedAnswers(topicId) {
   const topic = TOPICS.find(t => t.id === topicId);
   if (!topic) return;
 
-  const hlQs = state.questions.filter(q => {
+  // Solid print-friendly colours matching the app's highlight colours
+  const hlColours = {
+    yellow: { bg: '#ffe066', text: '#7a5c00' },
+    green:  { bg: '#6ee7b7', text: '#065f46' },
+    cyan:   { bg: '#7dd3fc', text: '#075985' },
+    pink:   { bg: '#f9a8d4', text: '#831843' },
+    orange: { bg: '#fdba74', text: '#7c2d12' },
+  };
+
+  // Extract all <mark class="ans-hl" data-hl="COLOR">TEXT</mark> from an HTML string
+  // Returns array of { color, text (plain text, no tags) }
+  function extractHighlights(html) {
+    if (!html) return [];
+    const marks = [];
+    // Use regex to find all ans-hl marks (handles nested tags inside mark)
+    const re = /<mark[^>]*class="ans-hl"[^>]*data-hl="([^"]+)"[^>]*>([\s\S]*?)<\/mark>/g;
+    let m;
+    while ((m = re.exec(html)) !== null) {
+      const color = m[1];
+      // Strip inner HTML tags to get plain text
+      const plainText = m[2].replace(/<[^>]+>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ').trim();
+      if (plainText) marks.push({ color, text: plainText });
+    }
+    return marks;
+  }
+
+  // Get all questions for this topic that have at least one highlight mark
+  const qs = state.questions.filter(q => {
     if (q.topicId !== topicId) return false;
     const hasHl = (html) => html && /<mark[^>]*class="ans-hl"/.test(html);
     return hasHl(q.manualAnswer) || hasHl(q.aiAnswer);
   });
-  const oralQs = state.questions.filter(q => q.topicId === topicId && q.oralAnswer);
 
-  if (!hlQs.length && !oralQs.length) {
-    alert(`Nothing to export in T${topicId} — ${topic.name}.\n\nHighlight text in answers, or generate Oral Prep answers first.`);
+  if (!qs.length) {
+    alert(`No highlighted text found in T${topicId} — ${topic.name}.\n\nSelect text in any answer and use the colour toolbar to add highlights first.`);
     return;
   }
 
-  hlExportDialog(topicId, topic, hlQs, oralQs);
-}
+  const printDate = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 
-// ── Unified export dialog — choose content type AND format ───────
-function hlExportDialog(topicId, topic, hlQs, oralQs) {
-  const overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.60);display:flex;align-items:center;justify-content:center;padding:16px;';
+  // Build question blocks — only highlighted snippets
+  let body = '';
+  qs.forEach((q, i) => {
+    const manualMarks = extractHighlights(q.manualAnswer);
+    const aiMarks     = extractHighlights(q.aiAnswer);
+    if (!manualMarks.length && !aiMarks.length) return;
 
-  const btnStyle = (active) => `display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-radius:11px;border:2px solid ${active ? 'var(--accent2)' : 'var(--border)'};background:${active ? 'rgba(26,158,92,0.07)' : 'var(--surface2)'};color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:left;width:100%;transition:all 0.15s;`;
-  const fmtBtnStyle = (c) => `flex:1;padding:11px 14px;border-radius:9px;border:2px solid var(--border);background:var(--surface2);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;`;
+    body += `<div class="q-block">
+      <div class="q-num">Q${i + 1}</div>
+      <div class="q-text">${escHtml(q.text)}</div>
+      <div class="highlights-wrap">`;
 
-  overlay.innerHTML = `
-    <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:18px;padding:26px 28px;max-width:440px;width:100%;font-family:'Space Grotesk',sans-serif;box-shadow:0 24px 70px rgba(0,0,0,0.35);">
-      <div style="font-size:18px;font-weight:700;margin-bottom:4px;">🖨️ Export — T${topicId}</div>
-      <div style="font-size:12px;color:var(--text3);margin-bottom:20px;">${escHtml(topic.name)}</div>
+    // Merge all marks, group by colour for a clean layout
+    const allMarks = [
+      ...manualMarks.map(m => ({ ...m, src: 'my' })),
+      ...aiMarks.map(m => ({ ...m, src: 'ai' }))
+    ];
 
-      <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:10px;">Step 1 — What to export</div>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
-        <button id="xTypeHL" style="${btnStyle(hlQs.length > 0)}" ${hlQs.length === 0 ? 'disabled' : ''}>
-          <span style="font-size:20px;margin-top:-1px;">🖍️</span>
-          <div>
-            <div>Highlighted Snippets</div>
-            <div style="font-size:11px;font-weight:400;color:var(--text3);margin-top:2px;">${hlQs.length} question${hlQs.length!==1?'s':''} with colour highlights${hlQs.length===0?' (none yet)':''}</div>
-          </div>
-        </button>
-        <button id="xTypeOral" style="${btnStyle(false)}" ${oralQs.length === 0 ? 'disabled' : ''}>
-          <span style="font-size:20px;margin-top:-1px;">🎙️</span>
-          <div>
-            <div>Oral Prep Answers</div>
-            <div style="font-size:11px;font-weight:400;color:var(--text3);margin-top:2px;">${oralQs.length} question${oralQs.length!==1?'s':''} with oral answers${oralQs.length===0?' (none yet)':''}</div>
-          </div>
-        </button>
-        <button id="xTypeBoth" style="${btnStyle(false)}" ${(hlQs.length === 0 || oralQs.length === 0) ? 'disabled' : ''}>
-          <span style="font-size:20px;margin-top:-1px;">📚</span>
-          <div>
-            <div>Both — Highlights + Oral Prep</div>
-            <div style="font-size:11px;font-weight:400;color:var(--text3);margin-top:2px;">Questions with either, oral answers beneath highlights${(hlQs.length===0||oralQs.length===0)?' (need both)':''}</div>
-          </div>
-        </button>
-      </div>
-
-      <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:10px;">Step 2 — Format</div>
-      <div style="display:flex;gap:10px;margin-bottom:20px;">
-        <button id="xFmtPDF" style="${fmtBtnStyle()}">📄 PDF <span style="font-size:10px;font-weight:400;color:var(--text3);display:block;">Print / save as PDF</span></button>
-        <button id="xFmtDOCX" style="${fmtBtnStyle()}">📝 Word <span style="font-size:10px;font-weight:400;color:var(--text3);display:block;">Download .docx file</span></button>
-      </div>
-
-      <div style="display:flex;gap:10px;">
-        <button id="xExport" style="flex:1;padding:12px;border-radius:10px;border:none;background:var(--accent2);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;cursor:pointer;opacity:0.5;" disabled>Export</button>
-        <button id="xCancel" style="padding:12px 18px;border-radius:10px;border:1.5px solid var(--border);background:none;color:var(--text3);font-family:'Space Grotesk',sans-serif;font-size:13px;cursor:pointer;">Cancel</button>
-      </div>
-    </div>`;
-
-  document.body.appendChild(overlay);
-
-  let selType = hlQs.length > 0 ? 'hl' : (oralQs.length > 0 ? 'oral' : null);
-  let selFmt  = null;
-
-  const typeMap = { xTypeHL: 'hl', xTypeOral: 'oral', xTypeBoth: 'both' };
-  const fmtMap  = { xFmtPDF: 'pdf', xFmtDOCX: 'docx' };
-
-  function refreshUI() {
-    ['xTypeHL','xTypeOral','xTypeBoth'].forEach(id => {
-      const el = overlay.querySelector('#'+id);
-      if (!el || el.disabled) return;
-      const active = typeMap[id] === selType;
-      el.style.borderColor = active ? 'var(--accent2)' : 'var(--border)';
-      el.style.background  = active ? 'rgba(26,158,92,0.07)' : 'var(--surface2)';
+    allMarks.forEach(({ color, text, src }) => {
+      const c = hlColours[color] || hlColours.yellow;
+      body += `<span class="hl-chip" style="background:${c.bg};color:${c.text};" title="${src === 'ai' ? 'AI Answer' : 'My Answer'}">${escHtml(text)}</span>`;
     });
-    ['xFmtPDF','xFmtDOCX'].forEach(id => {
-      const el = overlay.querySelector('#'+id);
-      const active = fmtMap[id] === selFmt;
-      el.style.borderColor = active ? 'var(--purple2)' : 'var(--border)';
-      el.style.background  = active ? 'rgba(109,74,191,0.08)' : 'var(--surface2)';
-    });
-    const exportBtn = overlay.querySelector('#xExport');
-    const canExport = selType && selFmt;
-    exportBtn.disabled = !canExport;
-    exportBtn.style.opacity = canExport ? '1' : '0.5';
-    exportBtn.style.cursor  = canExport ? 'pointer' : 'not-allowed';
+
+    body += `</div></div>`;
+  });
+
+  if (!body.trim()) {
+    alert('No highlighted snippets to print in this topic.');
+    return;
   }
 
-  // Pre-select first available type
-  refreshUI();
-
-  Object.entries(typeMap).forEach(([id, val]) => {
-    const el = overlay.querySelector('#'+id);
-    if (el && !el.disabled) el.addEventListener('click', () => { selType = val; refreshUI(); });
-  });
-  Object.entries(fmtMap).forEach(([id, val]) => {
-    const el = overlay.querySelector('#'+id);
-    el.addEventListener('click', () => { selFmt = val; refreshUI(); });
-  });
-
-  overlay.querySelector('#xExport').addEventListener('click', () => {
-    if (!selType || !selFmt) return;
-    document.body.removeChild(overlay);
-
-    // Determine the question sets for each mode
-    const hasHl = (q) => (q.manualAnswer && /<mark[^>]*class="ans-hl"/.test(q.manualAnswer)) ||
-                          (q.aiAnswer     && /<mark[^>]*class="ans-hl"/.test(q.aiAnswer));
-    let exportQs;
-    if (selType === 'hl')   exportQs = hlQs;
-    else if (selType === 'oral') exportQs = oralQs;
-    else                    exportQs = [...new Set([...hlQs, ...oralQs])].sort((a,b) => a.id - b.id);
-
-    if (selFmt === 'pdf') hlPrintPDF(topicId, topic, exportQs, selType);
-    else                  hlDownloadDOCX(topicId, topic, exportQs, selType);
-  });
-
-  overlay.querySelector('#xCancel').addEventListener('click', () => document.body.removeChild(overlay));
-  overlay.addEventListener('click', e => { if (e.target === overlay) document.body.removeChild(overlay); });
-}
-
-// ── PDF: open print window ────────────────────────────────────────
-function hlPrintPDF(topicId, topic, qs, mode) {
-  const printDate = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
-  const showHL   = mode === 'hl'   || mode === 'both';
-  const showOral = mode === 'oral' || mode === 'both';
-
-  const modeLabel = mode === 'hl' ? '🖍️ Highlights' : mode === 'oral' ? '🎙️ Oral Prep Answers' : '🖍️ Highlights + 🎙️ Oral Prep';
-
-  let body = '';
-  let qIdx = 0;
-  qs.forEach(q => {
-    const allMarks = [
-      ...extractHighlights(q.manualAnswer).map(m => ({ ...m, src: 'my' })),
-      ...extractHighlights(q.aiAnswer).map(m => ({ ...m, src: 'ai' }))
-    ];
-    const hasHL   = allMarks.length > 0;
-    const hasOral = !!q.oralAnswer;
-
-    // Skip if this question doesn't have the content for the selected mode
-    if (showHL && !showOral && !hasHL) return;
-    if (showOral && !showHL && !hasOral) return;
-    if (showHL && showOral && !hasHL && !hasOral) return;
-
-    qIdx++;
-    body += `<div class="q-block">
-      <div class="q-num">Q${qIdx}</div>
-      <div class="q-text">${escHtml(q.text)}</div>`;
-
-    if (showHL && hasHL) {
-      body += `<div class="section-label">🖍️ Key Highlights</div>
-        <div class="highlights-wrap">`;
-      allMarks.forEach(({ color, text, src }) => {
-        const c = HL_COLOURS[color] || HL_COLOURS.yellow;
-        body += `<span class="hl-chip" style="background:${c.bg};color:${c.text};">${escHtml(text)}</span>`;
-      });
-      body += `</div>`;
-    }
-
-    if (showOral && hasOral) {
-      body += `<div class="section-label">🎙️ Oral Prep Answer</div>
-        <div class="oral-block">${escHtml(q.oralAnswer)}</div>`;
-    }
-
-    body += `</div>`;
-  });
-
-  if (!body.trim()) { alert('No content to print for the selected mode.'); return; }
-
-  const legendHtml = Object.entries(HL_COLOURS).map(([name, c]) =>
+  // Legend HTML
+  const legendHtml = Object.entries(hlColours).map(([name, c]) =>
     `<span class="leg-item"><span class="leg-dot" style="background:${c.bg};"></span>${name.charAt(0).toUpperCase()+name.slice(1)}</span>`
   ).join('');
 
@@ -7672,31 +6971,47 @@ function hlPrintPDF(topicId, topic, qs, mode) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>MEO — T${topicId} ${modeLabel}</title>
+<title>MEO — T${topicId} Highlights</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Georgia, serif; font-size: 12px; color: #0f172a; line-height: 1.6; padding: 14px 20px; }
-  .print-header { margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid #1e293b; }
-  .print-header h1 { font-size: 16px; font-weight: 700; }
-  .print-header .sub { font-size: 11px; color: #475569; margin-top: 3px; font-family: sans-serif; }
+  body { font-family: Georgia, serif; font-size: 7px; color: #0f172a; line-height: 1.5; padding: 14px 20px; }
+
+  .print-header { margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1.5px solid #1e293b; }
+  .print-header h1 { font-size: 11px; font-weight: 700; }
+  .print-header .sub { font-size: 7px; color: #475569; margin-top: 3px; font-family: sans-serif; }
   .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 5px; }
-  .leg-item { display: flex; align-items: center; gap: 3px; font-size: 11px; font-family: sans-serif; color: #334155; }
-  .leg-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .q-block { margin-bottom: 12px; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; page-break-inside: avoid; }
-  .q-num { font-size: 9px; font-weight: 700; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
-  .q-text { font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 7px; line-height: 1.45; }
-  .section-label { font-size: 9.5px; font-weight: 700; color: #6d4abf; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.6px; margin: 7px 0 5px; border-left: 3px solid #6d4abf; padding-left: 6px; }
+  .leg-item { display: flex; align-items: center; gap: 3px; font-size: 7px; font-family: sans-serif; color: #334155; }
+  .leg-dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .q-block { margin-bottom: 10px; border: 1px solid #e2e8f0; border-radius: 5px; padding: 7px 9px; page-break-inside: avoid; }
+  .q-num { font-size: 6px; font-weight: 700; color: #94a3b8; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+  .q-text { font-size: 10px; font-weight: 700; color: #0f172a; margin-bottom: 6px; line-height: 1.45; }
+
   .highlights-wrap { display: flex; flex-wrap: wrap; gap: 4px; }
-  .hl-chip { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 11.5px; line-height: 1.5; font-family: Georgia, serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .oral-block { font-size: 12px; line-height: 1.75; color: #1e293b; padding: 8px 10px; background: #f8f5ff; border-left: 3px solid #7c3aed; border-radius: 0 6px 6px 0; font-family: Georgia, serif; white-space: pre-wrap; }
-  @media print { body { padding: 10px 14px; } .q-block { page-break-inside: avoid; } }
+  .hl-chip {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 7px;
+    line-height: 1.45;
+    font-family: Georgia, serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @media print {
+    body { padding: 10px 14px; }
+    .q-block { page-break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
   <div class="print-header">
-    <h1>${modeLabel} — T${topicId} ${escHtml(topic.name)}</h1>
-    <div class="sub">${qIdx} question${qIdx!==1?'s':''} &nbsp;·&nbsp; MEO Class I &nbsp;·&nbsp; ${printDate}</div>
-    ${showHL ? `<div class="legend">${legendHtml}</div>` : ''}
+    <h1>🖍️ T${topicId} — ${escHtml(topic.name)}</h1>
+    <div class="sub">
+      ${qs.length} question${qs.length !== 1 ? 's' : ''} with highlights &nbsp;·&nbsp; MEO Class I &nbsp;·&nbsp; ${printDate}
+    </div>
+    <div class="legend">${legendHtml}</div>
   </div>
   ${body}
   <script>window.onload = () => window.print();<\/script>
@@ -7707,364 +7022,6 @@ function hlPrintPDF(topicId, topic, qs, mode) {
   if (!win) { alert('Please allow popups for this page to use the print feature.'); return; }
   win.document.write(printHtml);
   win.document.close();
-}
-
-// ── DOCX: generate and download in-browser ────────────────────────
-async function hlDownloadDOCX(topicId, topic, qs, mode) {
-  showToast('⏳ Building Word document…', 'info');
-
-  const showHL   = mode === 'hl'   || mode === 'both';
-  const showOral = mode === 'oral' || mode === 'both';
-  const modeLabel = mode === 'hl' ? 'Highlights' : mode === 'oral' ? 'Oral_Prep' : 'Highlights+Oral';
-
-  const printDate = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
-
-  const DOCX_COLOURS = {
-    yellow: { fill: 'F59E0B', text: '000000' },
-    orange: { fill: 'FDBA74', text: '7C2D12' },
-    coral:  { fill: 'FB923C', text: '7C2D12' },
-    red:    { fill: 'FCA5A5', text: '7F1D1D' },
-    pink:   { fill: 'F9A8D4', text: '831843' },
-    purple: { fill: 'C4B5FD', text: '4C1D95' },
-    indigo: { fill: 'A5B4FC', text: '312E81' },
-    cyan:   { fill: '7DD3FC', text: '075985' },
-    teal:   { fill: '5EEAD4', text: '134E4A' },
-    green:  { fill: '6EE7B7', text: '065F46' },
-    mint:   { fill: '86EFAC', text: '14532D' },
-    lime:   { fill: 'BEF264', text: '365314' },
-  };
-
-  // ── XML helpers ─────────────────────────────────────────────────────────
-  function xmlEsc(s) {
-    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  // pt to half-points (docx size unit): 1pt = 2 half-pts
-  // 10pt = 20 half-pts, 12pt = 24 half-pts
-  function pt(n) { return n * 2; }
-
-  function wRun(text, opts) {
-    opts = opts || {};
-    const rpr = [
-      opts.bold   ? '<w:b/><w:bCs/>' : '',
-      opts.size   ? `<w:sz w:val="${pt(opts.size)}"/><w:szCs w:val="${pt(opts.size)}"/>` : '',
-      opts.color  ? `<w:color w:val="${opts.color}"/>` : '',
-      opts.font   ? `<w:rFonts w:ascii="${opts.font}" w:hAnsi="${opts.font}" w:cs="${opts.font}"/>` : '',
-    ].join('');
-    return `<w:r>${rpr ? '<w:rPr>'+rpr+'</w:rPr>' : ''}<w:t xml:space="preserve">${xmlEsc(text)}</w:t></w:r>`;
-  }
-
-  function wPara(runs, opts) {
-    opts = opts || {};
-    const ppr = [
-      opts.spaceBefore ? `<w:spacing w:before="${opts.spaceBefore}" w:after="${opts.spaceAfter||0}"/>` : (opts.spaceAfter ? `<w:spacing w:after="${opts.spaceAfter}"/>` : ''),
-    ].join('');
-    return `<w:p>${ppr ? '<w:pPr>'+ppr+'</w:pPr>' : ''}${runs}</w:p>`;
-  }
-
-  // Table cell with background shading
-  function wCell(text, fillHex, textHex, widthDxa) {
-    return `<w:tc>
-      <w:tcPr>
-        <w:tcW w:w="${widthDxa}" w:type="dxa"/>
-        <w:shd w:val="clear" w:color="auto" w:fill="${fillHex}"/>
-        <w:tcBorders>
-          <w:top w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
-          <w:left w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
-          <w:bottom w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
-          <w:right w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
-        </w:tcBorders>
-        <w:tcMar>
-          <w:top w:w="60" w:type="dxa"/>
-          <w:left w:w="100" w:type="dxa"/>
-          <w:bottom w:w="60" w:type="dxa"/>
-          <w:right w:w="100" w:type="dxa"/>
-        </w:tcMar>
-      </w:tcPr>
-      ${wPara(wRun(text, { size: 12, color: textHex, font: 'Georgia' }))}
-    </w:tc>`;
-  }
-
-  // ── Build document body XML ─────────────────────────────────────────────
-  // A4 content width with 1" margins: 11906 - 1440 - 1440 = 9026 dxa
-  const PAGE_W = 9026;
-  let bodyXml = '';
-
-  const modeTitle = mode === 'hl' ? '🖍️ Highlights' : mode === 'oral' ? '🎙️ Oral Prep Answers' : '🖍️ Highlights + 🎙️ Oral Prep';
-
-  // Title
-  bodyXml += wPara(
-    wRun(`T${topicId} — ${topic.name}`, { bold: true, size: 14, font: 'Arial' }),
-    { spaceAfter: 60 }
-  );
-  bodyXml += wPara(
-    wRun(`${modeTitle}  ·  MEO Class I  ·  ${printDate}`, { size: 11, color: '475569', font: 'Arial' }),
-    { spaceAfter: 200 }
-  );
-
-  let qIdx = 0;
-  qs.forEach(q => {
-    const allMarks = [
-      ...extractHighlights(q.manualAnswer).map(m => ({ ...m, src: 'my' })),
-      ...extractHighlights(q.aiAnswer).map(m => ({ ...m, src: 'ai' }))
-    ];
-    const hasHL   = allMarks.length > 0;
-    const hasOral = !!q.oralAnswer;
-
-    if (showHL && !showOral && !hasHL) return;
-    if (showOral && !showHL && !hasOral) return;
-    if (showHL && showOral && !hasHL && !hasOral) return;
-
-    qIdx++;
-
-    // Q label
-    bodyXml += wPara(
-      wRun(`Q${qIdx}`, { bold: true, size: 9, color: '94A3B8', font: 'Arial' }),
-      { spaceBefore: 160, spaceAfter: 40 }
-    );
-
-    // Question text — 12pt bold
-    bodyXml += wPara(
-      wRun(q.text, { bold: true, size: 12, font: 'Arial' }),
-      { spaceAfter: 80 }
-    );
-
-    // ── Highlight chips ────────────────────────────────────────────
-    if (showHL && hasHL) {
-      // Section label
-      bodyXml += wPara(
-        wRun('🖍️ Key Highlights', { bold: true, size: 10, color: '6D4ABF', font: 'Arial' }),
-        { spaceAfter: 50 }
-      );
-
-      const chunkSize = 3;
-      for (let ci = 0; ci < allMarks.length; ci += chunkSize) {
-        const chunk = allMarks.slice(ci, ci + chunkSize);
-        const cellW = Math.floor(PAGE_W / chunkSize);
-        while (chunk.length < chunkSize) chunk.push(null);
-
-        const cells = chunk.map(mark => {
-          if (!mark) return `<w:tc><w:tcPr><w:tcW w:w="${cellW}" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/></w:tcPr>${wPara('')}</w:tc>`;
-          const dc = DOCX_COLOURS[mark.color] || DOCX_COLOURS.yellow;
-          return wCell(mark.text, dc.fill, dc.text, cellW);
-        }).join('');
-
-        bodyXml += `<w:tbl>
-          <w:tblPr>
-            <w:tblW w:w="${PAGE_W}" w:type="dxa"/>
-            <w:tblLayout w:type="fixed"/>
-            <w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/></w:tblCellMar>
-          </w:tblPr>
-          <w:tblGrid>${chunk.map(() => `<w:gridCol w:w="${cellW}"/>`).join('')}</w:tblGrid>
-          <w:tr>${cells}</w:tr>
-        </w:tbl>`;
-        bodyXml += wPara('', { spaceAfter: 50 });
-      }
-    }
-
-    // ── Oral prep answer ──────────────────────────────────────────
-    if (showOral && hasOral) {
-      // Section label
-      bodyXml += wPara(
-        wRun('🎙️ Oral Prep Answer', { bold: true, size: 10, color: '1A6B3C', font: 'Arial' }),
-        { spaceBefore: showHL && hasHL ? 100 : 0, spaceAfter: 50 }
-      );
-
-      // Oral answer — each paragraph on its own line, inside a shaded single-cell table
-      const oralLines = q.oralAnswer.split(/\n+/).filter(l => l.trim());
-      const oralRuns = oralLines.map((line, li) =>
-        wPara(wRun(line.trim(), { size: 11, color: '0F3D24', font: 'Georgia' }), { spaceAfter: li < oralLines.length - 1 ? 60 : 0 })
-      ).join('');
-
-      bodyXml += `<w:tbl>
-        <w:tblPr>
-          <w:tblW w:w="${PAGE_W}" w:type="dxa"/>
-          <w:tblLayout w:type="fixed"/>
-          <w:tblBorders>
-            <w:left w:val="single" w:sz="18" w:space="0" w:color="1A9E5C"/>
-          </w:tblBorders>
-        </w:tblPr>
-        <w:tblGrid><w:gridCol w:w="${PAGE_W}"/></w:tblGrid>
-        <w:tr>
-          <w:tc>
-            <w:tcPr>
-              <w:tcW w:w="${PAGE_W}" w:type="dxa"/>
-              <w:shd w:val="clear" w:color="auto" w:fill="F0FDF6"/>
-              <w:tcMar>
-                <w:top w:w="80" w:type="dxa"/>
-                <w:left w:w="160" w:type="dxa"/>
-                <w:bottom w:w="80" w:type="dxa"/>
-                <w:right w:w="100" w:type="dxa"/>
-              </w:tcMar>
-            </w:tcPr>
-            ${oralRuns}
-          </w:tc>
-        </w:tr>
-      </w:tbl>`;
-    }
-
-    bodyXml += wPara('', { spaceAfter: 120 });
-  });
-
-  // ── Assemble OOXML files ────────────────────────────────────────────────
-  const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
-  xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-  xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
-  <w:body>
-    ${bodyXml}
-    <w:sectPr>
-      <w:pgSz w:w="11906" w:h="16838"/>
-      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440"/>
-    </w:sectPr>
-  </w:body>
-</w:document>`;
-
-  const contentTypes = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
-  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
-  <Default Extension="xml" ContentType="application/xml"/>
-  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
-</Types>`;
-
-  const relsRoot = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
-</Relationships>`;
-
-  const relsWord = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-</Relationships>`;
-
-  // ── Pure-JS ZIP builder (STORED, no compression) ───────────────────────
-  function strToBytes(str) {
-    return new TextEncoder().encode(str);
-  }
-
-  function u32le(n) {
-    return [n & 0xff, (n >> 8) & 0xff, (n >> 16) & 0xff, (n >> 24) & 0xff];
-  }
-  function u16le(n) { return [n & 0xff, (n >> 8) & 0xff]; }
-
-  function crc32(bytes) {
-    let crc = 0xFFFFFFFF;
-    const table = crc32.table || (crc32.table = (() => {
-      const t = new Uint32Array(256);
-      for (let i = 0; i < 256; i++) {
-        let c = i;
-        for (let j = 0; j < 8; j++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
-        t[i] = c;
-      }
-      return t;
-    })());
-    for (let i = 0; i < bytes.length; i++) crc = table[(crc ^ bytes[i]) & 0xff] ^ (crc >>> 8);
-    return (crc ^ 0xFFFFFFFF) >>> 0;
-  }
-
-  function buildZip(files) {
-    // files = [{ name, data: Uint8Array }]
-    const entries = [];
-    let offset = 0;
-
-    const chunks = [];
-
-    files.forEach(({ name, data }) => {
-      const nameBytes = strToBytes(name);
-      const crc = crc32(data);
-      const size = data.length;
-
-      // Local file header
-      const lfh = new Uint8Array([
-        0x50, 0x4B, 0x03, 0x04, // signature
-        0x14, 0x00,             // version needed: 2.0
-        0x00, 0x00,             // general flags
-        0x00, 0x00,             // compression: STORED
-        0x00, 0x00,             // mod time
-        0x00, 0x00,             // mod date
-        ...u32le(crc),
-        ...u32le(size),
-        ...u32le(size),
-        ...u16le(nameBytes.length),
-        0x00, 0x00,             // extra field length
-        ...nameBytes
-      ]);
-
-      chunks.push(lfh);
-      chunks.push(data);
-      entries.push({ nameBytes, crc, size, offset });
-      offset += lfh.length + size;
-    });
-
-    const cdOffset = offset;
-    // Central directory
-    files.forEach(({ name }, i) => {
-      const { nameBytes, crc, size, offset: lOffset } = entries[i];
-      const cde = new Uint8Array([
-        0x50, 0x4B, 0x01, 0x02, // signature
-        0x14, 0x00,             // version made by
-        0x14, 0x00,             // version needed
-        0x00, 0x00,             // flags
-        0x00, 0x00,             // compression: STORED
-        0x00, 0x00,             // mod time
-        0x00, 0x00,             // mod date
-        ...u32le(crc),
-        ...u32le(size),
-        ...u32le(size),
-        ...u16le(nameBytes.length),
-        0x00, 0x00,             // extra
-        0x00, 0x00,             // comment
-        0x00, 0x00,             // disk start
-        0x00, 0x00,             // internal attr
-        0x00, 0x00, 0x00, 0x00, // external attr
-        ...u32le(lOffset),
-        ...nameBytes
-      ]);
-      chunks.push(cde);
-      offset += cde.length;
-    });
-
-    const cdSize = offset - cdOffset;
-    // End of central directory
-    const eocd = new Uint8Array([
-      0x50, 0x4B, 0x05, 0x06,
-      0x00, 0x00,
-      0x00, 0x00,
-      ...u16le(files.length),
-      ...u16le(files.length),
-      ...u32le(cdSize),
-      ...u32le(cdOffset),
-      0x00, 0x00
-    ]);
-    chunks.push(eocd);
-
-    // Concatenate all chunks
-    const total = chunks.reduce((s, c) => s + c.length, 0);
-    const result = new Uint8Array(total);
-    let pos = 0;
-    chunks.forEach(c => { result.set(c, pos); pos += c.length; });
-    return result;
-  }
-
-  const files = [
-    { name: '[Content_Types].xml',        data: strToBytes(contentTypes) },
-    { name: '_rels/.rels',                data: strToBytes(relsRoot) },
-    { name: 'word/_rels/document.xml.rels', data: strToBytes(relsWord) },
-    { name: 'word/document.xml',          data: strToBytes(documentXml) },
-  ];
-
-  try {
-    const zipBytes = buildZip(files);
-    const blob = new Blob([zipBytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `MEO_T${topicId}_${modeLabel}.docx`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 5000);
-    showToast('✅ Word document downloaded!', 'success');
-  } catch (e) {
-    showToast('❌ Failed to create Word file: ' + e.message, 'error');
-  }
 }
 
 function saveExamDate() {
@@ -8491,65 +7448,6 @@ function loadDataFile(event) {
 }
 
 // ===================== SM-2 SPACED REPETITION =====================
-// ===================== MARK SR REVIEW COMPLETE =====================
-function markSRReviewed(qid, rating) {
-  const q = state.questions.find(x => x.id === qid);
-  if (!q) return;
-
-  const qualityMap = { good: 5, ok: 3, poor: 1 };
-  applySM2(q, qualityMap[rating] || 3);
-  saveState();
-
-  // Animate the item out and refresh the Due Now tab
-  const itemEl = document.getElementById('sr-item-' + qid);
-  if (itemEl) {
-    const nextDate = q.srNextReview;
-    const intervalDays = q.srInterval;
-    const ratingEmoji = rating === 'good' ? '😊' : rating === 'ok' ? '😐' : '😓';
-    itemEl.style.transition = 'all 0.3s ease';
-    itemEl.style.opacity = '0.5';
-    itemEl.innerHTML = `<div style="padding:4px 0;font-size:12px;color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:600;">
-      ${ratingEmoji} Marked ${rating} — next review in ${intervalDays}d (${nextDate})
-    </div>`;
-    setTimeout(() => {
-      itemEl.style.transition = 'max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease, padding 0.4s ease';
-      itemEl.style.maxHeight = '0';
-      itemEl.style.overflow = 'hidden';
-      itemEl.style.opacity = '0';
-      itemEl.style.marginBottom = '0';
-      itemEl.style.padding = '0';
-      setTimeout(() => {
-        // Re-render the full Due Now tab to update counts
-        const srEl = document.getElementById('srTabContent');
-        if (srEl) {
-          const todayStr = new Date().toISOString().split('T')[0];
-          const doneQs = state.questions.filter(q => q.done && q.srNextReview);
-          renderSRTabDueNow(srEl, doneQs, todayStr);
-        }
-      }, 420);
-    }, 800);
-  }
-
-  const ratingLabel = rating === 'good' ? 'Good 👍' : rating === 'ok' ? 'OK 👌' : 'Poor 😓';
-  showToast(`🔁 Review recorded — ${ratingLabel} · next in ${q.srInterval}d`, 'success');
-}
-
-function markAllSRReviewed() {
-  const todayStr = new Date().toISOString().split('T')[0];
-  const due = state.questions.filter(q => q.done && q.srNextReview && q.srNextReview <= todayStr);
-  if (!due.length) { showToast('Nothing overdue or due today!', 'success'); return; }
-  if (!confirm(`Mark all ${due.length} overdue/due-today questions as reviewed?\n\nThis will apply "Good" rating to all and advance their SM-2 schedule.`)) return;
-  due.forEach(q => applySM2(q, 5));
-  saveState();
-  // Re-render Due Now tab
-  const srEl = document.getElementById('srTabContent');
-  if (srEl) {
-    const doneQs = state.questions.filter(q => q.done && q.srNextReview);
-    renderSRTabDueNow(srEl, doneQs, todayStr);
-  }
-  showToast(`✅ ${due.length} questions marked reviewed — schedules advanced!`, 'success');
-}
-
 function applySM2(q, quality) {
   // quality: 0-5 (5=perfect, 3=ok, <3=fail)
   if (!q.srRepetitions) q.srRepetitions = 0;
@@ -10289,37 +9187,14 @@ function buildCheatPage() {
 
   const buildSection = (title, items, icon) => {
     if (!items.length) return '';
-
-    // Strip HTML tags to plain text, but preserve highlight marks as styled spans
-    const ansToDisplay = (rawHtml) => {
-      if (!rawHtml) return '';
-      // Replace <mark class="ans-hl" data-hl="COLOR">TEXT</mark> with styled spans
-      let html = rawHtml.replace(
-        /<mark[^>]*class="ans-hl"[^>]*data-hl="([^"]*)"[^>]*>([\s\S]*?)<\/mark>/g,
-        (_, color, text) => {
-          const c = { yellow:'#f59e0b', orange:'#fdba74', coral:'#fb923c', red:'#fca5a5',
-                      pink:'#f9a8d4', purple:'#c4b5fd', indigo:'#a5b4fc', cyan:'#7dd3fc',
-                      teal:'#5eead4', green:'#6ee7b7', mint:'#86efac', lime:'#bef264' };
-          const bg = c[color] ? `background:${c[color]};border-radius:2px;padding:0 2px;` : '';
-          return `<span style="${bg}">${text.replace(/<[^>]+>/g,'')}</span>`;
-        }
-      );
-      // Strip all remaining tags, decode entities
-      const tmp = document.createElement('div');
-      tmp.innerHTML = html;
-      return tmp.textContent || tmp.innerText || '';
-    };
-
     const rows = items.map((q, i) => {
-      const rawAns = q.manualAnswer || q.aiAnswer || q.answer || '';
-      const plainAns = ansToDisplay(rawAns);
-      const truncated = plainAns.length > 220 ? plainAns.substring(0, 220) + '…' : plainAns;
+      const ans = q.manualAnswer || q.answer || '';
       const repeat = (q.askedCount||1) >= 2 ? `<span class="cheat-repeat-badge">🔁 ×${q.askedCount}</span>` : '';
       const surv = q.surveyor ? `<span class="cheat-reg-pill">${escHtml(q.surveyor)}</span>` : '';
       return `<div class="cheat-q-row">
         <div class="cheat-q-num">${i+1}</div>
         <div class="cheat-q-text">${escHtml(q.text)}${repeat}${surv}</div>
-        ${truncated ? `<div class="cheat-q-ans">${truncated}</div>` : '<div class="cheat-q-ans" style="color:var(--text3);font-style:italic;">—</div>'}
+        ${ans ? `<div class="cheat-q-ans">${escHtml(ans.substring(0,200))}${ans.length>200?'…':''}</div>` : '<div class="cheat-q-ans" style="color:var(--text3);font-style:italic;">—</div>'}
       </div>`;
     }).join('');
     return `<div class="cheat-section">
